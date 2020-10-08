@@ -1,0 +1,27 @@
+{
+  "name": "bricklink-plus",
+  "version": "0.0.0",
+  "description": "extended api build on the bricklink api",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snakehead007/bricklink-extended-api.git"
+  },
+  "keywords": [
+    "bricklink",
+    "api"
+  ],
+  "author": "Karel De Smet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/snakehead007/bricklink-extended-api/issues"
+  },
+  "homepage": "https://github.com/snakehead007/bricklink-extended-api#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "mocha": "^8.1.3"
+  }
+}
