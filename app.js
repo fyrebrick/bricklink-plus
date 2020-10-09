@@ -1,11 +1,14 @@
-export const api={
-    order:Order
-};
 
-export function setup(vars){
-    setUpVars(vars);
+const {Order} = require("./classes/Order");
+const _setup =  require("./functions/setup");
+
+const api={
+    order:new Order()
+};
+function setup (){
+   return _setup.setUpVars()
 }
 
-//export const plus;
-import {Order} from "./classes/Order";
-import {setUpVars} from "./vars/setup";
+module.exports.setup = setup;
+module.exports.api = api;
+

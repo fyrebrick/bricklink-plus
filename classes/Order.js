@@ -1,50 +1,48 @@
-import {IOrder} from "../interfaces/IOrder";
-import * as types from "../other/types";
+const {makeCall} = require( "../functions/callApi");
+class Order {
+    constructor() {
+        console.log('created order');
+    }
 
-export const Order={
-        getOrder: getOrders(),
-        getOrders:getOrders(),
-        getOrderItems:getOrderItems(),
-        getOrderMessages:getOrderMessages(),
-        getOrderFeedback:getOrderFeedback(),
-        updateOrder:updateOrder(),
-        updateOrderStatus:updateOrderStatus(),
-        updatePaymentStatus:updatePaymentStatus(),
-        sendDriveThru:sendDriveThru()
-};
+    async getOrders() {
+        console.log("getOrders() called");
+        await makeCall("https://api.bricklink.com/api/store/v1/inventories", "GET")
+            .then(async (value) => {
+                return await value;
+            }).catch((err) => {
+                console.trace("Promise call rejected: ", err);
+            })
+    }
 
-function getOrders(){
-        throw new Error("Not implemented yet");
+    getOrder(order_id) {
+
+    }
+
+    getOrderItems(order_id) {
+
+    }
+
+    getOrderMessages(order_id) {
+    }
+
+    getOrderFeedback(order_id) {
+    }
+
+    updateOrder(order_id) {
+    }
+
+    updateOrderStatus(order_id) {
+    }
+
+    updatePaymentStatus(order_id) {
+    }
+
+    sendDriveThru(order_id) {
+    }
+
+    send(value) {
+        return value
+    }
+
 }
-
-function getOrder(order_id){
-        throw new Error("Not implemented yet");
-}
-
-function getOrderItems(order_id){
-        throw new Error("Not implemented yet");
-}
-
-function getOrderMessages(order_id){
-        throw new Error("Not implemented yet");
-}
-
-function getOrderFeedback(order_id){
-        throw new Error("Not implemented yet");
-}
-
-function updateOrder(order_id){
-        throw new Error("Not implemented yet");
-}
-
-function updateOrderStatus(order_id){
-        throw new Error("Not implemented yet");
-}
-
-function updatePaymentStatus(order_id){
-        throw new Error("Not implemented yet");
-}
-
-function sendDriveThru(order_id){
-        throw new Error("Not implemented yet");
-}
+module.exports.Order = Order;
