@@ -1,17 +1,10 @@
 const {makeCall} = require( "../functions/callApi");
 class Order {
-    constructor() {
-        console.log('created order');
-    }
-
-    async getOrders() {
-        console.log("getOrders() called");
-        await makeCall("https://api.bricklink.com/api/store/v1/inventories", "GET")
-            .then(async (value) => {
-                return await value;
-            }).catch((err) => {
-                console.trace("Promise call rejected: ", err);
-            })
+    base_url = "https://api.bricklink.com/api/store/v1";
+    getOrders() {
+        return makeCall(this.base_url+"/inventories", "GET").catch((err) => {
+               console.trace("Promise call rejected: ", err);
+           });
     }
 
     getOrder(order_id) {

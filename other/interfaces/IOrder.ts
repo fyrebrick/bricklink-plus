@@ -1,4 +1,4 @@
-import * as types from "../other/types";
+import * as types from "../types";
 
 export interface IOrder {
     order_id : string;

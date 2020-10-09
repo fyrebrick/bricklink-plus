@@ -1,4 +1,4 @@
-let {getOauth,vars} = require("../functions/setup");
+let {getOauth} = require("../functions/setup");
 
 let makeCall = async (uri, method, body = {}, content_type = "application/json") => {
     return new Promise((resolve, reject) => {
@@ -8,7 +8,7 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
         }
         switch (String(method).toUpperCase()) {
             case "PUT":
-                oauth.put(uri, vars.TOKEN_VALUE, vars.TOKEN_SECRET, body, content_type, function (err, data) {
+                oauth.put(uri,oauth._requestUrl, oauth._accessUrl, body, content_type, function (err, data) {
                     if (err) {
                         console.trace(err);
                         reject({message: err});
@@ -18,7 +18,7 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                 });
                 break;
             case "GET":
-                oauth.get(uri, vars.TOKEN_VALUE, vars.TOKEN_SECRET, function (err, data) {
+                oauth.get(uri,oauth._requestUrl, oauth._accessUrl, function (err, data) {
                     if (err) {
                         console.trace(err);
                         return reject({message: err});
@@ -28,7 +28,7 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                 });
                 break;
             case "POST":
-                oauth.put(uri, vars.TOKEN_VALUE, vars.TOKEN_SECRET, body, content_type, function (err, data) {
+                oauth.put(uri,oauth._requestUrl, oauth._accessUrl, body, content_type, function (err, data) {
                     if (err) {
                         console.trace(err);
                         reject({message: err});

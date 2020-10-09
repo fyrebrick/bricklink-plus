@@ -1,26 +1,12 @@
 var OAuth = require('oauth');
 
- vars ={
-    TOKEN_VALUE:String,
-    TOKEN_SECRET:String,
-    CONSUMER_KEY:String,
-    CONSUMER_SECRET:String
-};
-
 let oauth;
-
-function setUpVars(newVars={
-    TOKEN_VALUE:String,
-    TOKEN_SECRET:String,
-    CONSUMER_KEY:String,
-    CONSUMER_SECRET:String
-}){
-    vars = newVars;
+function setUpVars(args){
     oauth = new OAuth.OAuth(
-        vars.TOKEN_VALUE,
-        vars.TOKEN_SECRET,
-        vars.CONSUMER_KEY,
-        vars.CONSUMER_SECRET,
+        args.TOKEN_VALUE,
+        args.TOKEN_SECRET,
+        args.CONSUMER_KEY,
+        args.CONSUMER_SECRET,
         "1.0",
         null,
         "HMAC-SHA1"
@@ -28,5 +14,4 @@ function setUpVars(newVars={
 }
 
 module.exports.getOauth = ()=>{return oauth};
-module.exports.vars = vars;
 module.exports.setUpVars = setUpVars;
