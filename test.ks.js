@@ -1,10 +1,13 @@
 const bricklinkPlus = require("./app");
 
 bricklinkPlus.setup({
-    TOKEN_VALUE:"22589076908447E58CCAFF776653D664",
-    TOKEN_SECRET:"4FD83A47CD8C4C48BDC52B3340BFA71F",
-    CONSUMER_SECRET:"6A22D4380DFB4C0790E4B4C37D519ECF",
-    CONSUMER_KEY:"CCBC71FD9E2E404B92FF4EF7B3425EB9"
+    TOKEN_VALUE:"C7E7A55ECCAA403AA752F4D13F5EB115",
+    TOKEN_SECRET:"F247E48794CE4ED582545F3BFC047AFC",
+    CONSUMER_SECRET:"9CA17648F7204DB3A1829F27FE7A0F10",
+    CONSUMER_KEY:"99B44D144DE848E795D4228F4C161700"
 });
 
-bricklinkPlus.api.order.getOrders().then(r => console.log(r));
+let orders = bricklinkPlus.api.order.getOrders().then(r => r);
+console.log(bricklinkPlus.api.order.updateOrder(orders.data[0].order_id,{
+
+}).then(r => r));
