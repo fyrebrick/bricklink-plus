@@ -1,6 +1,6 @@
 {
   "name": "bricklink-plus",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "extended api build on the bricklink api",
   "main": "app.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snakehead007/bricklink-extended-api.git"
+    "url": "git+https://github.com/snakehead007/bricklink-plus.git"
   },
   "keywords": [
     "bricklink",
@@ -22,7 +22,6 @@
   "homepage": "https://github.com/snakehead007/bricklink-extended-api#readme",
   "devDependencies": {},
   "dependencies": {
-    "mocha": "^8.1.3",
     "oauth": "^0.9.15"
   }
 }
