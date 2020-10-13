@@ -1,5 +1,5 @@
 {
-  "name": "@snakehead007/bricklink-plus",
+  "name": "bricklink-plus",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
