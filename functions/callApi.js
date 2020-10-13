@@ -7,6 +7,16 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
             reject("Setup is unsuccessful, please check the .setup() method");
         }
         switch (String(method).toUpperCase()) {
+            case "DELETE":
+                oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, body, content_type, function (err, data) {
+                    if (err) {
+                        console.trace(err);
+                        reject({message: err});
+                    } else {
+                        resolve(JSON.parse(data));
+                    }
+                });
+                break;
             case "PUT":
                 oauth.put(uri,oauth._requestUrl, oauth._accessUrl, body, content_type, function (err, data) {
                     if (err) {

@@ -45,40 +45,32 @@ class Order {
         });
     }
 
-    updateOrder(order_id,request_body={
-        shipping: {
-            date_shipped:null ,
-            tracking_no:null ,
-            tracking_link:null ,
-            method_id:null
-        },
-        cost: {
-            shipping:null ,
-            insurance:null ,
-            credit:null ,
-            etc1:null ,
-            etc2:null
-        },
-        is_filed :null ,
-        remarks :null
-    }) {
+    updateOrder(order_id,request_body) {
         let uri = this.base_url+"/orders/"+order_id;
         return makeCall(uri, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
 
-    updateOrderStatus(order_id) {
+    updateOrderStatus(order_id,request_body) {
+        let uri = this.base_url+"/orders/"+order_id+"/status";
+        return makeCall(uri, "PUT",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
     }
 
-    updatePaymentStatus(order_id) {
+    updatePaymentStatus(order_id,request_body) {
+        let uri = this.base_url+"/orders/"+order_id+"/payment_status";
+        return makeCall(uri, "PUT",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
     }
 
-    sendDriveThru(order_id) {
-    }
-
-    send(value) {
-        return value
+    sendDriveThru(order_id,request_body) {
+        let uri = this.base_url+"/orders/"+order_id+"/drive_thru";
+        return makeCall(uri, "POST",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
     }
 
 }
