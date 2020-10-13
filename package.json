@@ -1,5 +1,5 @@
 {
-  "name": "bricklink-plus",
+  "name": "@snakehead007/bricklink-plus",
   "version": "0.0.2",
   "description": "extended api build on the bricklink api",
   "main": "app.js",
