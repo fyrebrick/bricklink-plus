@@ -1,6 +1,9 @@
 {
   "name": "@snakehead007/bricklink-plus",
-  "version": "0.0.2",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "version": "1.0.0",
   "description": "extended api build on the bricklink api",
   "main": "app.js",
   "scripts": {
