@@ -12,16 +12,26 @@ extended api is in development
 how to use
 ---
 
-```const bricklinkPlus = require("bricklink-plus");	
+```JS
+const bricklinkPlus = require("bricklink-plus");	
 
+//setup with your personal values
 bricklinkPlus.setup({	
-    TOKEN_VALUE:"___",	
-    TOKEN_SECRET:"___,	
-    CONSUMER_SECRET:"___,	
-    CONSUMER_KEY:"___"	
+    TOKEN_VALUE:"__YOURTOKENVALUE__",	
+    TOKEN_SECRET:"__YOURTOKENSECRET__",
+    CONSUMER_SECRET:"__YOURCONSUMERSECRET__",
+    CONSUMER_KEY:"__YOURCONSUMERKEY__"	
 });	
 
-let orders = bricklinkPlus.api.order.getOrders().then(r => r);	
-console.log(bricklinkPlus.api.order.updateOrder(orders.data[0].order_id,{	
-}).then(r => r));
+//use .then()
+let allOrders = bricklinkPlus.api.order.getOrders().then(a => a);	
+    
+
+//use await
+(async ()=>{
+    let firstOrder = await bricklinkPlus.api.order.updateOrder(allOrders.data[0].order_id,{
+        "is_filed" : "false",
+        "remarks" : "a101" 
+    }).then(r => r)
+})() 
 ```
