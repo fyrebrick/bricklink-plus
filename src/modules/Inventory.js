@@ -1,8 +1,8 @@
 const {makeCall} = require( "../functions/callApi");
-class Inventory {
-    base_url = "https://api.bricklink.com/api/store/v1";
-    getInventories(item_type= null,status=null,category_id=null,color_id=null) {
-        let uri = this.base_url+"/inventories?";
+base_url = "https://api.bricklink.com/api/store/v1";
+module.exports.Inventory= {
+    getInventories:(item_type= null,status=null,category_id=null,color_id=null)=>{
+        let uri = base_url+"/inventories?";
         if(item_type){
             uri+="item_type="+item_type+"&";
         }
@@ -18,43 +18,39 @@ class Inventory {
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
+    },
 
-    getInventory(inventory_id) {
-        let uri = this.base_url+"/inventories/"+inventory_id;
+    getInventory:(inventory_id)=>{
+        let uri = base_url+"/inventories/"+inventory_id;
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
+    },
 
-    createInventory(request_body){
-        let uri = this.base_url+"/inventories/";
+    createInventory:(request_body)=>{
+        let uri = base_url+"/inventories/";
         return makeCall(uri, "POST",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
+    },
 
-    createInventories(request_body){
-        let uri = this.base_url+"/inventories/";
+    createInventories:(request_body)=>{
+        let uri = base_url+"/inventories/";
         return makeCall(uri, "POST",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
-
-    updateInventory(inventory_id,request_body){
-        let uri = this.base_url+"/inventories/"+inventory_id;
+    },
+    updateInventory:(inventory_id,request_body)=>{
+        let uri = base_url+"/inventories/"+inventory_id;
         return makeCall(uri, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
-
-    deleteInventory(inventory_id){
-        let uri = this.base_url+"/inventories/"+inventory_id;
+    },
+    deleteInventory:(inventory_id)=>{
+        let uri = base_url+"/inventories/"+inventory_id;
         return makeCall(uri, "DELETE").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
 
-
-}
-module.exports.Inventory = Inventory;
+};

@@ -7,7 +7,8 @@
   "description": "extended api build on the bricklink api",
   "main": "app.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "docs": "jsdoc ./src -r -t node_modules/docdash -d ./docs"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,10 @@
     "url": "https://github.com/snakehead007/bricklink-extended-api/issues"
   },
   "homepage": "https://github.com/snakehead007/bricklink-extended-api#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "docdash": "^1.2.0",
+    "jsdoc": "^3.6.6"
+  },
   "dependencies": {
     "oauth": "^0.9.15"
   }

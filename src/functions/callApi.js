@@ -1,4 +1,4 @@
-let {getOauth} = require("../functions/setup");
+let {getOauth} = require("./setup");
 
 let makeCall = async (uri, method, body = {}, content_type = "application/json") => {
     return new Promise((resolve, reject) => {

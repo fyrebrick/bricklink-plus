@@ -1,29 +1,29 @@
 const {makeCall} = require( "../functions/callApi");
-class Item {
-    base_url = "https://api.bricklink.com/api/store/v1";
-    getItem(item_type,item_no) {
-        let uri = this.base_url+"/items/"+item_type+"/"+item_no;
+base_url = "https://api.bricklink.com/api/store/v1";
+module.exports.Item ={
+    getItem:(item_type,item_no)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no;
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
+    },
 
-    getItemImage(item_type,item_no,color_id) {
-        let uri = this.base_url+"/items/"+item_type+"/"+item_no+"/images/"+color_id;
+    getItemImage:(item_type,item_no,color_id)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/images/"+color_id;
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
+    },
 
-    getSupersets(item_type,item_no) {
-        let uri = this.base_url+"/items/"+item_type+"/"+item_no+"/supersets";
+    getSupersets:(item_type,item_no)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/supersets";
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
+    },
 
-    getSubsets(item_type,item_no,color_id=null,box=null,instruction=null,break_minifigs=null,break_subsets=null){
-        let uri = this.base_url+"/items/"+item_type+"/"+item_no+"/subsets?";
+    getSubsets:(item_type,item_no,color_id=null,box=null,instruction=null,break_minifigs=null,break_subsets=null)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/subsets?";
         if(color_id){
             uri+="color_id="+color_id+"&";
         }
@@ -42,10 +42,10 @@ class Item {
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
+    },
 
-    getPriceGuide(item_type,item_no,color_id=null,guide_type=null,new_or_used=null,country_code=null,region=null,currency_code=null,vat=null){
-        let uri = this.base_url+"/items/"+item_type+"/"+item_no+"/price?";
+    getPriceGuide:(item_type,item_no,color_id=null,guide_type=null,new_or_used=null,country_code=null,region=null,currency_code=null,vat=null)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/price?";
         if(color_id){
             uri+="color_id="+color_id+"&";
         }
@@ -70,15 +70,12 @@ class Item {
         return makeCall(uri, "GET",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
-    }
+    },
 
-    getKnownColors(item_type,item_no){
-        let uri = this.base_url+"/items/"+item_type+"/"+item_no+"/colors";
+    getKnownColors:(item_type,item_no)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/colors";
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
-
-
-}
-module.exports.Item = Item;
+};

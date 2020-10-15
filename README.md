@@ -24,14 +24,14 @@ bricklinkPlus.setup({
 });	
 
 //use .then()
-let allOrders = bricklinkPlus.api.order.getOrders().then(a => a);	
-    
+bricklinkPlus.api.item.getItem('PART',35106).then(part=>{
+    console.log(part);
+});
 
 //use await
-(async ()=>{
-    let firstOrder = await bricklinkPlus.api.order.updateOrder(allOrders.data[0].order_id,{
-        "is_filed" : "false",
-        "remarks" : "a101" 
-    }).then(r => r)
-})() 
+let doasync = async ()=>{
+     let firstOrder = await bricklinkPlus.api.order.getOrders();
+    console.log(firstOrder);
+};
+doasync();
 ```
