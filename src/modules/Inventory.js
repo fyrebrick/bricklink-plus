@@ -4,7 +4,7 @@ base_url = "https://api.bricklink.com/api/store/v1";
  * The api.inventory module.
  * @module api/inventory
  **/
-module.exports.Inventory= {
+const Inventory= {
     /**
      * @method getInventories
      * @description This method retrieves a list of inventories you have.
@@ -273,58 +273,62 @@ module.exports.Inventory= {
             console.trace("Promise call rejected: ", err);
         });
     }
-    /**
-     * @typedef inventory_resource
-     * @type {Object}
-     * @property {meta} meta - metadata of the request
-     * @property {Inventory[]} data - data of the request
-     */
-
-    /**
-     * @typedef empty_resource
-     * @type {Object}
-     * @property {meta} meta - metadata of the request
-     * @property {Array} data - data of the request should be empty
-     */
-
-    /**
-     * @typedef Item
-     * @type {Object}
-     * @property {number} inventory_id - The ID of the inventory
-     * @property {Object} item - An object representation of the item
-     * @property{string} item.no - Item's identification number in BrickLink catalog
-     * @property {string} item.name - The name of the item
-     * @property {string} item.type - The type of the item
-     * @property {number} item.category_id - The main category of the item
-     * @property {number} color_id - The ID of the color of the item
-     * @property {string} color_name - Color name of the item
-     * @property {number} quantity - The number of items included in this inventory
-     * @property {string} new_or_used - Indicates whether the item is new or used
-     * @property {string} completeness - Indicates whether the set is complete or incomplete (This value is valid only for SET type)
-     * @property {number} unit_price - The original price of this item per sale unit
-     * @property {number} bind_id - The ID of the parent lot that this lot is bound to
-     * @property {string} description - A short description for this inventory
-     * @property {string} remarks - User remarks on this inventory
-     * @property {number} bulk - Buyers can buy this item only in multiples of the bulk amount
-     * @property {boolean} is_retain - Indicates whether the item retains in inventory after it is sold out
-     * @property {boolean} is_stock_room - Indicates whether the item appears only in owner’s inventory
-     * @property {string} stock_room_id - Indicates the stockroom that the item to be placed when the user uses multiple stockroom
-     * @property {Date} date_created - The time this lot is created
-     * @property {number} my_cost - My Cost value to tracking the cost of item
-     * @property {number} sale_rate - Sale value to adjust item price (Must be less than 100. 20 for 20% sale)
-     * @property {number} tier_quantity1 - A parameter for Tiered pricing (0 for no tier sale option)
-     * @property {number} tier_quantity2 - A parameter for Tiered pricing (0 for no tier sale option, Must be greater than tier_quantity1)
-     * @property {number} tier_quantity3 - A parameter for Tiered pricing (0 for no tier sale option, Must be greater than tier_quantity2)
-     * @property {number} tier_price1 - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price)
-     * @property {number} tier_price2 - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price1)
-     * @property {number} tier_price3 - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price2)
-     * @property {number} my_weight - Custom weight of the item
-     */
-
-    /** @typedef meta
-     * @type {Object}
-     * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
-     * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
-     * @property {number} code - status code of the request.
-     */
 };
+
+
+/**
+ * @typedef inventory_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {Inventory[]} data - data of the request
+ */
+
+/**
+ * @typedef empty_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {Array} data - data of the request should be empty
+ */
+
+/**
+ * @typedef Item
+ * @type {Object}
+ * @property {number} inventory_id - The ID of the inventory
+ * @property {Object} item - An object representation of the item
+ * @property{string} item.no - Item's identification number in BrickLink catalog
+ * @property {string} item.name - The name of the item
+ * @property {string} item.type - The type of the item
+ * @property {number} item.category_id - The main category of the item
+ * @property {number} color_id - The ID of the color of the item
+ * @property {string} color_name - Color name of the item
+ * @property {number} quantity - The number of items included in this inventory
+ * @property {string} new_or_used - Indicates whether the item is new or used
+ * @property {string} completeness - Indicates whether the set is complete or incomplete (This value is valid only for SET type)
+ * @property {number} unit_price - The original price of this item per sale unit
+ * @property {number} bind_id - The ID of the parent lot that this lot is bound to
+ * @property {string} description - A short description for this inventory
+ * @property {string} remarks - User remarks on this inventory
+ * @property {number} bulk - Buyers can buy this item only in multiples of the bulk amount
+ * @property {boolean} is_retain - Indicates whether the item retains in inventory after it is sold out
+ * @property {boolean} is_stock_room - Indicates whether the item appears only in owner’s inventory
+ * @property {string} stock_room_id - Indicates the stockroom that the item to be placed when the user uses multiple stockroom
+ * @property {Date} date_created - The time this lot is created
+ * @property {number} my_cost - My Cost value to tracking the cost of item
+ * @property {number} sale_rate - Sale value to adjust item price (Must be less than 100. 20 for 20% sale)
+ * @property {number} tier_quantity1 - A parameter for Tiered pricing (0 for no tier sale option)
+ * @property {number} tier_quantity2 - A parameter for Tiered pricing (0 for no tier sale option, Must be greater than tier_quantity1)
+ * @property {number} tier_quantity3 - A parameter for Tiered pricing (0 for no tier sale option, Must be greater than tier_quantity2)
+ * @property {number} tier_price1 - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price)
+ * @property {number} tier_price2 - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price1)
+ * @property {number} tier_price3 - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price2)
+ * @property {number} my_weight - Custom weight of the item
+ */
+
+/** @typedef meta
+ * @type {Object}
+ * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
+ * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
+ * @property {number} code - status code of the request.
+ */
+
+module.exports.Inventory = Inventory;
