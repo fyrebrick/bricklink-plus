@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~createInventories">createInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~createInventory">createInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~deleteInventory">deleteInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventory">getInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~updateInventory">updateInventory</a></li></ul></li><li><a href="module-api_item.html">api/item</a><ul class='methods'><li data-type='method'><a href="module-api_item.html#~getItem">getItem</a></li><li data-type='method'><a href="module-api_item.html#~getItemImage">getItemImage</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~createInventories">createInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~createInventory">createInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~deleteInventory">deleteInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventory">getInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~updateInventory">updateInventory</a></li></ul></li><li><a href="module-api_item.html">api/item</a><ul class='methods'><li data-type='method'><a href="module-api_item.html#~getItem">getItem</a></li><li data-type='method'><a href="module-api_item.html#~getItemImage">getItemImage</a></li><li data-type='method'><a href="module-api_item.html#~getSubsets">getSubsets</a></li><li data-type='method'><a href="module-api_item.html#~getSupersets">getSupersets</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -275,7 +275,7 @@
 
             
 
-            <td class="description last">The type of the item to get. Acceptable values are:</td>
+            <td class="description last">The type of the item to get.</td>
         </tr>
 
     
@@ -350,7 +350,7 @@
 
     
 
-    <h4 class="name" id="~getItemImage"><span class="type-signature">(inner) </span>getItemImage<span class="signature">(item_type, item_no, color_id)</span><span class="type-signature"> &rarr; {Promise.&lt;unknown>}</span></h4>
+    <h4 class="name" id="~getItemImage"><span class="type-signature">(inner) </span>getItemImage<span class="signature">(item_type, item_no, color_id)</span><span class="type-signature"> &rarr; {Promise.&lt;item_resource>}</span></h4>
 
     
 
@@ -445,13 +445,18 @@
 
             <td class="type">
             
+                
+<span class="param-type">string</span>
+
+
+            
             </td>
 
             
 
             
 
-            <td class="description last"></td>
+            <td class="description last">The type of the item to get.</td>
         </tr>
 
     
@@ -463,13 +468,18 @@
 
             <td class="type">
             
+                
+<span class="param-type">string</span>
+
+
+            
             </td>
 
             
 
             
 
-            <td class="description last"></td>
+            <td class="description last">Identification number of the item to get</td>
         </tr>
 
     
@@ -481,13 +491,18 @@
 
             <td class="type">
             
+                
+<span class="param-type">string</span>
+
+
+            
             </td>
 
             
 
             
 
-            <td class="description last"></td>
+            <td class="description last">The ID of the color of the item</td>
         </tr>
 
     
@@ -512,6 +527,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    If successful, this method returns a catalog item as "data" in the response body.
+</div>
+
 
 
 <dl class="param-type">
@@ -520,7 +539,613 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;unknown></span>
+<span class="param-type">Promise.&lt;item_resource></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getSubsets"><span class="type-signature">(inner) </span>getSubsets<span class="signature">(item_type, item_no, color_id<span class="signature-attributes">opt</span>, box<span class="signature-attributes">opt</span>, instruction<span class="signature-attributes">opt</span>, break_minifigs<span class="signature-attributes">opt</span>, break_subsets<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;subset_resource>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line67">line 67</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    This method returns a list of items that are included in the specified item.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>//Retrieves a list of items that are included in the SET #7644-1getSubsets("set","7644-1");</code></pre>
+
+    <pre class="prettyprint"><code>//Retrieves a list of items that are included in the SET #7644-1 including the instruction and breaking down minifigs as partsgetSubsets("set","7644-1",{instruction:true,break_minifigs:false});</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">-</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>item_no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">-</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">-</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>box</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">-</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>instruction</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">-</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>break_minifigs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">-</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>break_subsets</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">-</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    If successful, this method returns a nested list of subset entries as "data" in the response body. Note that the result is grouped by matching. An inner list indicates one matching group of items.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;subset_resource></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getSupersets"><span class="type-signature">(inner) </span>getSupersets<span class="signature">(item_type, item_no, color_id<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;superset_resource>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line44">line 44</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>//Retrieves a list of items that include the PART #3001oldgetSupersets("part","3001old");</code></pre>
+
+    <pre class="prettyprint"><code>//Retrieves a list of items that include the PART #3001old with color #1getSupersets("part","3001old","1");</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The type of the item to get.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>item_no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Identification number of the item to get</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The ID of the color of the item</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    If successful, this method returns a list of superset entries as "data" in the response body.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;superset_resource></span>
 
 
     </dd>
@@ -549,7 +1174,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line123">line 123</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line203">line 203</a>
     </li></ul></dd>
     
 
@@ -992,7 +1617,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line109">line 109</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line144">line 144</a>
     </li></ul></dd>
     
 
@@ -1136,7 +1761,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line116">line 116</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line165">line 165</a>
     </li></ul></dd>
     
 
@@ -1291,6 +1916,1050 @@
 
 
             
+                
+<h4 class="name" id="~Subset">Subset</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line173">line 173</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>match_no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A identification number given to a matching group that consists of regular items and alternate items. (0 if there is no matching of alternative item)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>entries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A list of the items included in the specified item
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object representation of the item that is included in the specified item
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Item's identification number in BrickLink catalog</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>category_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The main category of the item</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ID of the color of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number of items that are included in</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>extra_quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number of items that are appear as "extra" item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>is_alternate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Indicates that the item is appear as "alternate" item in this specified item</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~subset_resource">subset_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line158">line 158</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">meta</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">metadata of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Subset></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data of the request</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~Superset">Superset</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line189">line 189</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ID of the color of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>entries</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A list of the items that include the specified item
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object representation of the super item that includes the specified item
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Item's identification number in BrickLink catalog</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>category_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The main category of the item</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Indicates that how many specified items are included in this super item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>appear_as</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Indicates how an entry in an inventory appears as (A: Alternate, C: Counterpart, E: Extra, R: Regular)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~superset_resource">superset_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line151">line 151</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">meta</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">metadata of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Superset></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data of the request</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
     
 
     
@@ -1308,7 +2977,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 21:11:49 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 21:35:57 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

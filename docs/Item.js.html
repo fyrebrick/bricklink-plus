@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~createInventories">createInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~createInventory">createInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~deleteInventory">deleteInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventory">getInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~updateInventory">updateInventory</a></li></ul></li><li><a href="module-api_item.html">api/item</a><ul class='methods'><li data-type='method'><a href="module-api_item.html#~getItem">getItem</a></li><li data-type='method'><a href="module-api_item.html#~getItemImage">getItemImage</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~createInventories">createInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~createInventory">createInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~deleteInventory">deleteInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventory">getInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~updateInventory">updateInventory</a></li></ul></li><li><a href="module-api_item.html">api/item</a><ul class='methods'><li data-type='method'><a href="module-api_item.html#~getItem">getItem</a></li><li data-type='method'><a href="module-api_item.html#~getItemImage">getItemImage</a></li><li data-type='method'><a href="module-api_item.html#~getSubsets">getSubsets</a></li><li data-type='method'><a href="module-api_item.html#~getSupersets">getSupersets</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -53,7 +53,7 @@ const Item ={
     /**
      * @method getItem
      * @description This method returns information about the specified item in BrickLink catalog.
-     * @param {string} item_type - The type of the item to get. Acceptable values are:
+     * @param {string} item_type - The type of the item to get.
      * @param {string} item_no - Identification number of the item to get
      * @example
      * //Retrieves PART #1234
@@ -73,10 +73,10 @@ const Item ={
     /**
      * @method getItemImage
      * @description This method returns image URL of the specified item by colors.
-     * @param item_type
-     * @param item_no
-     * @param color_id
-     * @returns {Promise&lt;unknown>}
+     * @param {string} item_type - The type of the item to get.
+     * @param {string} item_no - Identification number of the item to get
+     * @param {string} color_id - The ID of the color of the item
+     * @returns {Promise&lt;item_resource>} If successful, this method returns a catalog item as "data" in the response body.
      */
     getItemImage:(item_type,item_no,color_id)=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no+"/images/"+color_id;
@@ -85,14 +85,49 @@ const Item ={
         });
     },
 
-    getSupersets:(item_type,item_no)=>{
-        let uri = base_url+"/items/"+item_type+"/"+item_no+"/supersets";
+    /**
+     * @method getSupersets
+     * @param {string} item_type - The type of the item to get.
+     * @param {string} item_no - Identification number of the item to get
+     * @param {string} [color_id] - The ID of the color of the item
+     * @example
+     * //Retrieves a list of items that include the PART #3001old
+     * getSupersets("part","3001old");
+     * @example
+     * //Retrieves a list of items that include the PART #3001old with color #1
+     * getSupersets("part","3001old","1");
+     * @returns {Promise&lt;superset_resource>} If successful, this method returns a list of superset entries as "data" in the response body.
+     */
+    getSupersets:(item_type,item_no,color_id=undefined)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/supersets?";
+        if(color_id){
+            uri += "color_id="+color_id;
+        }
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
 
-    getSubsets:(item_type,item_no,color_id=null,box=null,instruction=null,break_minifigs=null,break_subsets=null)=>{
+    /**
+     * @method getSubsets
+     * @description This method returns a list of items that are included in the specified item.
+     * @param {string} item_type -
+     * @param {string }item_no -
+     * @param {number} [color_id] -
+     * @param {boolean} [box] -
+     * @param {boolean} [instruction] -
+     * @param {boolean} [break_minifigs] -
+     * @param {boolean} [break_subsets] -
+     * @example
+     * //Retrieves a list of items that are included in the SET #7644-1
+     * getSubsets("set","7644-1");
+     * @example
+     * //Retrieves a list of items that are included in the SET #7644-1 including the instruction and breaking down minifigs as parts
+     * getSubsets("set","7644-1",{instruction:true,break_minifigs:false});
+     * @returns {Promise&lt;subset_resource>} If successful, this method returns a nested list of subset entries as "data" in the response body. Note that the result is grouped by matching. An inner list indicates one matching group of items.
+     *
+     */
+    getSubsets:(item_type,item_no,{color_id=null,box=null,instruction=null,break_minifigs=null,break_subsets=null}={})=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no+"/subsets?";
         if(color_id){
             uri+="color_id="+color_id+"&amp;";
@@ -157,11 +192,56 @@ const Item ={
  * @property {Item[]} data - data of the request
  */
 
-/** @typedef meta
+/**
+ * @typedef superset_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {Superset[]} data - data of the request
+ */
+
+/**
+ * @typedef subset_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {Subset[]} data - data of the request
+ */
+
+/**
+ * @typedef meta
  * @type {Object}
  * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
  * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
  * @property {number} code - status code of the request.
+ */
+
+/**
+ * @typedef Subset
+ * @type {Object}
+ * @property {number} match_no - A identification number given to a matching group that consists of regular items and alternate items. (0 if there is no matching of alternative item)
+ * @property {Array} entries - A list of the items included in the specified item
+ * @property {Object} entries.item - An object representation of the item that is included in the specified item
+ * @property {string} entries.item.no - Item's identification number in BrickLink catalog
+ * @property {string} entries.item.name - The name of the item
+ * @property {string} entries.item.type - The type of the item
+ * @property {string} entries.item.category_id - The main category of the item
+ * @property {string} entries.color_id - The ID of the color of the item
+ * @property {string} entries.quantity - The number of items that are included in
+ * @property {string} entries.extra_quantity - The number of items that are appear as "extra" item
+ * @property {string} entries.is_alternate - Indicates that the item is appear as "alternate" item in this specified item
+ */
+
+/**
+ * @typedef Superset
+ * @type {Object}
+ * @property {number} color_id - The ID of the color of the item
+ * @property {Array} entries - A list of the items that include the specified item
+ * @property {Object} entries.item - An object representation of the super item that includes the specified item
+ * @property {string} entries.item.no - Item's identification number in BrickLink catalog
+ * @property {string} entries.item.name - The name of the item
+ * @property {string} entries.item.type - The type of the item
+ * @property {number} entries.item.category_id - The main category of the item
+ * @property {number} entries.quantity - Indicates that how many specified items are included in this super item
+ * @property {string} entries.appear_as - Indicates how an entry in an inventory appears as (A: Alternate, C: Counterpart, E: Extra, R: Regular)
  */
 
 /**
@@ -210,7 +290,7 @@ module.exports.Item = Item;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 21:11:49 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 21:35:57 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
