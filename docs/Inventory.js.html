@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Inventory.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Inventory.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const {makeCall} = require( "../functions/callApi");
+base_url = "https://api.bricklink.com/api/store/v1";
+/**
+ * The api.inventory module.
+ * @module api/inventory
+ **/
+module.exports.Inventory= {
+    /**
+     * @method getInventories
+     * @description This method retrieves a list of inventories you have.
+     * @param {string} [item_type] - The type of the item to include or exclude
+     * &lt;ul>
+     *     &lt;li>If you don't specify this value, this method retrieves inventories with any type of item.&lt;/li>
+     *     &lt;li>You can pass a comma-separated string to specify multiple item types to include/exclude.&lt;/li>
+     *     &lt;li>You can add a minus( - ) sign to specify a type to exclude&lt;/li>
+     * &lt;/ul>
+     * @param {string} [status] - The status of the inventory to include or exclude
+     * &lt;ul>
+     *     &lt;li>
+     *        Available values are:
+     *        &lt;ul>
+     *            &lt;li>"Y" : available&lt;/li>
+     *            &lt;li>"S" : in stockroom A&lt;/li>
+     *            &lt;li>"B" : in stockroom B&lt;/li>
+     *            &lt;li>"C" : in stockroom C&lt;/li>
+     *            &lt;li>"N" : unavailable&lt;/li>
+     *            &lt;li>"R" : reserved&lt;/li>
+     *        &lt;/ul>
+     *     &lt;/li>
+     *     &lt;li>If you don't specify this value, this method retrieves inventories in any status.&lt;/li>
+     *     &lt;li>You can pass a comma-separated string to specify multiple status to include/exclude.&lt;/li>
+     *     &lt;li>You can add a minus( - ) sign to specify a status to exclude.&lt;/li>
+     * &lt;/ul>
+     * @param {number} [category_id] - The ID of the category to include or exclude
+     * &lt;ul>
+     *     &lt;li>If you don't specify this value, this method retrieves inventories with any category of item.&lt;/li>
+     *     &lt;li>You can pass a comma-separated string to specify multiple categories to include/exclude.&lt;/li>
+     *     &lt;li>You can add a minus( - ) sign to specify a category to exclude.&lt;/li>
+     *     &lt;li>You can only specify the main category of the item.&lt;/li>
+     * &lt;/ul>
+     * @param {number} [color_id] - The ID of the color to include or exclude
+     * &lt;ul>
+     *     &lt;li>If you don't specify this value, this method retrieves inventories with any color of item.&lt;li/>
+     *     &lt;li>You can pass a comma-separated string to specify multiple colors to include/exclude.&lt;li/>
+     *     &lt;li>You can add a minus( - ) sign to specify a color to exclude.&lt;li/>
+     * &lt;/ul>
+     * @returns {Promise&lt;unknown>}
+     */
+    getInventories:(item_type= null,status=null,category_id=null,color_id=null)=>{
+        let uri = base_url+"/inventories?";
+        if(item_type){
+            uri+="item_type="+item_type+"&amp;";
+        }
+        if(status){
+            uri+="status="+status+"&amp;";
+        }
+        if(category_id){
+            uri+="category_id="+category_id+"&amp;";
+        }
+        if(color_id){
+            uri+="color_id="+color_id+"&amp;";
+        }
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    getInventory:(inventory_id)=>{
+        let uri = base_url+"/inventories/"+inventory_id;
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    createInventory:(request_body)=>{
+        let uri = base_url+"/inventories/";
+        return makeCall(uri, "POST",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    createInventories:(request_body)=>{
+        let uri = base_url+"/inventories/";
+        return makeCall(uri, "POST",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+    updateInventory:(inventory_id,request_body)=>{
+        let uri = base_url+"/inventories/"+inventory_id;
+        return makeCall(uri, "PUT",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+    deleteInventory:(inventory_id)=>{
+        let uri = base_url+"/inventories/"+inventory_id;
+        return makeCall(uri, "DELETE").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    }
+
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 13:23:25 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

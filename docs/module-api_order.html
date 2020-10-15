@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -174,7 +174,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line59">line 59</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line65">line 65</a>
     </li></ul></dd>
     
 
@@ -299,7 +299,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
+    If successful, this method returns an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
 </div>
 
 
@@ -337,7 +337,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line107">line 107</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line113">line 113</a>
     </li></ul></dd>
     
 
@@ -462,7 +462,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns a list of feedback resource as "data" in the response body.
+    If successful, this method returns a list of feedback resource as "data" in the response body.
 </div>
 
 
@@ -500,7 +500,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line75">line 75</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line81">line 81</a>
     </li></ul></dd>
     
 
@@ -625,7 +625,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns a list of <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Item">items</a> batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
+    If successful, this method returns a list of <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Item">items</a> batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
 </div>
 
 
@@ -663,7 +663,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line91">line 91</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line97">line 97</a>
     </li></ul></dd>
     
 
@@ -788,7 +788,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns a list of <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Message">order message</a> resource as "data" in the response body.
+    If successful, this method returns a list of <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Message">order message</a> resource as "data" in the response body.
 </div>
 
 
@@ -953,7 +953,7 @@
                 </td>
             
 
-            <td class="description last">The direction of the order to get. Acceptable values are:- "out": Gets placed orders.- "in": Gets received orders. (default)</td>
+            <td class="description last">The direction of the order to get. Acceptable values are:<ul>    <li>"out": Gets placed orders.</li>    <li>"in": Gets received orders. (default)</li></ul></td>
         </tr>
 
     
@@ -990,7 +990,7 @@
                 </td>
             
 
-            <td class="description last">The status of the order to include or exclude.- If you don't specify this value, this method retrieves orders in any status.- You can pass a comma-separated string to specify multiple status to include/exclude.- You can add a minus(-) sign to specify a status to exclude</td>
+            <td class="description last">The status of the order to include or exclude.<ul>    <li>If you don't specify this value, this method retrieves orders in any status.</li>    <li>You can pass a comma-separated string to specify multiple status to include/exclude.</li>    <li>You can add a minus(-) sign to specify a status to exclude</li></ul></td>
         </tr>
 
     
@@ -1029,7 +1029,7 @@
                 </td>
             
 
-            <td class="description last">Indicates whether the result retries filed or un-filed orders. Acceptable values are:- "true"- "false": (default)</td>
+            <td class="description last">Indicates whether the result retries filed or un-filed orders. Acceptable values are:<ul>    <li>"true"</li>    <li>"false": (default)</li></ul></td>
         </tr>
 
     
@@ -1055,7 +1055,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns a list of the the summary of an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
+    If successful, this method returns a list of the the summary of an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
 </div>
 
 
@@ -1093,7 +1093,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line123">line 123</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line129">line 129</a>
     </li></ul></dd>
     
 
@@ -1754,7 +1754,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
+    If successful, this method returns an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
 </div>
 
 
@@ -1792,7 +1792,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line164">line 164</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line170">line 170</a>
     </li></ul></dd>
     
 
@@ -1940,7 +1940,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns an empty "data".
+    If successful, this method returns an empty "data".
 </div>
 
 
@@ -1978,7 +1978,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line184">line 184</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line190">line 190</a>
     </li></ul></dd>
     
 
@@ -2126,7 +2126,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns an empty "data".
+    If successful, this method returns an empty "data".
 </div>
 
 
@@ -2164,7 +2164,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line204">line 204</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line210">line 210</a>
     </li></ul></dd>
     
 
@@ -2344,7 +2344,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns an empty "data".
+    If successful, this method returns an empty "data".
 </div>
 
 
@@ -2384,7 +2384,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line249">line 249</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line255">line 255</a>
     </li></ul></dd>
     
 
@@ -2528,7 +2528,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line378">line 378</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line384">line 384</a>
     </li></ul></dd>
     
 
@@ -2833,7 +2833,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line242">line 242</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line248">line 248</a>
     </li></ul></dd>
     
 
@@ -2977,7 +2977,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line342">line 342</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line348">line 348</a>
     </li></ul></dd>
     
 
@@ -3538,7 +3538,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line229">line 229</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line235">line 235</a>
     </li></ul></dd>
     
 
@@ -3682,7 +3682,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line368">line 368</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line374">line 374</a>
     </li></ul></dd>
     
 
@@ -3895,7 +3895,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line335">line 335</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line341">line 341</a>
     </li></ul></dd>
     
 
@@ -4062,7 +4062,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line256">line 256</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line262">line 262</a>
     </li></ul></dd>
     
 
@@ -5851,7 +5851,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line235">line 235</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line241">line 241</a>
     </li></ul></dd>
     
 
@@ -5995,7 +5995,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line223">line 223</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line229">line 229</a>
     </li></ul></dd>
     
 
@@ -6144,7 +6144,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 13:06:20 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 13:23:25 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

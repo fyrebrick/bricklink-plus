@@ -11,15 +11,21 @@ const Order ={
      * @method getOrders
      * @description This method retrieves a list of orders you received or placed.
      * @param {string} [direction="in"] - The direction of the order to get. Acceptable values are:
-     * - "out": Gets placed orders.
-     * - "in": Gets received orders. (default)
+     * <ul>
+     *     <li>"out": Gets placed orders.</li>
+     *     <li>"in": Gets received orders. (default)</li>
+     * </ul>
      * @param {string} [status=undefined] - The status of the order to include or exclude.
-     * - If you don't specify this value, this method retrieves orders in any status.
-     * - You can pass a comma-separated string to specify multiple status to include/exclude.
-     * - You can add a minus(-) sign to specify a status to exclude
+     * <ul>
+     *     <li>If you don't specify this value, this method retrieves orders in any status.</li>
+     *     <li>You can pass a comma-separated string to specify multiple status to include/exclude.</li>
+     *     <li>You can add a minus(-) sign to specify a status to exclude</li>
+     * </ul>
      * @param {boolean} [filed=false] - Indicates whether the result retries filed or un-filed orders. Acceptable values are:
-     * - "true"
-     * - "false": (default)
+     * <ul>
+     *     <li>"true"</li>
+     *     <li>"false": (default)</li>
+     * </ul>
      * @example
      * //Retrieves a list of received orders
      * getOrders();
@@ -36,7 +42,7 @@ const Order ={
      * @example
      * //Retrieves a list of received and filed orders in COMPETED status
      * getOrders({filed:true,status:"completed"});
-     * @returns {Promise<order_resource>} - If successful, this method returns a list of the the summary of an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
+     * @returns {Promise<order_resource>} If successful, this method returns a list of the the summary of an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
 
      */
     getOrders:({direction= "in",status=undefined,filed=false}={direction:"in",status:undefined,filed:false})=>{
@@ -63,7 +69,7 @@ const Order ={
      * @example
      * // Retrieves order # 1234
      * getOrder(1234);
-     * @returns {Promise<order_resource>} - If successful, this method returns an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
+     * @returns {Promise<order_resource>} If successful, this method returns an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
      */
     getOrder:(order_id)=>{
         let uri = base_url+"/orders/"+order_id;
@@ -79,7 +85,7 @@ const Order ={
      * @example
      * //Retrieves a list of items for order #1234
      * getOrderItems(1234);
-     * @returns {Promise<item_resource>} - If successful, this method returns a list of [items]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Item} batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
+     * @returns {Promise<item_resource>} If successful, this method returns a list of [items]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Item} batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
      */
     getOrderItems:(order_id)=>{
         let uri = base_url+"/orders/"+order_id+"/items";
@@ -95,7 +101,7 @@ const Order ={
      * @example
      * //Retrieves a list of messages for order #1234
      * getOrderMessages(1234);
-     * @returns {Promise<order_message_resource>} - If successful, this method returns a list of [order message]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Message} resource as "data" in the response body.
+     * @returns {Promise<order_message_resource>} If successful, this method returns a list of [order message]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Message} resource as "data" in the response body.
      */
     getOrderMessages:(order_id)=>{
         let uri = base_url+"/orders/"+order_id+"/messages";
@@ -111,7 +117,7 @@ const Order ={
      * @example
      * //Retrieves a list of feedback for order #1234
      * getOrderFeedback(1234);
-     * @returns {Promise<feedback_resource>} - If successful, this method returns a list of feedback resource as "data" in the response body.
+     * @returns {Promise<feedback_resource>} If successful, this method returns a list of feedback resource as "data" in the response body.
      */
     getOrderFeedback:(order_id)=>{
         let uri = base_url+"/orders/"+order_id+"/feedback";
@@ -149,7 +155,7 @@ const Order ={
      *     },
      *     remarks:"order updated"
      * });
-     * @returns {Promise<order_resource>} - If successful, this method returns an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
+     * @returns {Promise<order_resource>} If successful, this method returns an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
      */
     updateOrder:(order_id,request_body={})=>{
         let uri = base_url+"/orders/"+order_id;
@@ -169,7 +175,7 @@ const Order ={
      * @example
      * //Updates status of order #1234 to COMPLETE
      * updateOrderStatus(1234,'complete");
-     * @returns {Promise<empty_resource>} - If successful, this method returns an empty "data".
+     * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
     updateOrderStatus:(order_id,value)=>{
         let uri = base_url+"/orders/"+order_id+"/status";
@@ -189,7 +195,7 @@ const Order ={
      * @example
      * //Updates payment status of order #1234 to received
      * updatePaymentStatus(1234,"received");
-     * @returns {Promise<empty_resource>} - If successful, this method returns an empty "data".
+     * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
     updatePaymentStatus:(order_id,value)=>{
         let uri = base_url+"/orders/"+order_id+"/payment_status";
@@ -209,7 +215,7 @@ const Order ={
      * @example
      * //Send "Thank You, Drive Thru!" e-mail for order 1234 to a buyer and yourself
      * sendDriveThru(1234,true);
-     * @returns {Promise<empty_resource>} - If successful, this method returns an empty "data".
+     * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
     sendDriveThru:(order_id,mail_me= false)=>{
         let uri = base_url+"/orders/"+order_id+"/drive_thru";
