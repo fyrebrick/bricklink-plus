@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>Item.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~createInventories">createInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~createInventory">createInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~deleteInventory">deleteInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventory">getInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~updateInventory">updateInventory</a></li></ul></li><li><a href="module-api_item.html">api/item</a><ul class='methods'><li data-type='method'><a href="module-api_item.html#~getItem">getItem</a></li><li data-type='method'><a href="module-api_item.html#~getItemImage">getItemImage</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Item.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const {makeCall} = require( "../functions/callApi");
+base_url = "https://api.bricklink.com/api/store/v1";
+
+/**
+ * The api.item module
+ *@module api/item
+ */
+const Item ={
+    /**
+     * @method getItem
+     * @description This method returns information about the specified item in BrickLink catalog.
+     * @param {string} item_type - The type of the item to get. Acceptable values are:
+     * @param {string} item_no - Identification number of the item to get
+     * @example
+     * //Retrieves PART #1234
+     * getItem("PART","1234");
+     * @example
+     * //Retrieves SET #1-1
+     * getItem("SET","1-1");
+     * @returns {Promise&lt;item_resource>} If successful, this method returns a catalog item as "data" in the response body.
+     */
+    getItem:(item_type,item_no)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no;
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    /**
+     * @method getItemImage
+     * @description This method returns image URL of the specified item by colors.
+     * @param item_type
+     * @param item_no
+     * @param color_id
+     * @returns {Promise&lt;unknown>}
+     */
+    getItemImage:(item_type,item_no,color_id)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/images/"+color_id;
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    getSupersets:(item_type,item_no)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/supersets";
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    getSubsets:(item_type,item_no,color_id=null,box=null,instruction=null,break_minifigs=null,break_subsets=null)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/subsets?";
+        if(color_id){
+            uri+="color_id="+color_id+"&amp;";
+        }
+        if(box){
+            uri+="box="+box+"&amp;";
+        }
+        if(instruction){
+            uri+="instruction="+instruction+"&amp;";
+        }
+        if(break_minifigs){
+            uri+="break_minifigs="+break_minifigs+"&amp;";
+        }
+        if(break_subsets){
+            uri+="break_subsets="+break_subsets+"&amp;";
+        }
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    getPriceGuide:(item_type,item_no,color_id=null,guide_type=null,new_or_used=null,country_code=null,region=null,currency_code=null,vat=null)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/price?";
+        if(color_id){
+            uri+="color_id="+color_id+"&amp;";
+        }
+        if(guide_type){
+            uri+="guide_type="+guide_type+"&amp;";
+        }
+        if(new_or_used){
+            uri+="new_or_used="+new_or_used+"&amp;";
+        }
+        if(country_code){
+            uri+="country_code="+country_code+"&amp;";
+        }
+        if(region){
+            uri+="region="+region+"&amp;";
+        }
+        if(currency_code){
+            uri+="currency_code="+currency_code+"&amp;";
+        }
+        if(vat){
+            uri+="vat="+vat+"&amp;";
+        }
+        return makeCall(uri, "GET",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    getKnownColors:(item_type,item_no)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/colors";
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    }
+};
+
+/**
+ * @typedef item_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {Item[]} data - data of the request
+ */
+
+/** @typedef meta
+ * @type {Object}
+ * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
+ * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
+ * @property {number} code - status code of the request.
+ */
+
+/**
+ * @typedef Item
+ * @type {Object}
+ * @property {string} no - Item's identification number in BrickLink catalog
+ * @property {string} name - The name of the item
+ * @property {string} type - The type of the item
+ * &lt;ul>
+ *     &lt;li>MINIFIG&lt;/li>
+ *     &lt;li>PART&lt;/li>
+ *     &lt;li>SET&lt;/li>
+ *     &lt;li>BOOK&lt;/li>
+ *     &lt;li>GEAR&lt;/li>
+ *     &lt;li>CATALOG&lt;/li>
+ *     &lt;li>INSTRUCTION&lt;/li>
+ *     &lt;li>UNSORTED_LOT&lt;/li>
+ *     &lt;li>ORIGINAL_BOX&lt;/li>
+ * &lt;/ul>
+ * @property {number} category_id - The main category of the item
+ * @property {string} alternate_no - Alternate item number
+ * @property {string} image_url - Image link for this item
+ * @property {string} thumbnail_url - Image thumbnail link for this item
+ * @property {number} weight - The weight of the item in grams
+ * @property {string} dim_x - Length of the item
+ * @property {string} dim_y - Width of the item
+ * @property {string} dim_z - Height of the item
+ * @property {number} year_released - Item year of release
+ * @property {string} description - Short description for this item
+ * @property {boolean} is_obsolete - Indicates whether the item is obsolete
+ * @property {string} language_code - Item language code
+ */
+
+module.exports.Item = Item;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 21:11:49 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>
