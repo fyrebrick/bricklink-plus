@@ -338,13 +338,6 @@ const Order ={
  * @property {number} disp_cost.vat_amount - Total amount of VAT included in the grand_total price in DISPLAY currency
  **/
 
-/** @typedef meta
- * @type {Object}
- * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
- * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
- * @property {number} code - status code of the request.
- **/
-
 /**
  * @typedef Item
  * @type {Object}
@@ -394,5 +387,12 @@ const Order ={
  * @property {string} comment - A comment associated with the feedback
  * @property {string} reply - A reply for this feedback
  */
+
+/** @typedef meta
+ * @type {Object}
+ * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
+ * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
+ * @property {number} code - status code of the request.
+ **/
 
 module.exports.Order = Order;

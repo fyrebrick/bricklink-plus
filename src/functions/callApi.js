@@ -9,7 +9,7 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
         console.log(method,uri,body,content_type);
         switch (String(method).toUpperCase()) {
             case "DELETE":
-                oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, JSON.stringify(body), content_type, function (err, data) {
+                oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, content_type, function (err, data) {
                     if (err) {
                         console.trace(err);
                         reject({message: err});
