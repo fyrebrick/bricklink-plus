@@ -6,9 +6,10 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
         if (!oauth) {
             reject("Setup is unsuccessful, please check the .setup() method");
         }
+        console.log(method,uri,body,content_type);
         switch (String(method).toUpperCase()) {
             case "DELETE":
-                oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, body, content_type, function (err, data) {
+                oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, JSON.stringify(body), content_type, function (err, data) {
                     if (err) {
                         console.trace(err);
                         reject({message: err});
@@ -18,7 +19,7 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                 });
                 break;
             case "PUT":
-                oauth.put(uri,oauth._requestUrl, oauth._accessUrl, body, content_type, function (err, data) {
+                oauth.put(uri,oauth._requestUrl, oauth._accessUrl, JSON.stringify(body), content_type, function (err, data) {
                     if (err) {
                         console.trace(err);
                         reject({message: err});
@@ -38,7 +39,7 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                 });
                 break;
             case "POST":
-                oauth.put(uri,oauth._requestUrl, oauth._accessUrl, body, content_type, function (err, data) {
+                oauth.put(uri,oauth._requestUrl, oauth._accessUrl, JSON.stringify(body), content_type, function (err, data) {
                     if (err) {
                         console.trace(err);
                         reject({message: err});
@@ -53,7 +54,7 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                 reject({message: err});
         }
     });
-}
+};
 
 
 module.exports.makeCall = makeCall;

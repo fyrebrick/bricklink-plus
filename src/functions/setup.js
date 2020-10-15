@@ -1,5 +1,4 @@
 var OAuth = require('oauth');
-
 let oauth;
 function setUpVars(args){
     oauth = new OAuth.OAuth(

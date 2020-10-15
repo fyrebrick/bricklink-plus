@@ -10,14 +10,20 @@ bricklinkPlus.setup({
 
 
 //use .then()
-bricklinkPlus.api.item.getItem('PART',35106).then(part=>{
+bricklinkPlus.api.order.updateOrder(12887070,{
+    cost:{
+        shipping: "5.0",
+        insurance: "2.5"
+    },
+    remarks:"order updated"
+}).then(part=>{
     console.log(part);
 });
 
 //use await
 let doasync = async ()=>{
-     let firstOrder = await bricklinkPlus.api.order.getOrders({status:''});
-    console.log(firstOrder.data[0]);
+     let firstOrder = await bricklinkPlus.api.order.getOrders({status:'read'});
+    console.log(firstOrder);
 };
 doasync();
 

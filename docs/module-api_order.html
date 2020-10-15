@@ -299,7 +299,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns an order resource as "data" in the response body.
+    - If successful, this method returns an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
 </div>
 
 
@@ -325,7 +325,7 @@
 
     
 
-    <h4 class="name" id="~getOrderFeedback"><span class="type-signature">(inner) </span>getOrderFeedback<span class="signature">(order_id)</span><span class="type-signature"> &rarr; {Promise.&lt;order_return_value>}</span></h4>
+    <h4 class="name" id="~getOrderFeedback"><span class="type-signature">(inner) </span>getOrderFeedback<span class="signature">(order_id)</span><span class="type-signature"> &rarr; {Promise.&lt;feedback_resource>}</span></h4>
 
     
 
@@ -337,7 +337,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line104">line 104</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line107">line 107</a>
     </li></ul></dd>
     
 
@@ -386,6 +386,11 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//Retrieves a list of feedback for order #1234getOrderFeedback(1234);</code></pre>
 
 
 
@@ -456,6 +461,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - If successful, this method returns a list of feedback resource as "data" in the response body.
+</div>
+
 
 
 <dl class="param-type">
@@ -464,7 +473,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;order_return_value></span>
+<span class="param-type">Promise.&lt;feedback_resource></span>
 
 
     </dd>
@@ -479,7 +488,7 @@
 
     
 
-    <h4 class="name" id="~getOrderItems"><span class="type-signature">(inner) </span>getOrderItems<span class="signature">(order_id)</span><span class="type-signature"> &rarr; {Promise.&lt;order_return_value>}</span></h4>
+    <h4 class="name" id="~getOrderItems"><span class="type-signature">(inner) </span>getOrderItems<span class="signature">(order_id)</span><span class="type-signature"> &rarr; {Promise.&lt;item_resource>}</span></h4>
 
     
 
@@ -615,6 +624,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - If successful, this method returns a list of <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Item">items</a> batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
+</div>
+
 
 
 <dl class="param-type">
@@ -623,7 +636,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;order_return_value></span>
+<span class="param-type">Promise.&lt;item_resource></span>
 
 
     </dd>
@@ -638,7 +651,7 @@
 
     
 
-    <h4 class="name" id="~getOrderMessages"><span class="type-signature">(inner) </span>getOrderMessages<span class="signature">(order_id)</span><span class="type-signature"> &rarr; {Promise.&lt;order_return_value>}</span></h4>
+    <h4 class="name" id="~getOrderMessages"><span class="type-signature">(inner) </span>getOrderMessages<span class="signature">(order_id)</span><span class="type-signature"> &rarr; {Promise.&lt;order_message_resource>}</span></h4>
 
     
 
@@ -699,6 +712,11 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//Retrieves a list of messages for order #1234getOrderMessages(1234);</code></pre>
 
 
 
@@ -770,7 +788,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns a list of items batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
+    - If successful, this method returns a list of <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Message">order message</a> resource as "data" in the response body.
 </div>
 
 
@@ -781,7 +799,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;order_return_value></span>
+<span class="param-type">Promise.&lt;order_message_resource></span>
 
 
     </dd>
@@ -1037,7 +1055,7 @@
 
         
 <div class="param-desc">
-    - If successful, this method returns a list of the the summary of an order resource as "data" in the response body.
+    - If successful, this method returns a list of the the summary of an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
 </div>
 
 
@@ -1063,7 +1081,7 @@
 
     
 
-    <h4 class="name" id="~updateOrder"><span class="type-signature">(inner) </span>updateOrder<span class="signature">(order_id, request_body)</span><span class="type-signature"> &rarr; {Promise.&lt;order_return_value>}</span></h4>
+    <h4 class="name" id="~updateOrder"><span class="type-signature">(inner) </span>updateOrder<span class="signature">(order_id, request_body)</span><span class="type-signature"> &rarr; {Promise.&lt;order_resource>}</span></h4>
 
     
 
@@ -1075,7 +1093,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line117">line 117</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line123">line 123</a>
     </li></ul></dd>
     
 
@@ -1115,7 +1133,7 @@
 
 
 <div class="description usertext">
-    This method updates properties of a specific order.
+    This method updates properties of a specific order.Cost fields will only be updated if the order is in unpaid status. Otherwise they will be ignored.If sales tax are to be collected by BL, every change made to the costs will recalculate the sales tax.
 </div>
 
 
@@ -1124,6 +1142,11 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//Updates order #1234updateOrder(1234,{    cost:{        shipping: 5.0        insurance: 2.5    },    remarks:"order updated"});</code></pre>
 
 
 
@@ -1730,6 +1753,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - If successful, this method returns an <a href="https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource">order resource</a> as "data" in the response body.
+</div>
+
 
 
 <dl class="param-type">
@@ -1738,7 +1765,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;order_return_value></span>
+<span class="param-type">Promise.&lt;order_resource></span>
 
 
     </dd>
@@ -1753,7 +1780,7 @@
 
     
 
-    <h4 class="name" id="~updateOrderStatus"><span class="type-signature">(inner) </span>updateOrderStatus<span class="signature">(order_id, value)</span><span class="type-signature"> &rarr; {Promise.&lt;order_return_value>}</span></h4>
+    <h4 class="name" id="~updateOrderStatus"><span class="type-signature">(inner) </span>updateOrderStatus<span class="signature">(order_id, value)</span><span class="type-signature"> &rarr; {Promise.&lt;empty_resource>}</span></h4>
 
     
 
@@ -1765,7 +1792,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line146">line 146</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line164">line 164</a>
     </li></ul></dd>
     
 
@@ -1816,6 +1843,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//Updates status of order #1234 to COMPLETEupdateOrderStatus(1234,'complete");</code></pre>
+
+
 
 
     <h5>Parameters:</h5>
@@ -1907,6 +1939,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - If successful, this method returns an empty "data".
+</div>
+
 
 
 <dl class="param-type">
@@ -1915,7 +1951,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;order_return_value></span>
+<span class="param-type">Promise.&lt;empty_resource></span>
 
 
     </dd>
@@ -1930,7 +1966,7 @@
 
     
 
-    <h4 class="name" id="~updatePaymentStatus"><span class="type-signature">(inner) </span>updatePaymentStatus<span class="signature">(order_id, value)</span><span class="type-signature"> &rarr; {Promise.&lt;order_return_value>}</span></h4>
+    <h4 class="name" id="~updatePaymentStatus"><span class="type-signature">(inner) </span>updatePaymentStatus<span class="signature">(order_id, value)</span><span class="type-signature"> &rarr; {Promise.&lt;empty_resource>}</span></h4>
 
     
 
@@ -1942,7 +1978,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line163">line 163</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line184">line 184</a>
     </li></ul></dd>
     
 
@@ -1993,6 +2029,11 @@
 
 
 
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//Updates payment status of order #1234 to receivedupdatePaymentStatus(1234,"received");</code></pre>
+
+
 
 
     <h5>Parameters:</h5>
@@ -2084,6 +2125,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - If successful, this method returns an empty "data".
+</div>
+
 
 
 <dl class="param-type">
@@ -2092,7 +2137,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;order_return_value></span>
+<span class="param-type">Promise.&lt;empty_resource></span>
 
 
     </dd>
@@ -2107,7 +2152,7 @@
 
     
 
-    <h4 class="name" id="~updatePaymentStatus"><span class="type-signature">(inner) </span>updatePaymentStatus<span class="signature">(order_id, mail_me<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;order_return_value>}</span></h4>
+    <h4 class="name" id="~updatePaymentStatus"><span class="type-signature">(inner) </span>updatePaymentStatus<span class="signature">(order_id, mail_me<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;empty_resource>}</span></h4>
 
     
 
@@ -2119,7 +2164,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line180">line 180</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line204">line 204</a>
     </li></ul></dd>
     
 
@@ -2168,6 +2213,11 @@
 
 
 
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>//Send "Thank You, Drive Thru!" e-mail for order 1234 to a buyer and yourselfsendDriveThru(1234,true);</code></pre>
 
 
 
@@ -2293,6 +2343,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    - If successful, this method returns an empty "data".
+</div>
+
 
 
 <dl class="param-type">
@@ -2301,7 +2355,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;order_return_value></span>
+<span class="param-type">Promise.&lt;empty_resource></span>
 
 
     </dd>
@@ -2319,6 +2373,599 @@
 
         
                 
+<h4 class="name" id="~empty_resource">empty_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line249">line 249</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">meta</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">metadata of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data of the request should be empty</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~Feedback">Feedback</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line378">line 378</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>feedback_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An identification of the feedback</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>order_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ID of the order associated with the feedback</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>from</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The username of who posts this feedback</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>to</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The username of who receives this feedback</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>date_rated</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The time the feedback was posted</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rating</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The rating for a transaction (scale 0 to 2) (0: Praise, 1: Neutral, 2: Complaint)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>rating_of_bs</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Indicates whether the feedback is written for a seller or a buyer (S: Seller, B: Buyer)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>comment</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A comment associated with the feedback</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>reply</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A reply for this feedback</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~feedback_resource">feedback_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line242">line 242</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">meta</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">metadata of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Feedback></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data of the request</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
 <h4 class="name" id="~Item">Item</h4>
 
 
@@ -2330,7 +2977,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line287">line 287</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line342">line 342</a>
     </li></ul></dd>
     
 
@@ -2409,7 +3056,804 @@
 
             
 
-            <td class="description last"></td>
+            <td class="description last">The ID of the inventory that includes the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object representation of the item
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The name of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>category_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The main category of the item</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ID of the color of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color_name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Color name of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number of items purchased in this order</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>new_or_used</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Indicates whether the item is new or used</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>completeness</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Indicates whether the set is complete or incomplete
+ (This value is valid only for SET type)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unit_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The original price of this item per sale unit</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unit_price_final</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The unit price of this item after applying tiered pricing policy</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>disp_unit_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The original price of this item per sale unit in display currency of the user</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>disp_unit_price_final</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The unit price of this item after applying tiered pricing policy in display currency of the user</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>currency_code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The currency code of the price</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>disp_currency_code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The display currency code of the user</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>remarks</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">User remarks of the order item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>description</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">User description of the order item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>weight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The weight of the item that overrides the catalog weight</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~item_resource">item_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line229">line 229</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">meta</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">metadata of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Item></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data of the request</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~Message">Message</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line368">line 368</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>subject</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The subject of the message</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>body</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The contents of the message</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>from</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The username of who sends the message</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>to</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The username of who receives the message</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>dateSent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The time the message was sent</td>
         </tr>
 
     
@@ -2451,7 +3895,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line280">line 280</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line335">line 335</a>
     </li></ul></dd>
     
 
@@ -2618,7 +4062,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line201">line 201</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line256">line 256</a>
     </li></ul></dd>
     
 
@@ -4396,6 +5840,150 @@
 
             
                 
+<h4 class="name" id="~order_message_resource">order_message_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line235">line 235</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">meta</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">metadata of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Message></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data of the request</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
 <h4 class="name" id="~order_resource">order_resource</h4>
 
 
@@ -4407,7 +5995,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line196">line 196</a>
+        <a href="Order.js.html">Order.js</a>, <a href="Order.js.html#line223">line 223</a>
     </li></ul></dd>
     
 
@@ -4556,7 +6144,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 12:09:27 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 13:06:20 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
