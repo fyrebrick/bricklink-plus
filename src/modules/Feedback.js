@@ -89,7 +89,7 @@ const Feedback={
  * @typedef  feedback_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Feedback[]} data - data of the request
+ * @property {feedback[]} data - data of the request
  */
 
 /**
@@ -101,7 +101,7 @@ const Feedback={
 
 
 /**
- * @typedef Feedback
+ * @typedef feedback
  * @type {Object}
  * @property {number} feedback_id - An identification of the feedback
  * @property {number} order_id - The ID of the order associated with the feedback

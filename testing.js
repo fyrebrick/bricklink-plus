@@ -9,11 +9,7 @@ bricklinkPlus.setup({
 });
 
 //use .then()
-bricklinkPlus.api.feedback.postFeedback({
-    order_id:3986441,
-    rating:2,
-    comment:"test"
-}).then(part=>{
+bricklinkPlus.api.color.getColor(123).then(part=>{
     console.log(part);
 });
 

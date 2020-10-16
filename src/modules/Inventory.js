@@ -280,7 +280,7 @@ const Inventory= {
  * @typedef inventory_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Inventory[]} data - data of the request
+ * @property {inventory_item[]} data - data of the request
  */
 
 /**
@@ -291,7 +291,7 @@ const Inventory= {
  */
 
 /**
- * @typedef Item
+ * @typedef inventory_item
  * @type {Object}
  * @property {number} inventory_id - The ID of the inventory
  * @property {Object} item - An object representation of the item

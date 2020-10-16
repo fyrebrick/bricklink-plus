@@ -42,7 +42,7 @@ const Order ={
      * @example
      * //Retrieves a list of received and filed orders in COMPETED status
      * getOrders({filed:true,status:"completed"});
-     * @returns {Promise<order_resource>} If successful, this method returns a list of the the summary of an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
+     * @returns {Promise<order_item_resource>} If successful, this method returns a list of the the summary of an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_item_resource} as "data" in the response body.
 
      */
     getOrders:({direction= "in",status=undefined,filed=false}={direction:"in",status:undefined,filed:false})=>{
@@ -69,7 +69,7 @@ const Order ={
      * @example
      * // Retrieves order # 1234
      * getOrder(1234);
-     * @returns {Promise<order_resource>} If successful, this method returns an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
+     * @returns {Promise<order_item_resource>} If successful, this method returns an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_item_resource} as "data" in the response body.
      */
     getOrder:(order_id)=>{
         let uri = base_url+"/orders/"+order_id;
@@ -85,7 +85,7 @@ const Order ={
      * @example
      * //Retrieves a list of items for order #1234
      * getOrderItems(1234);
-     * @returns {Promise<item_resource>} If successful, this method returns a list of [items]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Item} batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
+     * @returns {Promise<item_resource>} If successful, this method returns a list of [items]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~item} batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
      */
     getOrderItems:(order_id)=>{
         let uri = base_url+"/orders/"+order_id+"/items";
@@ -229,27 +229,27 @@ const Order ={
 /** @typedef order_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Order[]} data - data of the request
+ * @property {order[]} data - data of the request
  * */
 
-/** @typedef item_resource
+/** @typedef order_item_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Item[]} data - data of the request
+ * @property {order_item[]} data - data of the request
  * */
 
 /**
  * @typedef order_message_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Message[]} data - data of the request
+ * @property {message[]} data - data of the request
  */
 
 /**
  * @typedef feedback_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Feedback[]} data - data of the request
+ * @property {feedback[]} data - data of the request
  */
 
 /**
@@ -260,7 +260,7 @@ const Order ={
  */
 
 /**
- * @typedef Order
+ * @typedef order
  * @type {Object}
  * @property {string} order_id - Unique identifier for this order for internal use
  * @property {Date} date_ordered - The time the order was created
@@ -339,7 +339,7 @@ const Order ={
  **/
 
 /**
- * @typedef Item
+ * @typedef order_item
  * @type {Object}
  * @property {number} inventory_id - The ID of the inventory that includes the item
  * @property {Object} item - An object representation of the item
@@ -365,7 +365,7 @@ const Order ={
  */
 
 /**
- * @typedef Message
+ * @typedef message
  * @type {Object}
  * @property {string} subject - The subject of the message
  * @property {string} body - The contents of the message
@@ -375,7 +375,7 @@ const Order ={
  */
 
 /**
- * @typedef Feedback
+ * @typedef feedback
  * @type {Object}
  * @property {number} feedback_id - An identification of the feedback
  * @property {number} order_id - The ID of the order associated with the feedback

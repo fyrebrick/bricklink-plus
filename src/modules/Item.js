@@ -17,7 +17,7 @@ const Item ={
      * @example
      * //Retrieves SET #1-1
      * getItem("SET","1-1");
-     * @returns {Promise<item_resource>} If successful, this method returns a catalog item as "data" in the response body.
+     * @returns {Promise<catalog_item_resource>} If successful, this method returns a catalog item as "data" in the response body.
      */
     getItem:(item_type,item_no)=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no;
@@ -32,7 +32,7 @@ const Item ={
      * @param {string} item_type - The type of the item to get.
      * @param {string} item_no - Identification number of the item to get
      * @param {string} color_id - The ID of the color of the item
-     * @returns {Promise<item_resource>} If successful, this method returns a catalog item as "data" in the response body.
+     * @returns {Promise<catalog_item_resource>} If successful, this method returns a catalog item as "data" in the response body.
      */
     getItemImage:(item_type,item_no,color_id)=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no+"/images/"+color_id;
@@ -203,31 +203,31 @@ const Item ={
 };
 
 /**
- * @typedef item_resource
+ * @typedef catalog_item_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Item[]} data - data of the request
+ * @property {catalog_item[]} data - data of the request
  */
 
 /**
  * @typedef superset_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Superset[]} data - data of the request
+ * @property {superset[]} data - data of the request
  */
 
 /**
  * @typedef subset_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Subset[]} data - data of the request
+ * @property {subset[]} data - data of the request
  */
 
 /**
  * @typedef price_guide_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Price_guide[]} data - data of the request
+ * @property {price_guide[]} data - data of the request
  */
 
 /**
@@ -238,7 +238,7 @@ const Item ={
  */
 
 /**
- * @typedef Price_guide
+ * @typedef price_guide
  * @type {Object}
  * @property {Object} item - An object representation of the item
  * @property {string} item.no - Item's identification number in BL catalog
@@ -271,7 +271,7 @@ const Item ={
  */
 
 /**
- * @typedef Subset
+ * @typedef subset
  * @type {Object}
  * @property {number} match_no - A identification number given to a matching group that consists of regular items and alternate items. (0 if there is no matching of alternative item)
  * @property {Array} entries - A list of the items included in the specified item
@@ -287,7 +287,7 @@ const Item ={
  */
 
 /**
- * @typedef Superset
+ * @typedef superset
  * @type {Object}
  * @property {number} color_id - The ID of the color of the item
  * @property {Array} entries - A list of the items that include the specified item
@@ -301,7 +301,7 @@ const Item ={
  */
 
 /**
- * @typedef Item
+ * @typedef catalog_item
  * @type {Object}
  * @property {string} no - Item's identification number in BrickLink catalog
  * @property {string} name - The name of the item
