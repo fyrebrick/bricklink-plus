@@ -6,6 +6,8 @@ The extended api that is build extra on top of it is called 'plus'.
 
 extended api (plus) is in development
 
+You can find the documentation [here](https://snakehead007.github.io/bricklink-plus/).
+
 setup
 ---
 Initialize a client with your OAuth credentials as supplied at the following:
