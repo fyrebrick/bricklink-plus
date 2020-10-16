@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~createInventories">createInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~createInventory">createInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~deleteInventory">deleteInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventory">getInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~updateInventory">updateInventory</a></li></ul></li><li><a href="module-api_item.html">api/item</a><ul class='methods'><li data-type='method'><a href="module-api_item.html#~getItem">getItem</a></li><li data-type='method'><a href="module-api_item.html#~getItemImage">getItemImage</a></li><li data-type='method'><a href="module-api_item.html#~getSubsets">getSubsets</a></li><li data-type='method'><a href="module-api_item.html#~getSupersets">getSupersets</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~createInventories">createInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~createInventory">createInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~deleteInventory">deleteInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventory">getInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~updateInventory">updateInventory</a></li></ul></li><li><a href="module-api_item.html">api/item</a><ul class='methods'><li data-type='method'><a href="module-api_item.html#~getItem">getItem</a></li><li data-type='method'><a href="module-api_item.html#~getItemImage">getItemImage</a></li><li data-type='method'><a href="module-api_item.html#~getKnownColors">getKnownColors</a></li><li data-type='method'><a href="module-api_item.html#~getPriceGuide">getPriceGuide</a></li><li data-type='method'><a href="module-api_item.html#~getSubsets">getSubsets</a></li><li data-type='method'><a href="module-api_item.html#~getSupersets">getSupersets</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li></ul>
 </nav>
 
 <div id="main">
@@ -540,6 +540,630 @@
     <dd>
         
 <span class="param-type">Promise.&lt;item_resource></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getKnownColors"><span class="type-signature">(inner) </span>getKnownColors<span class="signature">(item_type, item_no)</span><span class="type-signature"> &rarr; {Promise.&lt;known_color_resource>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line190">line 190</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    This method returns currently known colors of the item
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the item.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>item_no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Identification number of the item</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    If successful, this method returns a list of known color as "data" in the response body.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;known_color_resource></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getPriceGuide"><span class="type-signature">(inner) </span>getPriceGuide<span class="signature">(item_type, item_no, color_id, guide_type<span class="signature-attributes">opt</span>, new_or_used<span class="signature-attributes">opt</span>, country_code<span class="signature-attributes">opt</span>, region<span class="signature-attributes">opt</span>, currency_code<span class="signature-attributes">opt</span>, vat<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;price_guide_resource>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line108">line 108</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    This method returns the price statistics of the specified item in BrickLink catalog. <strike>Note that returned price does not include VAT</strike>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>//Retrieves price statistics(currently for sale) of PART #3001old in new conditiongetPriceGuide("part","3001old");</code></pre>
+
+    <pre class="prettyprint"><code>//Retrieves price statistics(currently for sale) of PART #3001old in used conditiongetPriceGuide("part","3001old",{new_or_used:"U"});</code></pre>
+
+    <pre class="prettyprint"><code>//Retrieves price statistics(last 6 months sales) of PART #3001old in new conditiongetPriceGuide("part","3001old",{guide_type:"sold"});</code></pre>
+
+    <pre class="prettyprint"><code>//Retrieves price statistics(last 6 months sales) of PART #3001old in new condition that are ordered from stores which are located in US.getPriceGuide("part","3001old",{guide_type:"sold",country_code:"US"});</code></pre>
+
+    <pre class="prettyprint"><code>//Retrieves price statistics(currently for sale) of PART #3001old in new condition that are currently for sale in stores which are located in Asia.getPriceGuide("part","3001old"{region:"asia"});</code></pre>
+
+    <pre class="prettyprint"><code>//Retrieves price statistics(currently for sale in USD) of PART #3001old in new conditiongetPriceGuide("part","3001old",{currency_code:"USD"});</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The type of the item.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>item_no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Identification number of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The color of the item</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>guide_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Indicates that which statistics to be provided. Acceptable values are:<ul>    <li>"sold": Gets the price statistics of "Last 6 Months Sales"</li>    <li>"stock": Gets the price statistics of "Current Items for Sale" (default)</li></ul></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>new_or_used</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Indicates the condition of items that are included in the statistics. Acceptable values are:<ul>    <li>"N": new item (default)</li>    <li>"U": used item</li></ul></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>country_code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The result includes only items in stores which are located in specified country.<ul>    <li>If you don't specify both country_code and region, this method retrieves the price information regardless of the store's location</li></ul></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>region</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The result includes only items in stores which are located in specified region.<ul>    <li>Available values are: asia, africa, north_america, south_america, middle_east, europe, eu, oceania</li>    <li>If you don't specify both country_code and region, this method retrieves the price information regardless of the store's location</li></ul></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>currency_code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">This method returns price in the specified currency code<ul>    <li>If you don't specify this value, price is retrieved in the base currency of the user profile's</li></ul></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>vat</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Indicates that price will include VAT for the items of VAT enabled stores. Available values are:<ul>    <li>"N": Exclude VAT (default)</li>    <li>"Y": Include VAT</li>    <li>"O": Include VAT as Norway settings</li></ul></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    If successful, this method returns a price guide resource as "data" in the response body.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;price_guide_resource></span>
 
 
     </dd>
@@ -1174,7 +1798,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line203">line 203</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line303">line 303</a>
     </li></ul></dd>
     
 
@@ -1617,7 +2241,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line144">line 144</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line205">line 205</a>
     </li></ul></dd>
     
 
@@ -1750,6 +2374,150 @@
 
             
                 
+<h4 class="name" id="~known_color_resource">known_color_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line233">line 233</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Color ID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The quantity of items in that color</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
 <h4 class="name" id="~meta">meta</h4>
 
 
@@ -1761,7 +2529,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line165">line 165</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line265">line 265</a>
     </li></ul></dd>
     
 
@@ -1917,6 +2685,758 @@
 
             
                 
+<h4 class="name" id="~Price_guide">Price_guide</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line240">line 240</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object representation of the item
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Item's identification number in BL catalog</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the item</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>new_or_used</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Indicates whether the price guide is for new or used (N: New, U: Used)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>currency_code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The currency code of the price</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>min_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The lowest price of the item (in stock / that was sold for last 6 months )</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>max_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The highest price of the item (in stock / that was sold for last 6 months )</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>avg_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The average price of the item (in stock / that was sold for last 6 months )</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>qty_avg_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The average price of the item (in stock / that was sold for last 6 months ) by quantity</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unit_quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number of times the item has been sold for last 6 months<p>The number of inventories that include the item</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>total_quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The number of items has been sold for last 6 months<p>The total number of the items in stock</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>price_detail</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A list of objects that represent the detailed information of the price
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>quantity</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The number of the items in the inventory</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>unit_price</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The original price of this item per sale unit</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>shipping_available</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">(Current Items for Sale) Indicates whether or not the seller ships to your country(based on the user profile)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>seller_country_code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">(Last 6 Months Sales) The country code of the seller's location</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>buyer_country_code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">(Last 6 Months Sales) The country code of the buyer's location</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>date_ordered</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">(Last 6 Months Sales) The time the order was created</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~price_guide_resource">price_guide_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line226">line 226</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">meta</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">metadata of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;Price_guide></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data of the request</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
 <h4 class="name" id="~Subset">Subset</h4>
 
 
@@ -1928,7 +3448,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line173">line 173</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line273">line 273</a>
     </li></ul></dd>
     
 
@@ -2329,7 +3849,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line158">line 158</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line219">line 219</a>
     </li></ul></dd>
     
 
@@ -2473,7 +3993,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line189">line 189</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line289">line 289</a>
     </li></ul></dd>
     
 
@@ -2828,7 +4348,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line151">line 151</a>
+        <a href="Item.js.html">Item.js</a>, <a href="Item.js.html#line212">line 212</a>
     </li></ul></dd>
     
 
@@ -2977,7 +4497,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Oct 15 2020 21:35:57 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Fri Oct 16 2020 09:52:02 GMT+0200 (Central European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
