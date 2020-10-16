@@ -6,7 +6,7 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
         if (!oauth) {
             reject("Setup is unsuccessful, please check the .setup() method");
         }
-        console.log(method,uri,body,content_type);
+        console.log(method,uri,JSON.stringify(body),content_type);
         switch (String(method).toUpperCase()) {
             case "DELETE":
                 oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, content_type, function (err, data) {
