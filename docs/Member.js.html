@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Item_mapping.js - Documentation</title>
+    <title>Member.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Item_mapping.js</h1>
+    <h1 class="page-title">Member.js</h1>
     
 
     
@@ -44,81 +44,145 @@
         <article>
             <pre class="prettyprint source linenums"><code>const {makeCall} = require( "../functions/callApi");
 base_url = "https://api.bricklink.com/api/store/v1";
-
 /**
- * The api.item_mapping module.
- * &lt;p>Please note followings:&lt;/p>
- * &lt;ul>
- *     &lt;li>It does not guarantee that you can get the complete mapping of items&lt;/li>
- *     &lt;li>It provides item mappings only for PARTs&lt;/li>
- *     &lt;li>Item mapping may not be one-to-one&lt;/li>
- * &lt;/ul>
- * @module api/item_mapping
- *
+ * The api.member module.
+ * @module api/member
  */
-const Item_mapping={
+const Member={
 
     /**
-     *
-     * @method getElementID
-     * @description This method returns Part-Color-Code(A.K.A ElementID) of the specified item
-     * @param {string} type - The type of an item to get. Acceptable values are: PART
-     * @param {string} item_no - Identification number of an item to get
-     * @param {number} [color_id] - Color ID of an item. If not specified, API retrieves element IDs of an item in any colors.
-     * @example
-     * //Retrieves a list of element IDs of PART #1234 in any colors
-     * getElementID("part","1234");
-     * @example
-     * //Retrieves element ID of PART #1234 with color #1
-     * getElementID("part","1234",1);
-     * @returns {Promise&lt;item_mapping_resource>} f successful, this method returns a item mapping resource as "data" in the response body.
+     * @method getMemberRating
+     * @description This method retrieves feedback ratings of a specific member
+     * @param {string} username - username in BrickLink
+     * //Retrieves feedback ratings of "bluser"
+     * getMemberRating("bluser");
+     * @returns {Promise&lt;rating_resource>} If successful, this method returns a list of the the rating resource as "data" in the response body.
      */
-    getElementID:(type,item_no,color_id=undefined)=>{
-        let uri = base_url+"/item_mapping/"+type+"/"+item_no+"?";
-        if(color_id){
-            uri+="color_id="+color_id
-        }
+    getMemberRating:(username)=>{
+        let uri = base_url+"/members/"+username+"/ratings";
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
+
     /**
-     * @method getItemNumber
-     * @description This method returns BL Catalog Item Number by Part-Color-Code(A.K.A ElementID)
-     * @param {string} element_id - Element ID of the item in specific color
+     * @method getMemberNote
+     * @description This method retrieves your notes on a member
+     * @param username - username in BrickLink
      * @example
-     * //Retrieves a list of item number, color id mapping of elementID #1234
-     * getItemNumber(1234);
-     * @returns {Promise&lt;item_mapping_resource>} If successful, this method returns a item mapping resource as "data" in the response body.
+     * //Retrieves your notes on user "bluser"
+     * getMemberNote("bluser");
+     * @returns {Promise&lt;note_resource>} If successful, this method returns a note resource as "data" in the response body.
      */
-    getItemNumber:(element_id)=>{
-        let uri = base_url+"/item_mapping/"+element_id;
+    getMemberNote:(username)=>{
+        let uri = base_url+"/members/"+username+"/my_notes";
         return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    /**
+     * @method createMemberNote
+     * @description Creates new member notes about the specified user
+     * @param {string} username - username in Bricklink
+     * @param {Object} request_body - the request_body given with properties to create a member note
+     * @param {number} request_body.note_id -
+     * @param {string} request_body.user_name -
+     * @param {string} request_body.note_text -
+     * @param {string} request_body.date_noted -
+     * @returns {Promise&lt;unknown>}
+     */
+    createMemberNote:(username,request_body={})=>{
+        let uri = base_url+"/members/"+username+"/my_notes";
+        return makeCall(uri, "POST",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    /**
+     * @method updateMemberNote
+     * @description This method updates properties of your member notes on the specified user
+     * @param {string} username - username in BrickLink
+     * @param {Object} request_body - In the request body, supply a note resource.
+     * @param {number} request_body.note_id -
+     * @param {string} request_body.user_name -
+     * @param {string} request_body.note_text -
+     * @param {string} request_body.date_noted -
+     * @returns {Promise&lt;note_resource>} If successful, this method returns a note resource as "data" in the response body.
+     */
+    updateMemberNote:(username,request_body={})=>{
+        let uri = base_url+"/members/"+username+"/my_notes";
+        return makeCall(uri, "POST",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    /**
+     * @method deleteMemberNote
+     * @description This method deletes the notes on the specified user.
+     * @param {string} username - username in BrickLink
+     * @example
+     * //Deletes notes on user "bluser"
+     * deleteMemberNote("bluser");
+     * @returns {Promise&lt;empty_resource>} If successful, this method returns an empty "data".
+     */
+    deleteMemberNote:(username)=>{
+        let uri = base_url+"/members/"+username+"/my_notes";
+        return makeCall(uri, "DELETE").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
 };
 
-/**
- * @typedef  item_mapping_resource
+/** @typedef rating_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {item_mapping_resource} data - data of the request
+ * @property {rating} data - data of the request
+ **/
+
+/**
+ * @typedef note_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {note} data - data of the request
  */
 
 /**
- * @typedef store_shipping_method
+ * @typedef empty_resource
  * @type {Object}
- * @property {object} item - An object representation of the item
- * @property {string} item.no - Item's identification number in BrickLink catalog
- * @property {string} item.type - The type of the item (PART)
- * @property {number} color_id - Color ID of the item
- * @property {string} color_name - Color name of the item
- * @property {string} element_id - Element ID of the item in specific color
+ * @property {meta} meta - metadata of the request
+ * @property {Array} data - data of the request should be empty
  */
 
 
-module.exports.Item_mapping = Item_mapping;
+/**
+ * @typedef rating
+ * @type {Object}
+ * @property {string} user_name -
+ * @property {Object} rating -
+ * @property {number} NEUTRAL -
+ * @property {number} COMPLAINT -
+ * @property {number} PRAISE -
+ **/
+
+/**
+ * @typedef note
+ * @type {Object}
+ * @property {number} note_id -
+ * @property {string} user_name -
+ * @property {string} note_text -
+ * @property {string} date_noted -
+ */
+
+/** @typedef meta
+ * @type {Object}
+ * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
+ * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
+ * @property {number} code - status code of the request.
+ **/
+
+
+module.exports.Member = Member;
 </code></pre>
         </article>
     </section>

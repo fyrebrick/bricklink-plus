@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>api/item_mapping - Documentation</title>
+    <title>Global - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">api/item_mapping</h1>
+    <h1 class="page-title">Global</h1>
     
 
     
@@ -44,8 +44,9 @@
 
 <header>
     
+        <h2>
         
-            
+        </h2>
         
     
 </header>
@@ -55,22 +56,9 @@
         <div class="container-overview">
         
             
-                <div class="description usertext">The api.item_mapping module.<p>Please note followings:</p><ul>    <li>It does not guarantee that you can get the complete mapping of items</li>    <li>It provides item mappings only for PARTs</li>    <li>Item mapping may not be one-to-one</li></ul></div>
-            
-
-            
-                
-
-
-
 
 <dl class="details">
 
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line4">line 4</a>
-    </li></ul></dd>
     
 
     
@@ -107,33 +95,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
 
             
         
@@ -153,6 +115,83 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id="Notification"><span class="type-signature">(constant) </span>Notification<span class="type-signature"> :Object</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Notification.js.html">Notification.js</a>, <a href="Notification.js.html#line30">line 30</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    The api.notification module<p>This method returns a list of unread push notifications. </p><p>If you provided callback URLs to get notifications, you don't need to call this method.</p><p>A notification to be created when:</p><ul>    <li>        Order<ul>            <li>You received a new order.</li>            <li>Buyer updates an order status.</li>            <li>Items of an order are updated (added or deleted).</li>            </ul>    </li>    <li>        Message<ul>            <li>You received a new message.</li>            </ul>    </li>    <li>        Feedback<ul>            <li>You received a new feedback or reply</li>            </ul>    </li></ul><strong>However, assure that it does not guarantee delivery of all events.</strong>
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -162,7 +201,7 @@
 
     
 
-    <h4 class="name" id="~getElementID"><span class="type-signature">(inner) </span>getElementID<span class="signature">(type, item_no, color_id<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;item_mapping_resource>}</span></h4>
+    <h4 class="name" id="getNotifications"><span class="type-signature"></span>getNotifications<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;<a href="global.html#push_notification_resource">push_notification_resource</a>>}</span></h4>
 
     
 
@@ -174,7 +213,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line17">line 17</a>
+        <a href="Notification.js.html">Notification.js</a>, <a href="Notification.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -214,246 +253,7 @@
 
 
 <div class="description usertext">
-    This method returns Part-Color-Code(A.K.A ElementID) of the specified item
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Examples</h5>
-    
-    <pre class="prettyprint"><code>//Retrieves a list of element IDs of PART #1234 in any colorsgetElementID("part","1234");</code></pre>
-
-    <pre class="prettyprint"><code>//Retrieves element ID of PART #1234 with color #1getElementID("part","1234",1);</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">The type of an item to get. Acceptable values are: PART</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>item_no</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Identification number of an item to get</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>color_id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-
-            <td class="description last">Color ID of an item. If not specified, API retrieves element IDs of an item in any colors.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    f successful, this method returns a item mapping resource as "data" in the response body.
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;item_mapping_resource></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="~getItemNumber"><span class="type-signature">(inner) </span>getItemNumber<span class="signature">(element_id)</span><span class="type-signature"> &rarr; {Promise.&lt;item_mapping_resource>}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line41">line 41</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    This method returns BL Catalog Item Number by Part-Color-Code(A.K.A ElementID)
+    Retrieves a list of unread push notifications
 </div>
 
 
@@ -466,58 +266,9 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//Retrieves a list of item number, color id mapping of elementID #1234getItemNumber(1234);</code></pre>
+    <pre class="prettyprint"><code>//Retrieved notificationsgetNotifications();</code></pre>
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>element_id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Element ID of the item in specific color</td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -538,7 +289,7 @@
 
         
 <div class="param-desc">
-    If successful, this method returns a item mapping resource as "data" in the response body.
+    If successful, this method returns a list of push notification resources as "data" in the response body.
 </div>
 
 
@@ -549,7 +300,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;item_mapping_resource></span>
+<span class="param-type">Promise.&lt;<a href="global.html#push_notification_resource">push_notification_resource</a>></span>
 
 
     </dd>
@@ -567,7 +318,7 @@
 
         
                 
-<h4 class="name" id="~item_mapping_resource">item_mapping_resource</h4>
+<h4 class="name" id="meta">meta</h4>
 
 
 
@@ -578,7 +329,341 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line58">line 58</a>
+        <a href="Notification.js.html">Notification.js</a>, <a href="Notification.js.html#line62">line 62</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>description</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">description of how to request went, if the request gave an error it will describe were or wat the error was.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>message</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>code</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">status code of the request.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="push_notification">push_notification</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Notification.js.html">Notification.js</a>, <a href="Notification.js.html#line54">line 54</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>event_type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the event (Order, Message, Feedback)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>resource_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ID of the resource associated with the event</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>timestamp</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Date</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The time the event occurred</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="push_notification_resource">push_notification_resource</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Notification.js.html">Notification.js</a>, <a href="Notification.js.html#line47">line 47</a>
     </li></ul></dd>
     
 
@@ -670,7 +755,7 @@
             <td class="type">
             
                 
-<span class="param-type">item_mapping_resource</span>
+<span class="param-type">Array.&lt;<a href="global.html#push_notification">push_notification</a>></span>
 
 
             
@@ -681,267 +766,6 @@
             
 
             <td class="description last">data of the request</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-            
-                
-<h4 class="name" id="~store_shipping_method">store_shipping_method</h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line65">line 65</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>item</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">An object representation of the item
-                <h6>Properties</h6>
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>no</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Item's identification number in BrickLink catalog</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The type of the item (PART)</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>color_id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Color ID of the item</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>color_name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Color name of the item</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>element_id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Element ID of the item in specific color</td>
         </tr>
 
     
