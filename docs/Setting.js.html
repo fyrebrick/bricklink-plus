@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>Feedback.js - Documentation</title>
+    <title>Setting.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Feedback.js</h1>
+    <h1 class="page-title">Setting.js</h1>
     
 
     
@@ -45,117 +45,70 @@
             <pre class="prettyprint source linenums"><code>const {makeCall} = require( "../functions/callApi");
 base_url = "https://api.bricklink.com/api/store/v1";
 /**
- * The api.feedback module
- * @module api/feedback
+ * The api.setting module.
+ * @module api/setting
  */
-const Feedback={
+const Setting={
     /**
-     * @method getFeedbackList
-     * @description This method gets a list of feedback you received or posted.
-     * @param {string} [direction="in"] - The direction of the feedback to get. Acceptable values are:
-     * &lt;ul>
-     *     &lt;li>"out": Gets posted feedback.&lt;/li>
-     *     &lt;li>"in": Gets received feedback. (default)&lt;/li>
-     * &lt;/ul>
+     * @method getShippingMethodList
+     * @description This method retrieves a list of shipping method you registered.
      * @example
-     * //Retrieves a list of feedback you received
-     * getFeedbackList();
-     * @example
-     * //Retrieves a list of feedback you posted
-     * getFeedbackList("out");
-     * @returns {Promise&lt;feedback_resource>} If successful, this method returns a list of feedback resource as "data" in the response body.
+     * //Retrieves a list of shipping method you registered.
+     * getShippingMethodList();
+     * @returns {Promise&lt;shipping_method_list_resource>} If successful, this method returns a list of shipping method resource as "data" in the response body.
      */
-    getFeedbackList:(direction="in")=>{
-        let uri = base_url+"/feedback?direction="+direction;
+    getShippingMethodList:()=>{
+        let uri = base_url+"/shipping_methods";
         return makeCall(uri, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
+
     /**
-     * @method getFeedback
-     * @description This method gets a specified feedback.
-     * @param {number} feedback_id - The ID of the feedback to get
+     * @method getShippingMethod
+     * @description This method retrieves the specified shipping method of your store
+     * @param {number} method_id - The ID of the shipping method to get
      * @example
-     * //Retrieves a specific feedback with feedback ID #1234
-     * getFeedback(1234);
-     * @returns {Promise&lt;feedback_resource>} If successful, this method returns feedback resource as "data" in the response body
+     * //Retrieves shipping method 123
+     * getShippingMethod(123);
+     * @returns {Promise&lt;shipping_method_resource>} If successful, this method returns shipping method resource as "data" in the response body.
      */
-    getFeedback:(feedback_id)=>{
-        let uri = base_url+"/feedback/"+feedback_id;
+    getShippingMethod:(method_id)=>{
+        let uri = base_url+"/shipping_methods/"+method_id;
         return makeCall(uri, "GET").catch((err) => {
-            console.trace("Promise call rejected: ", err);
-        });
-    },
-    /**
-     * @method postFeedback
-     * @description This method posts a new feedback about the transaction.
-     * @param {number} order_id - The ID of the order associated with the feedback
-     * @param {number} rating - The rating for a transaction (scale 0 to 2) (0: Praise, 1: Neutral, 2: Complaint)
-     * @param {string} comment - A comment associated with the feedback
-     * @example
-     * //Creates a new feedback
-     *  feedback.postFeedback({
-     *   order_id:3986441,
-     *   rating:2,
-     *   comment:"test"
-     *   }
-     * @returns {Promise&lt;feedback_resource>}
-     */
-    postFeedback:({
-        order_id,
-        rating,
-        comment
-    })=>{
-        let uri = base_url+"/feedback/";
-        return makeCall(uri, "POST",{order_id:order_id,rating:rating,comment:comment}).catch((err) => {
-            console.trace("Promise call rejected: ", err);
-        });
-    },
-    /**
-     * @method replyFeedback
-     * @description This method creates a reply to the specified feedback you received.
-     * @param {number} feedback_id - The ID of the feedback to post a reply
-     * @param {string} reply - The ID of the feedback to post a reply
-     * @example
-     * //Creates a new reply for feedback #1234
-     * replyFeedback(1234,"my feedback reply");
-     * @returns {Promise&lt;empty_resource>} -If successful, this method returns an empty "data".
-     */
-    replyFeedback:(feedback_id, reply)=>{
-        let uri = base_url+"/feedback/"+feedback_id+"/reply";
-        return makeCall(uri, "POST",{reply:reply}).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
 };
-
 /**
- * @typedef  feedback_resource
+ * @typedef  shipping_method_list_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {feedback[]} data - data of the request
+ * @property {store_shipping_method[]} data - data of the request
  */
 
 /**
- * @typedef empty_resource
+ * @typedef  shipping_method_resource
  * @type {Object}
  * @property {meta} meta - metadata of the request
- * @property {Array} data - data of the request should be empty
+ * @property {store_shipping_method} data - data of the request
  */
 
-
 /**
- * @typedef feedback
+ * @typedef store_shipping_method
  * @type {Object}
- * @property {number} feedback_id - An identification of the feedback
- * @property {number} order_id - The ID of the order associated with the feedback
- * @property {string} from - The username of who posts this feedback
- * @property {string} to - The username of who receives this feedback
- * @property {Date} date_rated - The time the feedback was posted
- * @property {number} rating - The rating for a transaction (scale 0 to 2) (0: Praise, 1: Neutral, 2: Complaint)
- * @property {string} rating_of_bs - Indicates whether the feedback is written for a seller or a buyer (S: Seller, B: Buyer)
- * @property {string} comment - A comment associated with the feedback
- * @property {string} reply - A reply for this feedback
+ * @property {number} method_id - Shipping method id
+ * @property {string} name - 	Display name for shipping method
+ * @property {string} note - A description of the shipping method that can be displayed to buyers
+ * @property {boolean} insurance -
+ * @property {boolean} is_default -
+ * @property {string} area -
+ * &lt;ul>
+ *     &lt;li>I: international&lt;/li>
+ *     &lt;li>D: domestic&lt;/li>
+ *     &lt;li>B: both&lt;/li>
+ * &lt;/ul>
+ * @property {string} is_available -
  */
 
 /** @typedef meta
@@ -165,7 +118,8 @@ const Feedback={
  * @property {number} code - status code of the request.
  */
 
-module.exports.Feedback = Feedback;
+
+module.exports.Setting = Setting;
 </code></pre>
         </article>
     </section>
