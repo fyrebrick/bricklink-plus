@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>api/color - Documentation</title>
+    <title>api/item_mapping - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">api/color</h1>
+    <h1 class="page-title">api/item_mapping</h1>
     
 
     
@@ -55,7 +55,7 @@
         <div class="container-overview">
         
             
-                <div class="description usertext">The api.color module.</div>
+                <div class="description usertext">The api.item_mapping module.<p>Please note followings:</p><ul>    <li>It does not guarantee that you can get the complete mapping of items</li>    <li>It provides item mappings only for PARTs</li>    <li>Item mapping may not be one-to-one</li></ul></div>
             
 
             
@@ -69,7 +69,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Color.js.html">Color.js</a>, <a href="Color.js.html#line3">line 3</a>
+        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -162,7 +162,7 @@
 
     
 
-    <h4 class="name" id="~getColor"><span class="type-signature">(inner) </span>getColor<span class="signature">(color_id)</span><span class="type-signature"> &rarr; {Promise.&lt;single_color_resource>}</span></h4>
+    <h4 class="name" id="~getElementID"><span class="type-signature">(inner) </span>getElementID<span class="signature">(type, item_no, color_id<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise.&lt;item_mapping_resource>}</span></h4>
 
     
 
@@ -174,7 +174,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Color.js.html">Color.js</a>, <a href="Color.js.html#line23">line 23</a>
+        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -214,7 +214,246 @@
 
 
 <div class="description usertext">
-    This method retrieves information about a specific color.
+    This method returns Part-Color-Code(A.K.A ElementID) of the specified item
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>//Retrieves a list of element IDs of PART #1234 in any colorsgetElementID("part","1234");</code></pre>
+
+    <pre class="prettyprint"><code>//Retrieves element ID of PART #1234 with color #1getElementID("part","1234",1);</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The type of an item to get. Acceptable values are: PART</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>item_no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Identification number of an item to get</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Color ID of an item. If not specified, API retrieves element IDs of an item in any colors.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    f successful, this method returns a item mapping resource as "data" in the response body.
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;item_mapping_resource></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getItemNumber"><span class="type-signature">(inner) </span>getItemNumber<span class="signature">(element_id)</span><span class="type-signature"> &rarr; {Promise.&lt;item_mapping_resource>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line41">line 41</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    This method returns BL Catalog Item Number by Part-Color-Code(A.K.A ElementID)
 </div>
 
 
@@ -227,7 +466,7 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>//Retrieves color #123getColor(123);</code></pre>
+    <pre class="prettyprint"><code>//Retrieves a list of item number, color id mapping of elementID #1234getItemNumber(1234);</code></pre>
 
 
 
@@ -257,13 +496,13 @@
 
         <tr>
             
-                <td class="name"><code>color_id</code></td>
+                <td class="name"><code>element_id</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">number</span>
+<span class="param-type">string</span>
 
 
             
@@ -273,7 +512,7 @@
 
             
 
-            <td class="description last">The ID of the color to get</td>
+            <td class="description last">Element ID of the item in specific color</td>
         </tr>
 
     
@@ -299,7 +538,7 @@
 
         
 <div class="param-desc">
-    If successful, this method returns color resource as "data" in the response body.
+    If successful, this method returns a item mapping resource as "data" in the response body.
 </div>
 
 
@@ -310,121 +549,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;single_color_resource></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="~getColorList"><span class="type-signature">(inner) </span>getColorList<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;color_resource>}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Color.js.html">Color.js</a>, <a href="Color.js.html#line8">line 8</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description usertext">
-    This method retrieves a list of the colors defined within BrickLink catalog.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>//Retrieves a list of colors defined within BrickLink cataloggetColorList();</code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    If successful, this method returns a list of color resource as "data" in the response body.
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;color_resource></span>
+<span class="param-type">Promise.&lt;item_mapping_resource></span>
 
 
     </dd>
@@ -442,7 +567,7 @@
 
         
                 
-<h4 class="name" id="~color">color</h4>
+<h4 class="name" id="~item_mapping_resource">item_mapping_resource</h4>
 
 
 
@@ -453,7 +578,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Color.js.html">Color.js</a>, <a href="Color.js.html#line54">line 54</a>
+        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line58">line 58</a>
     </li></ul></dd>
     
 
@@ -516,6 +641,244 @@
 
         <tr>
             
+                <td class="name"><code>meta</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">meta</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">metadata of the request</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">item_mapping_resource</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">data of the request</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+            
+                
+<h4 class="name" id="~store_shipping_method">store_shipping_method</h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="Item_mapping.js.html">Item_mapping.js</a>, <a href="Item_mapping.js.html#line65">line 65</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>item</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object representation of the item
+                <h6>Properties</h6>
+
+<table class="props">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>no</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Item's identification number in BrickLink catalog</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>type</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The type of the item (PART)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
                 <td class="name"><code>color_id</code></td>
             
 
@@ -532,7 +895,7 @@
 
             
 
-            <td class="description last">ID of the color</td>
+            <td class="description last">Color ID of the item</td>
         </tr>
 
     
@@ -555,14 +918,14 @@
 
             
 
-            <td class="description last">The name of the color</td>
+            <td class="description last">Color name of the item</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>color_code</code></td>
+                <td class="name"><code>element_id</code></td>
             
 
             <td class="type">
@@ -578,485 +941,7 @@
 
             
 
-            <td class="description last">HTML color code of this color</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>color_type</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of the color group that this color belongs to</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-            
-                
-<h4 class="name" id="~color_resource">color_resource</h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Color.js.html">Color.js</a>, <a href="Color.js.html#line40">line 40</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>meta</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">meta</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">metadata of the request</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Array.&lt;color></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">data of the request</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-            
-                
-<h4 class="name" id="~meta">meta</h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Color.js.html">Color.js</a>, <a href="Color.js.html#line63">line 63</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>description</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">description of how to request went, if the request gave an error it will describe were or wat the error was.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>message</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>code</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">status code of the request.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Object</span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-
-            
-                
-<h4 class="name" id="~single_color_resource">single_color_resource</h4>
-
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="Color.js.html">Color.js</a>, <a href="Color.js.html#line47">line 47</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-    <h5 class="subsection-title">Properties:</h5>
-
-    
-
-<table class="props">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>meta</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">meta</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">metadata of the request</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">color</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">data of the request</td>
+            <td class="description last">Element ID of the item in specific color</td>
         </tr>
 
     
