@@ -9,8 +9,8 @@ const {Coupon} = require("./src/modules/Coupon");
 const {Setting} = require("./src/modules/Setting");
 const {Member} = require("./src/modules/Member");
 const {Item_mapping} = require("./src/modules/Item_mapping");
+const {auth} =  require("./src/functions/setup");
 
-const _setup =  require("./src/functions/setup");
 let api;
 try{
     api={
@@ -29,11 +29,6 @@ try{
 }catch(err){
     console.trace("Promise call rejected: ", err);
 }
-
-function setup (args){
-   return _setup.setUpVars(args)
-}
-
-module.exports.setup = setup;
+module.exports.auth = auth;
 module.exports.api = api;
 
