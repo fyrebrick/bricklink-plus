@@ -1,12 +1,11 @@
-let {getOauth} = require("./setup");
+const {auth} = require("./setup");
 
 let makeCall = async (uri, method, body = {}, content_type = "application/json") => {
     return new Promise((resolve, reject) => {
-        let oauth = getOauth();
+        let oauth = auth.getOAuth();
         if (!oauth) {
             reject("Setup is unsuccessful, please check the .setup() method");
         }
-        console.log(method,uri,JSON.stringify(body),content_type);
         switch (String(method).toUpperCase()) {
             case "DELETE":
                 oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, function (err, data) {
