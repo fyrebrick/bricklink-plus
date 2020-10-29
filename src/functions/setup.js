@@ -13,4 +13,7 @@ function setUpVars(args){
 }
 
 module.exports.getOauth = ()=>{return oauth};
+
+//if you already created an Oauth object
+module.exports.ownOauth = (own) => {oauth = own};
 module.exports.setUpVars = setUpVars;
