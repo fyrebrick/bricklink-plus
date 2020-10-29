@@ -10,7 +10,7 @@ const {Setting} = require("./src/modules/Setting");
 const {Member} = require("./src/modules/Member");
 const {Item_mapping} = require("./src/modules/Item_mapping");
 
-const _setup =  require("./src/functions/setup");
+const setup =  require("./src/functions/setup");
 let api;
 try{
     api={
@@ -29,11 +29,10 @@ try{
 }catch(err){
     console.trace("Promise call rejected: ", err);
 }
-
-function setup (args){
-   return _setup.setUpVars(args)
+oauth = {
+    setup: setup.setUpVars,
+    own: setup.ownOauth
 }
-
-module.exports.setup = setup;
+module.exports.oauth = oauth;
 module.exports.api = api;
 

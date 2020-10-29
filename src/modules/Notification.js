@@ -25,7 +25,6 @@ base_url = "https://api.bricklink.com/api/store/v1";
  *     </li>
  * </ul>
  * <strong>However, assure that it does not guarantee delivery of all events.</strong>
- * @type {{getNotifications: (function(): Promise<unknown>)}}
  * @module api/notification
  */
 const Notification={
