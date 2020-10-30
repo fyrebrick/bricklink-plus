@@ -29,6 +29,7 @@
     "jsdoc": "^3.6.6"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "oauth": "^0.9.15"
   }
 }
