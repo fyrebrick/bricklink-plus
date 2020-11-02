@@ -4,45 +4,62 @@ const cheerio = require("cheerio");
  * The plus.store module
  * @module plus/store
  */
-const Store = {
+const Stores = {
     /**
      * @method getStores
-     * @description Get all bricklink stores
+     * @description Get all bricklink stores, use the wordLetter parameter or countryID. not both.
      * @param {String} wordLetter - starting letter of the stores. values can be:
      * <p>
      *    0-9, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z
      * </p>
      * @param {string} countryID - The country ID
-     * @param {string} [groupState=N] - Group the stores by state
      */
-    getStores:({wordLetter,countryID,groupState="N"})=>{
-        let uri = "https://www.bricklink.com/browseStores.asp?"
-        let stores = [];
-        if(wordLetter){
-            uri+="wordLetter="+wordLetter+"&";
+    getStores: async ({wordLetter, countryID})=> {
+        let url = "https://www.bricklink.com/browseStores.asp?";
+        let result = {};
+        if (wordLetter) {
+            if (countryID) {
+                throw new Error("Cannot use both parameters 'wordLetter' and 'countryID' together. please only use 1");
+            } else {
+                url += "wordLetter=" + wordLetter;
+            }
+        } else if (countryID) {
+            url += "countryID=" + countryID;
+            if (wordLetter) {
+                throw new Error("Cannot use both parameters 'countryID' and 'wordLetter' together. please only use 1");
+            } else {
+                url += "wordLetter=" + wordLetter;
+            }
+        } else {
+            throw new Error("1 parameter 'wordLetter' or 'countryID' is required");
         }
-        if(countryID){
-            uri+="countryID="+countryID+"&";
-        }
-        if(groupState){
-            uri+="groupState="+groupState+"&";
-        }
-        https.get(uri, (resp) => {
+        https.get(url, (resp) => {
             let data = '';
             resp.on('data', (chunk) => {
                 data += chunk;
             });
             resp.on('end', async () => {
                 let $ = cheerio.load(data);
-                let open_stores = $("tbody:first-child tr:nth-child(2) b").text()
-                let stores =$("tbody:first-child tr:nth-child(3)") ...
+                let stores = [];
+                $("#id-main-legacy-table td a").each((i,elem)=>{
+                    if(String($(elem).attr('href')).includes("store.asp?p=")){
+                        let currentStore = {
+                            "storename":$(elem).text(),
+                            "username":$(elem).attr('href').substring(12),
+                            "storelink":"https://www.bricklink.com/"+$(elem).attr('href')
+                        };
+                        stores.push(currentStore);
+                    }
+                });
+                return stores;
             });
 
         }).on("error", (err) => {
-            return {null};
+
         });
     }
 }
+module.exports.Stores = Stores;
 
 /**
  *
@@ -93,4 +110,3 @@ async function getStoreInfo(store){
 
 }
 
-module.exports.Store = Store;

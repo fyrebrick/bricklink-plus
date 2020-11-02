@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>functions/setup.js - Documentation</title>
+    <title>plus/Stores.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/setup.js</h1>
+    <h1 class="page-title">plus/Stores.js</h1>
     
 
     
@@ -42,54 +42,91 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>var OAuth = require('oauth');
-let oauth;
+            <pre class="prettyprint source linenums"><code>const https = require("https");
+const {startBrowser} = require("../functions/scraping/browser");
+const {scrapeStores} = require("../functions/scraping/pageScraper");
 
 /**
- * @module auth
+ * The plus.store module
+ * @module plus/store
  */
-
-const auth={
+const Store = {
     /**
-     * @method setup
-     * @description create on OAuth object from 4 unique string you have received from bricklink
-     * @param {Object} args
-     * @param {string} args.TOKEN_VALUE
-     * @param {string} args.TOKEN_SECRET
-     * @param {string} args.CONSUMER_KEY
-     * @param {string} args.CONSUMER_SECRET
+     * @method getStores
+     * @description Get all bricklink stores
+     * @param {String} wordLetter - starting letter of the stores. values can be:
+     * &lt;p>
+     *    0-9, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z
+     * &lt;/p>
+     * @param {string} countryID - The country ID
+     * @param {string} [groupState=N] - Group the stores by state
      */
-    setup:(args)=>{
-        oauth = new OAuth.OAuth(
-            args.TOKEN_VALUE,
-            args.TOKEN_SECRET,
-            args.CONSUMER_KEY,
-            args.CONSUMER_SECRET,
-            "1.0",
-            null,
-            "HMAC-SHA1"
-        );
-    },
-    /**
-     * @method getOAuth
-     * @description get your OAuth object that was created
-     * @return {OAuth} created by package oauth
-     */
-    getOAuth:()=> {
-        return oauth
-    },
-
-    /**
-     * @method ownOAuth
-     * @description If you already have created an OAuth object you can set it with this method
-     * @param {OAuth} own - your unique OAuth object
-     */
-    ownOAuth:(own)=>{
-        oauth = own;
+    getStores:({wordLetter,countryID,groupState="N"})=>{
+        let uri = "https://www.bricklink.com/browseStores.asp?"
+        let stores = [];
+        if(wordLetter){
+            uri+="wordLetter="+wordLetter+"&amp;";
+        }
+        if(countryID){
+            uri+="countryID="+countryID+"&amp;";
+        }
+        if(groupState){
+            uri+="groupState="+groupState+"&amp;";
+        }
+        scrapeStores(startBrowser(),uri);
     }
-};
+}
 
-module.exports.auth = auth;
+/**
+ *
+ * @param store
+ * @return {Promise&lt;unknown>}
+ */
+async function getStoreInfo(store){
+    return new Promise ((resolve, reject) => {
+        https.get('https://store.bricklink.com/' + store + '?p=' + store, async(resp) => {
+            let storeData = '';
+            resp.on('data', async(chunk) => {
+                storeData += chunk;
+            });
+            resp.on('end', async() => {
+                if (storeData) {
+                    try{
+                        let html = storeData;
+                        let names = html.match(/name:[\t]*'(.+)',/g); //[0].split("'")[1];
+                        let name = names[0].split("'")[1];
+                        let username = names[1].split("'")[1];
+                        let _n4totalLots = html.match(/\tn4totalLots:((.)*),/g)[0].split(/(\d+)/g);
+                        let n4totalLots = Number(_n4totalLots.slice(_n4totalLots.length - 2, _n4totalLots.length - 1));
+                        let _n4totalItems = html.match(/\tn4totalItems:((.)*),/g)[0].split(/(\d+)/g);
+                        let n4totalItems = Number(_n4totalItems.slice(_n4totalItems.length - 2, _n4totalItems.length - 1));
+                        let _n4totalViews = html.match(/\tn4totalViews:((.)*),/g)[0].split(/(\d+)/g);
+                        let n4totalViews = Number(_n4totalViews.slice(_n4totalViews.length - 2, _n4totalViews.length - 1));
+                        let obj = {
+                            name: name,
+                            username: username,
+                            n4totalLots: n4totalLots,
+                            n4totalItems: n4totalItems,
+                            n4totalViews: n4totalViews
+                        };
+                        resolve(obj);
+                    }catch(err){
+                        console.trace(err);
+                    }
+                } else {
+                    console.log("no store found for ", store);
+                }
+
+            });
+
+        }).on("error", (err) => {
+            resolve(getStoreInfo(store).then((data)=>{return data}));
+        });
+    })
+
+}
+
+module.exports.Store = Store;
 </code></pre>
         </article>
     </section>
@@ -104,7 +141,7 @@ module.exports.auth = auth;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Mon Nov 02 2020 11:12:40 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Nov 01 2020 09:55:22 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

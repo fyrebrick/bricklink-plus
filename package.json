@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "oauth": "^0.9.15"
+    "oauth": "^0.9.15",
+    "puppeteer": "^5.4.1"
   }
 }

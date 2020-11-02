@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>functions/setup.js - Documentation</title>
+    <title>api/Item_mapping.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/setup.js</h1>
+    <h1 class="page-title">api/Item_mapping.js</h1>
     
 
     
@@ -42,54 +42,83 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>var OAuth = require('oauth');
-let oauth;
+            <pre class="prettyprint source linenums"><code>const {makeCall} = require( "../functions/callApi");
+base_url = "https://api.bricklink.com/api/store/v1";
 
 /**
- * @module auth
+ * The api.item_mapping module.
+ * &lt;p>Please note followings:&lt;/p>
+ * &lt;ul>
+ *     &lt;li>It does not guarantee that you can get the complete mapping of items&lt;/li>
+ *     &lt;li>It provides item mappings only for PARTs&lt;/li>
+ *     &lt;li>Item mapping may not be one-to-one&lt;/li>
+ * &lt;/ul>
+ * @module api/item_mapping
+ *
  */
-
-const auth={
-    /**
-     * @method setup
-     * @description create on OAuth object from 4 unique string you have received from bricklink
-     * @param {Object} args
-     * @param {string} args.TOKEN_VALUE
-     * @param {string} args.TOKEN_SECRET
-     * @param {string} args.CONSUMER_KEY
-     * @param {string} args.CONSUMER_SECRET
-     */
-    setup:(args)=>{
-        oauth = new OAuth.OAuth(
-            args.TOKEN_VALUE,
-            args.TOKEN_SECRET,
-            args.CONSUMER_KEY,
-            args.CONSUMER_SECRET,
-            "1.0",
-            null,
-            "HMAC-SHA1"
-        );
-    },
-    /**
-     * @method getOAuth
-     * @description get your OAuth object that was created
-     * @return {OAuth} created by package oauth
-     */
-    getOAuth:()=> {
-        return oauth
-    },
+const Item_mapping={
 
     /**
-     * @method ownOAuth
-     * @description If you already have created an OAuth object you can set it with this method
-     * @param {OAuth} own - your unique OAuth object
+     *
+     * @method getElementID
+     * @description This method returns Part-Color-Code(A.K.A ElementID) of the specified item
+     * @param {string} type - The type of an item to get. Acceptable values are: PART
+     * @param {string} item_no - Identification number of an item to get
+     * @param {number} [color_id] - Color ID of an item. If not specified, API retrieves element IDs of an item in any colors.
+     * @example
+     * //Retrieves a list of element IDs of PART #1234 in any colors
+     * getElementID("part","1234");
+     * @example
+     * //Retrieves element ID of PART #1234 with color #1
+     * getElementID("part","1234",1);
+     * @returns {Promise&lt;item_mapping_resource>} f successful, this method returns a item mapping resource as "data" in the response body.
      */
-    ownOAuth:(own)=>{
-        oauth = own;
+    getElementID:(type,item_no,color_id=undefined)=>{
+        let uri = base_url+"/item_mapping/"+type+"/"+item_no+"?";
+        if(color_id){
+            uri+="color_id="+color_id
+        }
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+    /**
+     * @method getItemNumber
+     * @description This method returns BL Catalog Item Number by Part-Color-Code(A.K.A ElementID)
+     * @param {string} element_id - Element ID of the item in specific color
+     * @example
+     * //Retrieves a list of item number, color id mapping of elementID #1234
+     * getItemNumber(1234);
+     * @returns {Promise&lt;item_mapping_resource>} If successful, this method returns a item mapping resource as "data" in the response body.
+     */
+    getItemNumber:(element_id)=>{
+        let uri = base_url+"/item_mapping/"+element_id;
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
     }
 };
 
-module.exports.auth = auth;
+/**
+ * @typedef  item_mapping_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {item_mapping_resource} data - data of the request
+ */
+
+/**
+ * @typedef store_shipping_method
+ * @type {Object}
+ * @property {object} item - An object representation of the item
+ * @property {string} item.no - Item's identification number in BrickLink catalog
+ * @property {string} item.type - The type of the item (PART)
+ * @property {number} color_id - Color ID of the item
+ * @property {string} color_name - Color name of the item
+ * @property {string} element_id - Element ID of the item in specific color
+ */
+
+
+module.exports.Item_mapping = Item_mapping;
 </code></pre>
         </article>
     </section>
