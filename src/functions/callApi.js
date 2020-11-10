@@ -13,9 +13,9 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                     if (err) {
                         console.trace(err);
                         reject({message: err});
-                    } else if(hasStatusCode(data.meta.code)) {
+                    }/* else if(hasStatusCode(data.meta.code)) {
                         reject({message:data.meta.code+": "+data.meta.message+", description: "+data.meta.description});
-                    }else{
+                    }*/else{
                         resolve(JSON.parse(data));
                     }
                 });
@@ -26,9 +26,9 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                     if (err) {
                         console.trace(err);
                         reject({message: err});
-                    } if(hasStatusCode(data.meta.code)) {
+                    }/* if(hasStatusCode(data.meta.code)) {
                         reject({message:data.meta.code+": "+data.meta.message+", description: "+data.meta.description});
-                    }else {
+                    }*/else {
                         resolve(JSON.parse(data));
                     }
                 });
@@ -39,9 +39,9 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                     if (err) {
                         console.trace(err);
                         return reject({message: err});
-                    }if(hasStatusCode(data.meta.code)) {
+                    }/*if(hasStatusCode(data.meta.code)) {
                         reject({message:data.meta.code+":"+data.meta.message+", description: "+data.meta.description});
-                    }else{
+                    }*/else{
                         return resolve(JSON.parse(data));
                     }
                 });
@@ -52,9 +52,9 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                     if (err) {
                         console.trace(err);
                         reject({message: err});
-                    } if(hasStatusCode(data.meta.code)) {
+                    } /*if(hasStatusCode(data.meta.code)) {
                         reject({message:data.meta.code+": "+data.meta.message+", description: "+data.meta.description});
-                    }else {
+                    }*/else {
                         resolve(JSON.parse(data));
                     }
                 });
