@@ -9,7 +9,6 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
         switch (String(method).toUpperCase()) {
             case "DELETE":
                 oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, function (err, data) {
-                    data = JSON.parse(data);
                     if (err) {
                         console.trace(err);
                         reject({message: err});
@@ -22,7 +21,6 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                 break;
             case "PUT":
                 oauth.put(uri,oauth._requestUrl, oauth._accessUrl, JSON.stringify(body), content_type, function (err, data) {
-                    data = JSON.parse(data);
                     if (err) {
                         console.trace(err);
                         reject({message: err});
@@ -35,7 +33,6 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                 break;
             case "GET":
                 oauth.get(uri,oauth._requestUrl, oauth._accessUrl, function (err, data) {
-                    data = JSON.parse(data);
                     if (err) {
                         console.trace(err);
                         return reject({message: err});
@@ -48,7 +45,6 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
                 break;
             case "POST":
                 oauth.put(uri,oauth._requestUrl, oauth._accessUrl, JSON.stringify(body), content_type, function (err, data) {
-                    data = JSON.parse(data);
                     if (err) {
                         console.trace(err);
                         reject({message: err});
