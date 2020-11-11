@@ -257,6 +257,13 @@ const Inventory= {
 
     updateInventory:(inventory_id,request_body={})=>{
         let uri = base_url+"/inventories/"+inventory_id;
+        if(request_body.quantity){
+            if(!(String(request_body.quantity).includes('+')||String(request_body.quantity).includes('-'))){
+                makeCall(uri, "PUT", {quantity:-9999999999999999}).catch((err) => {
+                    console.trace("Promise call rejected: ", err);
+                });
+            }
+        }
         return makeCall(uri, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
