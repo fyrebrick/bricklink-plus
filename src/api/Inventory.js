@@ -255,14 +255,14 @@ const Inventory= {
      * @returns {Promise<inventory_resource>} If successful, this method returns a list of the the summary of an [inventory resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_inventory.html#~inventory_resource} as "data" in the response body.
      */
 
-    updateInventory:(inventory_id,request_body={})=>{
+    updateInventory:async(inventory_id,request_body={})=>{
         let uri = base_url+"/inventories/"+inventory_id;
-        if(request_body.quantity){
-            if(!(String(request_body.quantity).includes('+')||String(request_body.quantity).includes('-'))){
-                makeCall(uri, "PUT", {quantity:-9999999999999999}).catch((err) => {
-                    console.trace("Promise call rejected: ", err);
-                });
-            }
+        if(request_body.quantity && !(String(request_body.quantity).includes('+')||String(request_body.quantity).includes('-'))) {
+            //override calculations
+            await Inventory.getInventory(inventory_id).then((data) => {
+                let newQ = request_body.quantity - data.data.quantity;
+                request_body.quantity = newQ;
+            })
         }
         return makeCall(uri, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
