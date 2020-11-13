@@ -11,6 +11,7 @@ const {Member} = require("./src/api/Member");
 const {Item_mapping} = require("./src/api/Item_mapping");
 const {auth} =  require("./src/functions/setup");
 const {Stores} = require("./src/plus/Stores");
+const {Search} = require("./src/plus/Search");
 let api;
 try{
     api={
@@ -30,7 +31,8 @@ try{
     console.trace("Promise call rejected: ", err);
 }
 let plus ={
-    stores:Stores
+    stores:Stores,
+    search:Search
 }
 module.exports.plus = plus;
 module.exports.api = api;
