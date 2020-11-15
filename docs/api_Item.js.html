@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>api/Item.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-api_category.html">api/category</a><ul class='methods'><li data-type='method'><a href="module-api_category.html#~getCategory">getCategory</a></li><li data-type='method'><a href="module-api_category.html#~getCategoryList">getCategoryList</a></li></ul></li><li><a href="module-api_color.html">api/color</a><ul class='methods'><li data-type='method'><a href="module-api_color.html#~getColor">getColor</a></li><li data-type='method'><a href="module-api_color.html#~getColorList">getColorList</a></li></ul></li><li><a href="module-api_coupon.html">api/coupon</a><ul class='methods'><li data-type='method'><a href="module-api_coupon.html#~createCoupon">createCoupon</a></li><li data-type='method'><a href="module-api_coupon.html#~deleteCoupon">deleteCoupon</a></li><li data-type='method'><a href="module-api_coupon.html#~getCoupon">getCoupon</a></li><li data-type='method'><a href="module-api_coupon.html#~getCoupon">getCoupon</a></li><li data-type='method'><a href="module-api_coupon.html#~updateCoupon">updateCoupon</a></li></ul></li><li><a href="module-api_feedback.html">api/feedback</a><ul class='methods'><li data-type='method'><a href="module-api_feedback.html#~getFeedback">getFeedback</a></li><li data-type='method'><a href="module-api_feedback.html#~getFeedbackList">getFeedbackList</a></li><li data-type='method'><a href="module-api_feedback.html#~postFeedback">postFeedback</a></li><li data-type='method'><a href="module-api_feedback.html#~replyFeedback">replyFeedback</a></li></ul></li><li><a href="module-api_inventory.html">api/inventory</a><ul class='methods'><li data-type='method'><a href="module-api_inventory.html#~createInventories">createInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~createInventory">createInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~deleteInventory">deleteInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventories">getInventories</a></li><li data-type='method'><a href="module-api_inventory.html#~getInventory">getInventory</a></li><li data-type='method'><a href="module-api_inventory.html#~updateInventory">updateInventory</a></li></ul></li><li><a href="module-api_item.html">api/item</a><ul class='methods'><li data-type='method'><a href="module-api_item.html#~getItem">getItem</a></li><li data-type='method'><a href="module-api_item.html#~getItemImage">getItemImage</a></li><li data-type='method'><a href="module-api_item.html#~getKnownColors">getKnownColors</a></li><li data-type='method'><a href="module-api_item.html#~getPriceGuide">getPriceGuide</a></li><li data-type='method'><a href="module-api_item.html#~getSubsets">getSubsets</a></li><li data-type='method'><a href="module-api_item.html#~getSupersets">getSupersets</a></li></ul></li><li><a href="module-api_item_mapping.html">api/item_mapping</a><ul class='methods'><li data-type='method'><a href="module-api_item_mapping.html#~getElementID">getElementID</a></li><li data-type='method'><a href="module-api_item_mapping.html#~getItemNumber">getItemNumber</a></li></ul></li><li><a href="module-api_member.html">api/member</a><ul class='methods'><li data-type='method'><a href="module-api_member.html#~createMemberNote">createMemberNote</a></li><li data-type='method'><a href="module-api_member.html#~deleteMemberNote">deleteMemberNote</a></li><li data-type='method'><a href="module-api_member.html#~getMemberNote">getMemberNote</a></li><li data-type='method'><a href="module-api_member.html#~getMemberRating">getMemberRating</a></li><li data-type='method'><a href="module-api_member.html#~updateMemberNote">updateMemberNote</a></li></ul></li><li><a href="module-api_notification.html">api/notification</a><ul class='methods'><li data-type='method'><a href="module-api_notification.html#~getNotifications">getNotifications</a></li></ul></li><li><a href="module-api_order.html">api/order</a><ul class='methods'><li data-type='method'><a href="module-api_order.html#~getOrder">getOrder</a></li><li data-type='method'><a href="module-api_order.html#~getOrderFeedback">getOrderFeedback</a></li><li data-type='method'><a href="module-api_order.html#~getOrderItems">getOrderItems</a></li><li data-type='method'><a href="module-api_order.html#~getOrderMessages">getOrderMessages</a></li><li data-type='method'><a href="module-api_order.html#~getOrders">getOrders</a></li><li data-type='method'><a href="module-api_order.html#~updateOrder">updateOrder</a></li><li data-type='method'><a href="module-api_order.html#~updateOrderStatus">updateOrderStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li><li data-type='method'><a href="module-api_order.html#~updatePaymentStatus">updatePaymentStatus</a></li></ul></li><li><a href="module-api_setting.html">api/setting</a><ul class='methods'><li data-type='method'><a href="module-api_setting.html#~getShippingMethod">getShippingMethod</a></li><li data-type='method'><a href="module-api_setting.html#~getShippingMethodList">getShippingMethodList</a></li></ul></li><li><a href="module-auth.html">auth</a><ul class='methods'><li data-type='method'><a href="module-auth.html#~getOAuth">getOAuth</a></li><li data-type='method'><a href="module-auth.html#~ownOAuth">ownOAuth</a></li><li data-type='method'><a href="module-auth.html#~setup">setup</a></li></ul></li><li><a href="module-plus_color.html">plus/color</a><ul class='methods'><li data-type='method'><a href="module-plus_color.html#~getInfoFromColorId">getInfoFromColorId</a></li></ul></li><li><a href="module-plus_search.html">plus/search</a></li><li><a href="module-plus_store.html">plus/store</a><ul class='methods'><li data-type='method'><a href="module-plus_store.html#~getStores">getStores</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#hasStatusCode">hasStatusCode</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">api/Item.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const {makeCall} = require( "../functions/callApi");
+base_url = "https://api.bricklink.com/api/store/v1";
+
+/**
+ * The api.item module
+ *@module api/item
+ */
+const Item ={
+    /**
+     * @method getItem
+     * @description This method returns information about the specified item in BrickLink catalog.
+     * @param {string} item_type - The type of the item to get.
+     * @param {string} item_no - Identification number of the item to get
+     * @example
+     * //Retrieves PART #1234
+     * getItem("PART","1234");
+     * @example
+     * //Retrieves SET #1-1
+     * getItem("SET","1-1");
+     * @returns {Promise&lt;catalog_item_resource>} If successful, this method returns a catalog item as "data" in the response body.
+     */
+    getItem:(item_type,item_no)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no;
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    /**
+     * @method getItemImage
+     * @description This method returns image URL of the specified item by colors.
+     * @param {string} item_type - The type of the item to get.
+     * @param {string} item_no - Identification number of the item to get
+     * @param {string} color_id - The ID of the color of the item
+     * @returns {Promise&lt;catalog_item_resource>} If successful, this method returns a catalog item as "data" in the response body.
+     */
+    getItemImage:(item_type,item_no,color_id)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/images/"+color_id;
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    /**
+     * @method getSupersets
+     * @param {string} item_type - The type of the item to get.
+     * @param {string} item_no - Identification number of the item to get
+     * @param {string} [color_id] - The ID of the color of the item
+     * @example
+     * //Retrieves a list of items that include the PART #3001old
+     * getSupersets("part","3001old");
+     * @example
+     * //Retrieves a list of items that include the PART #3001old with color #1
+     * getSupersets("part","3001old","1");
+     * @returns {Promise&lt;superset_resource>} If successful, this method returns a list of superset entries as "data" in the response body.
+     */
+    getSupersets:(item_type,item_no,color_id=undefined)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/supersets?";
+        if(color_id){
+            uri += "color_id="+color_id;
+        }
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    /**
+     * @method getSubsets
+     * @description This method returns a list of items that are included in the specified item.
+     * @param {string} item_type -
+     * @param {string }item_no -
+     * @param {number} [color_id] -
+     * @param {boolean} [box] -
+     * @param {boolean} [instruction] -
+     * @param {boolean} [break_minifigs] -
+     * @param {boolean} [break_subsets] -
+     * @example
+     * //Retrieves a list of items that are included in the SET #7644-1
+     * getSubsets("set","7644-1");
+     * @example
+     * //Retrieves a list of items that are included in the SET #7644-1 including the instruction and breaking down minifigs as parts
+     * getSubsets("set","7644-1",{instruction:true,break_minifigs:false});
+     * @returns {Promise&lt;subset_resource>} If successful, this method returns a nested list of subset entries as "data" in the response body. Note that the result is grouped by matching. An inner list indicates one matching group of items.
+     *
+     */
+    getSubsets:(item_type,item_no,{color_id=undefined,box=undefined,instruction=undefined,break_minifigs=undefined,break_subsets=undefined}={})=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/subsets?";
+        if(color_id){
+            uri+="color_id="+color_id+"&amp;";
+        }
+        if(box){
+            uri+="box="+box+"&amp;";
+        }
+        if(instruction){
+            uri+="instruction="+instruction+"&amp;";
+        }
+        if(break_minifigs){
+            uri+="break_minifigs="+break_minifigs+"&amp;";
+        }
+        if(break_subsets){
+            uri+="break_subsets="+break_subsets+"&amp;";
+        }
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+
+    /**
+     * @method getPriceGuide
+     * @description This method returns the price statistics of the specified item in BrickLink catalog. &lt;strike>Note that returned price does not include VAT&lt;/strike>
+     * @param {string} item_type - The type of the item.
+     * @param {string} item_no - Identification number of the item
+     * @param {number} color_id - The color of the item
+     * @param {string} [guide_type] - Indicates that which statistics to be provided. Acceptable values are:
+     * &lt;ul>
+     *     &lt;li>"sold": Gets the price statistics of "Last 6 Months Sales"&lt;/li>
+     *     &lt;li>"stock": Gets the price statistics of "Current Items for Sale" (default)&lt;/li>
+     * &lt;/ul>
+     * @param {string} [new_or_used] - Indicates the condition of items that are included in the statistics. Acceptable values are:
+     * &lt;ul>
+     *     &lt;li>"N": new item (default)&lt;/li>
+     *     &lt;li>"U": used item&lt;/li>
+     * &lt;/ul>
+     * @param {string} [country_code] - The result includes only items in stores which are located in specified country.
+     * &lt;ul>
+     *     &lt;li>If you don't specify both country_code and region, this method retrieves the price information regardless of the store's location&lt;/li>
+     * &lt;/ul>
+     * @param {string} [region] - The result includes only items in stores which are located in specified region.
+     * &lt;ul>
+     *     &lt;li>Available values are: asia, africa, north_america, south_america, middle_east, europe, eu, oceania&lt;/li>
+     *     &lt;li>If you don't specify both country_code and region, this method retrieves the price information regardless of the store's location&lt;/li>
+     * &lt;/ul>
+     * @param {string} [currency_code] - This method returns price in the specified currency code
+     * &lt;ul>
+     *     &lt;li>If you don't specify this value, price is retrieved in the base currency of the user profile's&lt;/li>
+     * &lt;/ul>
+     * @param {string} [vat] - Indicates that price will include VAT for the items of VAT enabled stores. Available values are:
+     * &lt;ul>
+     *     &lt;li>"N": Exclude VAT (default)&lt;/li>
+     *     &lt;li>"Y": Include VAT&lt;/li>
+     *     &lt;li>"O": Include VAT as Norway settings&lt;/li>
+     * &lt;/ul>
+     * @example
+     * //Retrieves price statistics(currently for sale) of PART #3001old in new condition
+     * getPriceGuide("part","3001old");
+     * @example
+     * //Retrieves price statistics(currently for sale) of PART #3001old in used condition
+     * getPriceGuide("part","3001old",{new_or_used:"U"});
+     * @example
+     * //Retrieves price statistics(last 6 months sales) of PART #3001old in new condition
+     * getPriceGuide("part","3001old",{guide_type:"sold"});
+     * @example
+     * //Retrieves price statistics(last 6 months sales) of PART #3001old in new condition that are ordered from stores which are located in US.
+     * getPriceGuide("part","3001old",{guide_type:"sold",country_code:"US"});
+     * @example
+     * //Retrieves price statistics(currently for sale) of PART #3001old in new condition that are currently for sale in stores which are located in Asia.
+     * getPriceGuide("part","3001old"{region:"asia"});
+     * @example
+     * //Retrieves price statistics(currently for sale in USD) of PART #3001old in new condition
+     * getPriceGuide("part","3001old",{currency_code:"USD"});
+     * @returns {Promise&lt;price_guide_resource>} If successful, this method returns a price guide resource as "data" in the response body.
+     */
+    getPriceGuide:(item_type,item_no,{color_id=undefined,guide_type=undefined,new_or_used=undefined,country_code=undefined,region=undefined,currency_code=undefined,vat=undefined}={})=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/price?";
+        if(color_id){
+            uri+="color_id="+color_id+"&amp;";
+        }
+        if(guide_type){
+            uri+="guide_type="+guide_type+"&amp;";
+        }
+        if(new_or_used){
+            uri+="new_or_used="+new_or_used+"&amp;";
+        }
+        if(country_code){
+            uri+="country_code="+country_code+"&amp;";
+        }
+        if(region){
+            uri+="region="+region+"&amp;";
+        }
+        if(currency_code){
+            uri+="currency_code="+currency_code+"&amp;";
+        }
+        if(vat){
+            uri+="vat="+vat+"&amp;";
+        }
+        return makeCall(uri, "GET",request_body).catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    },
+    /**
+     * @method getKnownColors
+     * @description This method returns currently known colors of the item
+     * @param {string} item_type - The type of the item.
+     * @param {string} item_no - Identification number of the item
+     * @returns {Promise&lt;known_color_resource>} If successful, this method returns a list of known color as "data" in the response body.
+     */
+    getKnownColors:(item_type,item_no)=>{
+        let uri = base_url+"/items/"+item_type+"/"+item_no+"/colors";
+        return makeCall(uri, "GET").catch((err) => {
+            console.trace("Promise call rejected: ", err);
+        });
+    }
+};
+
+/**
+ * @typedef catalog_item_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {catalog_item[]} data - data of the request
+ */
+
+/**
+ * @typedef superset_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {superset[]} data - data of the request
+ */
+
+/**
+ * @typedef subset_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {subset[]} data - data of the request
+ */
+
+/**
+ * @typedef price_guide_resource
+ * @type {Object}
+ * @property {meta} meta - metadata of the request
+ * @property {price_guide[]} data - data of the request
+ */
+
+/**
+ * @typedef known_color_resource
+ * @type {Object}
+ * @property {number} color_id - Color ID
+ * @property {number} quantity - The quantity of items in that color
+ */
+
+/**
+ * @typedef price_guide
+ * @type {Object}
+ * @property {Object} item - An object representation of the item
+ * @property {string} item.no - Item's identification number in BL catalog
+ * @property {string} item.type - The type of the item
+ * @property {string} new_or_used - Indicates whether the price guide is for new or used (N: New, U: Used)
+ * @property {string} currency_code - The currency code of the price
+ * @property {number} min_price - The lowest price of the item (in stock / that was sold for last 6 months )
+ * @property {number} max_price - The highest price of the item (in stock / that was sold for last 6 months )
+ * @property {number} avg_price - The average price of the item (in stock / that was sold for last 6 months )
+ * @property {number} qty_avg_price - The average price of the item (in stock / that was sold for last 6 months ) by quantity
+ * @property {number} unit_quantity -  The number of times the item has been sold for last 6 months
+ * &lt;p>The number of inventories that include the item&lt;/p>
+ * @property {number} total_quantity - The number of items has been sold for last 6 months
+ * &lt;p>The total number of the items in stock&lt;/p>
+ * @property {Array} price_detail - A list of objects that represent the detailed information of the price
+ * @property {number} price_detail.quantity - The number of the items in the inventory
+ * @property {number} price_detail.unit_price - The original price of this item per sale unit
+ * @property {string} [price_detail.shipping_available] - (Current Items for Sale) Indicates whether or not the seller ships to your country(based on the user profile)
+ * @property {string} [price_detail.seller_country_code] - (Last 6 Months Sales) The country code of the seller's location
+ * @property {string} [price_detail.buyer_country_code] - (Last 6 Months Sales) The country code of the buyer's location
+ * @property {string} [price_detail.date_ordered] - (Last 6 Months Sales) The time the order was created
+ */
+
+/**
+ * @typedef meta
+ * @type {Object}
+ * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
+ * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
+ * @property {number} code - status code of the request.
+ */
+
+/**
+ * @typedef subset
+ * @type {Object}
+ * @property {number} match_no - A identification number given to a matching group that consists of regular items and alternate items. (0 if there is no matching of alternative item)
+ * @property {Array} entries - A list of the items included in the specified item
+ * @property {Object} entries.item - An object representation of the item that is included in the specified item
+ * @property {string} entries.item.no - Item's identification number in BrickLink catalog
+ * @property {string} entries.item.name - The name of the item
+ * @property {string} entries.item.type - The type of the item
+ * @property {string} entries.item.category_id - The main category of the item
+ * @property {string} entries.color_id - The ID of the color of the item
+ * @property {string} entries.quantity - The number of items that are included in
+ * @property {string} entries.extra_quantity - The number of items that are appear as "extra" item
+ * @property {string} entries.is_alternate - Indicates that the item is appear as "alternate" item in this specified item
+ */
+
+/**
+ * @typedef superset
+ * @type {Object}
+ * @property {number} color_id - The ID of the color of the item
+ * @property {Array} entries - A list of the items that include the specified item
+ * @property {Object} entries.item - An object representation of the super item that includes the specified item
+ * @property {string} entries.item.no - Item's identification number in BrickLink catalog
+ * @property {string} entries.item.name - The name of the item
+ * @property {string} entries.item.type - The type of the item
+ * @property {number} entries.item.category_id - The main category of the item
+ * @property {number} entries.quantity - Indicates that how many specified items are included in this super item
+ * @property {string} entries.appear_as - Indicates how an entry in an inventory appears as (A: Alternate, C: Counterpart, E: Extra, R: Regular)
+ */
+
+/**
+ * @typedef catalog_item
+ * @type {Object}
+ * @property {string} no - Item's identification number in BrickLink catalog
+ * @property {string} name - The name of the item
+ * @property {string} type - The type of the item
+ * &lt;ul>
+ *     &lt;li>MINIFIG&lt;/li>
+ *     &lt;li>PART&lt;/li>
+ *     &lt;li>SET&lt;/li>
+ *     &lt;li>BOOK&lt;/li>
+ *     &lt;li>GEAR&lt;/li>
+ *     &lt;li>CATALOG&lt;/li>
+ *     &lt;li>INSTRUCTION&lt;/li>
+ *     &lt;li>UNSORTED_LOT&lt;/li>
+ *     &lt;li>ORIGINAL_BOX&lt;/li>
+ * &lt;/ul>
+ * @property {number} category_id - The main category of the item
+ * @property {string} alternate_no - Alternate item number
+ * @property {string} image_url - Image link for this item
+ * @property {string} thumbnail_url - Image thumbnail link for this item
+ * @property {number} weight - The weight of the item in grams
+ * @property {string} dim_x - Length of the item
+ * @property {string} dim_y - Width of the item
+ * @property {string} dim_z - Height of the item
+ * @property {number} year_released - Item year of release
+ * @property {string} description - Short description for this item
+ * @property {boolean} is_obsolete - Indicates whether the item is obsolete
+ * @property {string} language_code - Item language code
+ */
+
+module.exports.Item = Item;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Sun Nov 15 2020 08:09:23 GMT+0100 (Central European Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

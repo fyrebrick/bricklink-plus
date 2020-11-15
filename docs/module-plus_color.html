@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>functions/setup.js - Documentation</title>
+    <title>plus/color - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,67 +32,278 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/setup.js</h1>
+    <h1 class="page-title">plus/color</h1>
     
 
     
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>var OAuth = require('oauth');
-let oauth;
+        
+            
+        
+    
+</header>
 
-/**
- * @module auth
- */
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext">The plus.Color module</div>
+            
 
-const auth={
-    /**
-     * @method setup
-     * @description create on OAuth object from 4 unique string you have received from bricklink
-     * @param {Object} args
-     * @param {string} args.TOKEN_VALUE
-     * @param {string} args.TOKEN_SECRET
-     * @param {string} args.CONSUMER_KEY
-     * @param {string} args.CONSUMER_SECRET
-     */
-    setup:(args)=>{
-        oauth = new OAuth.OAuth(
-            args.TOKEN_VALUE,
-            args.TOKEN_SECRET,
-            args.CONSUMER_KEY,
-            args.CONSUMER_SECRET,
-            "1.0",
-            null,
-            "HMAC-SHA1"
-        );
-    },
-    /**
-     * @method getOAuth
-     * @description get your OAuth object that was created
-     * @return {OAuth} created by package oauth
-     */
-    getOAuth:()=> {
-        return oauth
-    },
+            
+                
 
-    /**
-     * @method ownOAuth
-     * @description If you already have created an OAuth object you can set it with this method
-     * @param {OAuth} own - your unique OAuth object
-     */
-    ownOAuth:(own)=>{
-        oauth = own;
-    }
-};
 
-module.exports.auth = auth;
-</code></pre>
-        </article>
-    </section>
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="plus_Color.js.html">plus/Color.js</a>, <a href="plus_Color.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getInfoFromColorId"><span class="type-signature">(inner) </span>getInfoFromColorId<span class="signature">(color_id)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="plus_Color.js.html">plus/Color.js</a>, <a href="plus_Color.js.html#line6">line 6</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>color_id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The ID of the color</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+    
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 

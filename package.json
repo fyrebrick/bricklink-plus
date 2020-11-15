@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}"
   },
-  "version": "1.0.3",
+  "version": "1.0.6-rc.1",
   "description": "extended api build on the bricklink api",
   "main": "app.js",
   "scripts": {
@@ -29,6 +29,7 @@
     "jsdoc": "^3.6.6"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
     "oauth": "^0.9.15"
   }
 }

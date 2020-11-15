@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>functions/setup.js - Documentation</title>
+    <title>plus/Search.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">functions/setup.js</h1>
+    <h1 class="page-title">plus/Search.js</h1>
     
 
     
@@ -42,54 +42,56 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>var OAuth = require('oauth');
-let oauth;
-
+            <pre class="prettyprint source linenums"><code>const cheerio = require("cheerio");
 /**
- * @module auth
+ * The plus.search module
+ * @module plus/search
  */
+const Search = {
+    // /**
+    //  * @method byKeywords
+    //  * @description simulates the bricklink website search engine
+    //  * @param {String} keywords - all the keywords in 1 string
+    //  * @return {Promise&lt;DATA>}
+    //  */
+    // byKeywords: async (keywords)=> {
+    //     return new Promise((resolve, reject)=>{
+    //         let data = '';
+    //         const url = encodeURI("https://www.bricklink.com/v2/search.page?q="+keywords+"&amp;rpp=100&amp;tab=P");
+    //         const casper = casperJS.create();
+    //         casper.start(url,()=>{
+    //             this.waitForSelecter('#_idContentsTabC');
+    //         })
+    //         casper.then(()=>{
+    //             data = this.getHtml();
+    //         })
+    //         casper.then(()=>{
+    //             let $ = cheerio.load(data);
+    //             console.log(data);
+    //             let foundData = [];
+    //             console.log($("td .pspItemNameLink").length);
+    //             $("td .pspItemNameLink").each((i, elem) => {
+    //                 console.log(i);
+    //                 console.log($(elem).text());
+    //                 if (!String($(elem).attr('href')).includes("[%catalogUrl%]")) {
+    //                     let currentItem = {
+    //                         "description": $(elem).text(),
+    //                         "link": "https://www.bricklink.com"+$(elem).attr('href'),
+    //                         "name": decodeURI($(elem).attr('href')).match(/name=(.+)&amp;/gm)[0],
+    //                         "category": decodeURI($(elem).attr('href')).match(/category=(.+)/gm)[0],
+    //                         "id": decodeURI($(elem).attr('href')).match(/[G,P,B,M,S,O,I,C]=(.+)&amp;name/gm)[0],
+    //                     };
+    //                     foundData.push(currentItem);
+    //                 }
+    //             });
+    //             return foundData;
+    //         })
+    //         casper.start();
+    //         });
 
-const auth={
-    /**
-     * @method setup
-     * @description create on OAuth object from 4 unique string you have received from bricklink
-     * @param {Object} args
-     * @param {string} args.TOKEN_VALUE
-     * @param {string} args.TOKEN_SECRET
-     * @param {string} args.CONSUMER_KEY
-     * @param {string} args.CONSUMER_SECRET
-     */
-    setup:(args)=>{
-        oauth = new OAuth.OAuth(
-            args.TOKEN_VALUE,
-            args.TOKEN_SECRET,
-            args.CONSUMER_KEY,
-            args.CONSUMER_SECRET,
-            "1.0",
-            null,
-            "HMAC-SHA1"
-        );
-    },
-    /**
-     * @method getOAuth
-     * @description get your OAuth object that was created
-     * @return {OAuth} created by package oauth
-     */
-    getOAuth:()=> {
-        return oauth
-    },
-
-    /**
-     * @method ownOAuth
-     * @description If you already have created an OAuth object you can set it with this method
-     * @param {OAuth} own - your unique OAuth object
-     */
-    ownOAuth:(own)=>{
-        oauth = own;
-    }
-};
-
-module.exports.auth = auth;
+    // }
+}
+module.exports.Search = Search;
 </code></pre>
         </article>
     </section>

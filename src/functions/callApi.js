@@ -9,52 +9,48 @@ let makeCall = async (uri, method, body = {}, content_type = "application/json")
         switch (String(method).toUpperCase()) {
             case "DELETE":
                 oauth.delete(uri,oauth._requestUrl, oauth._accessUrl, function (err, data) {
-                    data = JSON.parse(data);
                     if (err) {
                         console.trace(err);
                         reject({message: err});
-                    } else if(hasStatusCode(data.meta.code)) {
+                    }/* else if(hasStatusCode(data.meta.code)) {
                         reject({message:data.meta.code+": "+data.meta.message+", description: "+data.meta.description});
-                    }else{
+                    }*/else{
                         resolve(JSON.parse(data));
                     }
                 });
                 break;
             case "PUT":
                 oauth.put(uri,oauth._requestUrl, oauth._accessUrl, JSON.stringify(body), content_type, function (err, data) {
-                    data = JSON.parse(data);
                     if (err) {
                         console.trace(err);
                         reject({message: err});
-                    } if(hasStatusCode(data.meta.code)) {
+                    }/* if(hasStatusCode(data.meta.code)) {
                         reject({message:data.meta.code+": "+data.meta.message+", description: "+data.meta.description});
-                    }else {
+                    }*/else {
                         resolve(JSON.parse(data));
                     }
                 });
                 break;
             case "GET":
                 oauth.get(uri,oauth._requestUrl, oauth._accessUrl, function (err, data) {
-                    data = JSON.parse(data);
                     if (err) {
                         console.trace(err);
                         return reject({message: err});
-                    }if(hasStatusCode(data.meta.code)) {
+                    }/*if(hasStatusCode(data.meta.code)) {
                         reject({message:data.meta.code+":"+data.meta.message+", description: "+data.meta.description});
-                    }else{
+                    }*/else{
                         return resolve(JSON.parse(data));
                     }
                 });
                 break;
             case "POST":
                 oauth.put(uri,oauth._requestUrl, oauth._accessUrl, JSON.stringify(body), content_type, function (err, data) {
-                    data = JSON.parse(data);
                     if (err) {
                         console.trace(err);
                         reject({message: err});
-                    } if(hasStatusCode(data.meta.code)) {
+                    } /*if(hasStatusCode(data.meta.code)) {
                         reject({message:data.meta.code+": "+data.meta.message+", description: "+data.meta.description});
-                    }else {
+                    }*/else {
                         resolve(JSON.parse(data));
                     }
                 });
