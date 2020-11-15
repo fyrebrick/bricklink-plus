@@ -32,7 +32,8 @@ try{
 }
 let plus ={
     stores:Stores,
-    search:Search
+    search:Search,
+    color: require("./src/plus/Color").Color
 }
 module.exports.plus = plus;
 module.exports.api = api;

@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>api/Setting.js - Documentation</title>
+    <title>plus/Search.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">api/Setting.js</h1>
+    <h1 class="page-title">plus/Search.js</h1>
     
 
     
@@ -42,84 +42,56 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const {makeCall} = require( "../functions/callApi");
-base_url = "https://api.bricklink.com/api/store/v1";
+            <pre class="prettyprint source linenums"><code>const cheerio = require("cheerio");
 /**
- * The api.setting module.
- * @module api/setting
+ * The plus.search module
+ * @module plus/search
  */
-const Setting={
-    /**
-     * @method getShippingMethodList
-     * @description This method retrieves a list of shipping method you registered.
-     * @example
-     * //Retrieves a list of shipping method you registered.
-     * getShippingMethodList();
-     * @returns {Promise&lt;shipping_method_list_resource>} If successful, this method returns a list of shipping method resource as "data" in the response body.
-     */
-    getShippingMethodList:()=>{
-        let uri = base_url+"/shipping_methods";
-        return makeCall(uri, "GET").catch((err) => {
-            console.trace("Promise call rejected: ", err);
-        });
-    },
+const Search = {
+    // /**
+    //  * @method byKeywords
+    //  * @description simulates the bricklink website search engine
+    //  * @param {String} keywords - all the keywords in 1 string
+    //  * @return {Promise&lt;DATA>}
+    //  */
+    // byKeywords: async (keywords)=> {
+    //     return new Promise((resolve, reject)=>{
+    //         let data = '';
+    //         const url = encodeURI("https://www.bricklink.com/v2/search.page?q="+keywords+"&amp;rpp=100&amp;tab=P");
+    //         const casper = casperJS.create();
+    //         casper.start(url,()=>{
+    //             this.waitForSelecter('#_idContentsTabC');
+    //         })
+    //         casper.then(()=>{
+    //             data = this.getHtml();
+    //         })
+    //         casper.then(()=>{
+    //             let $ = cheerio.load(data);
+    //             console.log(data);
+    //             let foundData = [];
+    //             console.log($("td .pspItemNameLink").length);
+    //             $("td .pspItemNameLink").each((i, elem) => {
+    //                 console.log(i);
+    //                 console.log($(elem).text());
+    //                 if (!String($(elem).attr('href')).includes("[%catalogUrl%]")) {
+    //                     let currentItem = {
+    //                         "description": $(elem).text(),
+    //                         "link": "https://www.bricklink.com"+$(elem).attr('href'),
+    //                         "name": decodeURI($(elem).attr('href')).match(/name=(.+)&amp;/gm)[0],
+    //                         "category": decodeURI($(elem).attr('href')).match(/category=(.+)/gm)[0],
+    //                         "id": decodeURI($(elem).attr('href')).match(/[G,P,B,M,S,O,I,C]=(.+)&amp;name/gm)[0],
+    //                     };
+    //                     foundData.push(currentItem);
+    //                 }
+    //             });
+    //             return foundData;
+    //         })
+    //         casper.start();
+    //         });
 
-    /**
-     * @method getShippingMethod
-     * @description This method retrieves the specified shipping method of your store
-     * @param {number} method_id - The ID of the shipping method to get
-     * @example
-     * //Retrieves shipping method 123
-     * getShippingMethod(123);
-     * @returns {Promise&lt;shipping_method_resource>} If successful, this method returns shipping method resource as "data" in the response body.
-     */
-    getShippingMethod:(method_id)=>{
-        let uri = base_url+"/shipping_methods/"+method_id;
-        return makeCall(uri, "GET").catch((err) => {
-            console.trace("Promise call rejected: ", err);
-        });
-    }
-};
-/**
- * @typedef  shipping_method_list_resource
- * @type {Object}
- * @property {meta} meta - metadata of the request
- * @property {store_shipping_method[]} data - data of the request
- */
-
-/**
- * @typedef  shipping_method_resource
- * @type {Object}
- * @property {meta} meta - metadata of the request
- * @property {store_shipping_method} data - data of the request
- */
-
-/**
- * @typedef store_shipping_method
- * @type {Object}
- * @property {number} method_id - Shipping method id
- * @property {string} name - 	Display name for shipping method
- * @property {string} note - A description of the shipping method that can be displayed to buyers
- * @property {boolean} insurance -
- * @property {boolean} is_default -
- * @property {string} area -
- * &lt;ul>
- *     &lt;li>I: international&lt;/li>
- *     &lt;li>D: domestic&lt;/li>
- *     &lt;li>B: both&lt;/li>
- * &lt;/ul>
- * @property {string} is_available -
- */
-
-/** @typedef meta
- * @type {Object}
- * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
- * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
- * @property {number} code - status code of the request.
- */
-
-
-module.exports.Setting = Setting;
+    // }
+}
+module.exports.Search = Search;
 </code></pre>
         </article>
     </section>
