@@ -166,19 +166,19 @@ const Color = {
             case 25:
                 return {
                     name:"Salmon",
-                    rgb:"undefined",
+                    rgb:"#f45c40",
                     colortype:1
                 }
             case 26:
                 return {
                     name:"Light Salmon",
-                    rgb:"undefined",
+                    rgb:"#ffdedc",
                     colortype:1
                 }
             case 27:
                 return {
                     name:"Rust",
-                    rgb:"undefined",
+                    rgb:"#b52c20",
                     colortype:1
                 }
             case 28:
@@ -190,7 +190,7 @@ const Color = {
             case 29:
                 return {
                     name:"Earth Orange",
-                    rgb:"undefined",
+                    rgb:"#e6881d",
                     colortype:1
                 }
             case 30:
@@ -238,13 +238,13 @@ const Color = {
             case 37:
                 return {
                     name:"Medium Green",
-                    rgb:"undefined",
+                    rgb:"#62f58e",
                     colortype:1
                 }
             case 38:
                 return {
                     name:"Light Green",
-                    rgb:"undefined",
+                    rgb:"#a5dbb5",
                     colortype:1
                 }
             case 39:
@@ -256,7 +256,7 @@ const Color = {
             case 40:
                 return {
                     name:"Light Turquise",
-                    rgb:"undefined",
+                    rgb:"#31b5ca",
                     colortype:1
                 }
             case 41:
@@ -274,7 +274,7 @@ const Color = {
             case 43:
                 return {
                     name:"Violet",
-                    rgb:"undefined",
+                    rgb:"#3448a4",
                     colortype:1
                 }
             case 44:
@@ -292,7 +292,7 @@ const Color = {
             case 46:
                 return {
                     name:"Glow In Dark Opaque",
-                    rgb:"undefined",
+                    rgb:"#d4d5c9",
                     colortype:7
                 }
             case 47:
@@ -310,25 +310,25 @@ const Color = {
             case 49:
                 return {
                     name:"Very Light Gray",
-                    rgb:"undefined",
+                    rgb:"#e8e8e8",
                     colortype:1
                 }
             case 50:
                 return {
                     name:"Trans-Dark Pink",
-                    rgb:"undefined",
+                    rgb:"#ce1d9b",
                     colortype:2
                 }
             case 51:
                 return {
                     name:"Trans-Purple",
-                    rgb:"undefined",
+                    rgb:"#8320b7",
                     colortype:2
                 }
             case 52:
                 return {
                     name:"Chrome Blue",
-                    rgb:"undefined",
+                    rgb:"#5c66a4",
                     colortype:3
                 }
             case 53:
@@ -340,7 +340,7 @@ const Color = {
             case 54:
                 return {
                     name:"Sand Purple",
-                    rgb:"undefined",
+                    rgb:"#b57da5",
                     colortype:1
                 }
             case 55:
@@ -358,7 +358,7 @@ const Color = {
             case 57:
                 return {
                     name:"Chrome Antique Brass",
-                    rgb:"undefined",
+                    rgb:"#645a4c",
                     colortype:3
                 }
             case 58:
@@ -382,7 +382,7 @@ const Color = {
             case 61:
                 return {
                     name:"Pearl Light Gold",
-                    rgb:"undefined",
+                    rgb:"#e7ae5a",
                     colortype:4
                 }
             case 62:
@@ -400,7 +400,7 @@ const Color = {
             case 64:
                 return {
                     name:"Chrome Green",
-                    rgb:"undefined",
+                    rgb:"#3cb371",
                     colortype:3
                 }
             case 65:
@@ -418,7 +418,7 @@ const Color = {
             case 67:
                 return {
                     name:"Metallica Silver",
-                    rgb:"undefined",
+                    rgb:"#c0c0c0",
                     colortype:6
                 }
             case 68:
@@ -436,7 +436,7 @@ const Color = {
             case 70:
                 return {
                     name:"Metallic Green",
-                    rgb:"undefined",
+                    rgb:"#bdb573",
                     colortype:6
                 }
             case 71:
@@ -460,7 +460,7 @@ const Color = {
             case 74:
                 return {
                     name:"Trans-Medium Blue",
-                    rgb:"undefined",
+                    rgb:"#7384a5",
                     colortype:2
                 }
             case 75:
@@ -478,13 +478,13 @@ const Color = {
             case 77:
                 return {
                     name:"Pearl Dark Gray",
-                    rgb:"undefined",
+                    rgb:"#666660",
                     colortype:4
                 }
             case 78:
                 return {
                     name:"Metal Blue",
-                    rgb:"undefined",
+                    rgb:"#5686ae",
                     colortype:4
                 }
             case 79:
@@ -502,25 +502,25 @@ const Color = {
             case 81:
                 return {
                     name:"Flat Dark Gold",
-                    rgb:"undefined",
+                    rgb:"#ad7118",
                     colortype:4
                 }
             case 82:
                 return {
                     name:"Chrome Pink",
-                    rgb:"undefined",
+                    rgb:"#aa4d8e",
                     colortype:3
                 }
             case 83:
                 return {
                     name:"Pearl White",
-                    rgb:"undefined",
+                    rgb:"#ffffff",
                     colortype:4
                 }
             case 84:
                 return {
                     name:"Copper",
-                    rgb:"undefined",
+                    rgb:"#c66921",
                     colortype:4
                 }
             case 85:
@@ -538,7 +538,7 @@ const Color = {
             case 87:
                 return {
                     name:"Sky Blue",
-                    rgb:"undefined",
+                    rgb:"#7dbfdd",
                     colortype:1
                 }
             case 88:
@@ -568,7 +568,7 @@ const Color = {
             case 92:
                 return {
                     name:"Medium Brown",
-                    rgb:"undefined",
+                    rgb:"#774125",
                     colortype:1
                 }
             case 93:
@@ -598,7 +598,7 @@ const Color = {
             case 97:
                 return {
                     name:"Blue-Violet",
-                    rgb:"undefined",
+                    rgb:"#506cef",
                     colortype:1
                 }
             case 98:
@@ -616,19 +616,19 @@ const Color = {
             case 100:
                 return {
                     name:"Glitter Trans-Dark Pink",
-                    rgb:"undefined",
+                    rgb:"#ce1d9b",
                     colortype:8
                 }
             case 101:
                 return {
                     name:"Glitter Trans-Clear",
-                    rgb:"undefined",
+                    rgb:"#b2adaa",
                     colortype:8
                 }
             case 102:
                 return {
                     name:"Glitter Trans-Purple",
-                    rgb:"undefined",
+                    rgb:"#3a2b82",
                     colortype:8
                 }
             case 103:
@@ -652,13 +652,13 @@ const Color = {
             case 106:
                 return {
                     name:"Fabuland Brown",
-                    rgb:"undefined",
+                    rgb:"#b3694e",
                     colortype:1
                 }
             case 107:
                 return {
                     name:"Trans-Pink",
-                    rgb:"undefined",
+                    rgb:"#ff8298",
                     colortype:2
                 }
             case 108:
@@ -670,7 +670,7 @@ const Color = {
             case 109:
                 return {
                     name:"Dark Blue-Violet",
-                    rgb:"undefined",
+                    rgb:"#ff8298",
                     colortype:1
                 }
             case 110:
@@ -682,7 +682,7 @@ const Color = {
             case 111:
                 return {
                     name:"Speckle Black-Silver",
-                    rgb:"undefined",
+                    rgb:"#7c7e7c",
                     colortype:9
                 }
             case 112:
@@ -694,43 +694,43 @@ const Color = {
             case 113:
                 return {
                     name:"Trans-Aqua",
-                    rgb:"undefined",
+                    rgb:"#b7c8bf",
                     colortype:2
                 }
             case 114:
                 return {
                     name:"Trans-Light Purple",
-                    rgb:"undefined",
+                    rgb:"#b97ab1",
                     colortype:2
                 }
             case 115:
                 return {
                     name:"Pearl Gold",
-                    rgb:"undefined",
+                    rgb:"#e79500",
                     colortype:4
                 }
             case 116:
                 return {
                     name:"Speckle Black-Copper",
-                    rgb:"undefined",
+                    rgb:"#5f4e47",
                     colortype:9
                 }
             case 117:
                 return {
                     name:"Speckle DBGray-Silver",
-                    rgb:"undefined",
+                    rgb:"#4a6363",
                     colortype:9
                 }
             case 118:
                 return {
                     name:"Glow In Dark Trans",
-                    rgb:"undefined",
+                    rgb:"#bdc6ad",
                     colortype:7
                 }
             case 119:
                 return {
                     name:"Pearl Very Light Gray",
-                    rgb:"undefined",
+                    rgb:"#d4d2cd",
                     colortype:4
                 }
             case 120:
@@ -742,13 +742,13 @@ const Color = {
             case 121:
                 return {
                     name:"Trans-Neon Yellow",
-                    rgb:"undefined",
+                    rgb:"#ffd700",
                     colortype:2
                 }
             case 122:
                 return {
                     name:"Chrome Black",
-                    rgb:"undefined",
+                    rgb:"#544e4f",
                     colortype:3
                 }
             case 123:
@@ -922,7 +922,7 @@ const Color = {
             case 151:
                 return {
                     name:"Speckle Black-Gold",
-                    rgb:"undefined",
+                    rgb:"#ab9421",
                     colortype:9
                 }
             case 152:
@@ -958,7 +958,7 @@ const Color = {
             case 157:
                 return {
                     name:"Medium Lavender",
-                    rgb:"#",
+                    rgb:"#885e9e",
                     colortype:1
                 }
             case 158:
@@ -970,53 +970,53 @@ const Color = {
             case 159:
                 return {
                     name:"Glow In Dark White",
-                    rgb:"",
+                    rgb:"#d9d9d9",
                     colortype:7
                 }
             case 160:
                 return {
                     name:"Fabuland Orange",
-                    rgb:"",
+                    rgb:"#ef9121",
                     colortype:1
                 }
             case 161:
                 return {
                     name:"Dark Yellow",
-                    rgb:"",
+                    rgb:"#dd982e",
                     colortype:1
                 }
                 
             case 162:
                 return {
                     name:"Glitter Trans-Light Blue",
-                    rgb:"",
+                    rgb:"#68bcc5",
                     colortype:8
                 }
             case 163:
                 return {
-                    name:"Flitter Trans-Neon Green",
-                    rgb:"",
+                    name:"Glitter Trans-Neon Green",
+                    rgb:"#c0f500",
                     colortype:8
                 }
                 
             case 164:
                 return {
                     name:"Trans-Light Orange",
-                    rgb:"",
+                    rgb:"#e99a3a",
                     colortype:2
                 }
                 
             case 165:
                 return {
                     name:"Neon Orange",
-                    rgb:"",
+                    rgb:"#fa5947",
                     colortype:1
                 }
                 
             case 166:
                 return {
                     name:"Neon green",
-                    rgb:"",
+                    rgb:"#bcef66",
                     colortype:1
                 }
             case 167:
@@ -1373,74 +1373,74 @@ const Color = {
             case 220:
                 return {
                     name:"Coral",
-                    rgb:"",
+                    rgb:"#bcef66",
                     colortype:1
                 }
                 
             case 221:
                 return {
                     name:"Trans-Light Green",
-                    rgb:"",
+                    rgb:"#94e5ab",
                     colortype:2
                 }
                 
             case 222:
                 return {
                     name:"Glitter Trans-Orange",
-                    rgb:"",
+                    rgb:"#d04010",
                     colortype:8
                 }
             case 223:
                 return {
                     name:"Satin Trans-Light Blue",
-                    rgb:"",
+                    rgb:"#68bcc5",
                     colortype:5
                 }
             case 224:
                 return {
                     name:"Satin Trans-Dark Pink",
-                    rgb:"",
+                    rgb:"#ce1d9b",
                     colortype:5
                 }
             case 225:
                 return {
                     name:"Dark Nougat",
-                    rgb:"",
+                    rgb:"#ce1d9b",
                     colortype:1
                 }
                 
             case 226:
                 return {
                     name:"Trans-Light Bright Green",
-                    rgb:"",
+                    rgb:"#34ef55",
                     colortype:2
                 }
                 
             case 227:
                 return {
                     name:"Clikits Lavender",
-                    rgb:"",
+                    rgb:"#e0aad9",
                     colortype:1
                 }
                 
             case 228:
                 return {
                     name:"Satin White",
-                    rgb:"",
+                    rgb:"#ffffff",
                     colortype:5
                 }
                 
             case 229:
                 return {
                     name:"Satin Trans-Black",
-                    rgb:"",
+                    rgb:"#939484",
                     colortype:5
                 }
                 
             case 230:
                 return {
                     name:"Satin Trans-Purple",
-                    rgb:"",
+                    rgb:"#8320b7",
                     colortype:5
                 }
                 
