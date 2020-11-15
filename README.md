@@ -10,9 +10,13 @@ You can find the documentation [here](https://snakehead007.github.io/bricklink-p
 
 setup
 ---
-Initialize a client with your OAuth credentials as supplied at the following:
-https://www.bricklink.com/v2/api/register_consumer.page
-You are required to have a Bricklink account and register your IP address from which your application will be using the API.
+- For `bricklink.api` functions only:
+    Initialize first with your OAuth credentials as supplied at the following: 
+    https://www.bricklink.com/v2/api/register_consumer.page
+    You are required to have a Bricklink account and register your IP address from which your application will be using the API.
+- For `bricklink.plus` functions:
+    - Color: `getInfoColorFromId() //finds a name, rgb and colortype from a color id`
+    - Stores: `getStores() //gives a list of bricklink stores`
 
 ```JS
 const bricklinkPlus = require("bricklink-plus");	
