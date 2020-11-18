@@ -31,14 +31,15 @@ const Notification={
     /**
      * @method getNotifications
      * @description Retrieves a list of unread push notifications
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieved notifications
      * getNotifications();
      * @returns {Promise<push_notification_resource>} If successful, this method returns a list of push notification resources as "data" in the response body.
      */
-    getNotifications:()=>{
+    getNotifications:(oauth={})=>{
         let uri = base_url+"/notifications";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -66,4 +67,12 @@ const Notification={
  * @property {number} code - status code of the request.
  **/
 
+ /**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
+ */
 module.exports.Notification = Notification;

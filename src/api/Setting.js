@@ -8,14 +8,15 @@ const Setting={
     /**
      * @method getShippingMethodList
      * @description This method retrieves a list of shipping method you registered.
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of shipping method you registered.
      * getShippingMethodList();
      * @returns {Promise<shipping_method_list_resource>} If successful, this method returns a list of shipping method resource as "data" in the response body.
      */
-    getShippingMethodList:()=>{
+    getShippingMethodList:(oauth={})=>{
         let uri = base_url+"/shipping_methods";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -24,14 +25,15 @@ const Setting={
      * @method getShippingMethod
      * @description This method retrieves the specified shipping method of your store
      * @param {number} method_id - The ID of the shipping method to get
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves shipping method 123
      * getShippingMethod(123);
      * @returns {Promise<shipping_method_resource>} If successful, this method returns shipping method resource as "data" in the response body.
      */
-    getShippingMethod:(method_id)=>{
+    getShippingMethod:(method_id,oauth={})=>{
         let uri = base_url+"/shipping_methods/"+method_id;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -74,5 +76,12 @@ const Setting={
  * @property {number} code - status code of the request.
  */
 
-
+/**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
+ */
 module.exports.Setting = Setting;

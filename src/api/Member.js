@@ -10,13 +10,15 @@ const Member={
      * @method getMemberRating
      * @description This method retrieves feedback ratings of a specific member
      * @param {string} username - username in BrickLink
+     * @param {oauth} [oauth] - Authentication for this specific call;
+     * @example
      * //Retrieves feedback ratings of "bluser"
      * getMemberRating("bluser");
      * @returns {Promise<rating_resource>} If successful, this method returns a list of the the rating resource as "data" in the response body.
      */
-    getMemberRating:(username)=>{
+    getMemberRating:(username,oauth={})=>{
         let uri = base_url+"/members/"+username+"/ratings";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -25,14 +27,15 @@ const Member={
      * @method getMemberNote
      * @description This method retrieves your notes on a member
      * @param username - username in BrickLink
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves your notes on user "bluser"
      * getMemberNote("bluser");
      * @returns {Promise<note_resource>} If successful, this method returns a note resource as "data" in the response body.
      */
-    getMemberNote:(username)=>{
+    getMemberNote:(username,oauth={})=>{
         let uri = base_url+"/members/"+username+"/my_notes";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -46,11 +49,12 @@ const Member={
      * @param {string} request_body.user_name -
      * @param {string} request_body.note_text -
      * @param {string} request_body.date_noted -
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @returns {Promise<unknown>}
      */
-    createMemberNote:(username,request_body={})=>{
+    createMemberNote:(username,request_body={},oauth={})=>{
         let uri = base_url+"/members/"+username+"/my_notes";
-        return makeCall(uri, "POST",request_body).catch((err) => {
+        return makeCall(uri,oauth, "POST",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -64,11 +68,12 @@ const Member={
      * @param {string} request_body.user_name -
      * @param {string} request_body.note_text -
      * @param {string} request_body.date_noted -
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @returns {Promise<note_resource>} If successful, this method returns a note resource as "data" in the response body.
      */
-    updateMemberNote:(username,request_body={})=>{
+    updateMemberNote:(username,request_body={},oauth={})=>{
         let uri = base_url+"/members/"+username+"/my_notes";
-        return makeCall(uri, "POST",request_body).catch((err) => {
+        return makeCall(uri,oauth, "POST",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -82,9 +87,9 @@ const Member={
      * deleteMemberNote("bluser");
      * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
-    deleteMemberNote:(username)=>{
+    deleteMemberNote:(username,oauth={})=>{
         let uri = base_url+"/members/"+username+"/my_notes";
-        return makeCall(uri, "DELETE").catch((err) => {
+        return makeCall(uri,oauth, "DELETE").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -137,5 +142,12 @@ const Member={
  * @property {number} code - status code of the request.
  **/
 
-
+/**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
+ */
 module.exports.Member = Member;

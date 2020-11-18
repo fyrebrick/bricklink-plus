@@ -11,6 +11,7 @@ const Item ={
      * @description This method returns information about the specified item in BrickLink catalog.
      * @param {string} item_type - The type of the item to get.
      * @param {string} item_no - Identification number of the item to get
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves PART #1234
      * getItem("PART","1234");
@@ -19,9 +20,9 @@ const Item ={
      * getItem("SET","1-1");
      * @returns {Promise<catalog_item_resource>} If successful, this method returns a catalog item as "data" in the response body.
      */
-    getItem:(item_type,item_no)=>{
+    getItem:(item_type,item_no,oauth={})=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -32,11 +33,12 @@ const Item ={
      * @param {string} item_type - The type of the item to get.
      * @param {string} item_no - Identification number of the item to get
      * @param {string} color_id - The ID of the color of the item
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @returns {Promise<catalog_item_resource>} If successful, this method returns a catalog item as "data" in the response body.
      */
-    getItemImage:(item_type,item_no,color_id)=>{
+    getItemImage:(item_type,item_no,color_id,oauth={})=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no+"/images/"+color_id;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -46,6 +48,7 @@ const Item ={
      * @param {string} item_type - The type of the item to get.
      * @param {string} item_no - Identification number of the item to get
      * @param {string} [color_id] - The ID of the color of the item
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of items that include the PART #3001old
      * getSupersets("part","3001old");
@@ -54,12 +57,12 @@ const Item ={
      * getSupersets("part","3001old","1");
      * @returns {Promise<superset_resource>} If successful, this method returns a list of superset entries as "data" in the response body.
      */
-    getSupersets:(item_type,item_no,color_id=undefined)=>{
+    getSupersets:(item_type,item_no,color_id=undefined,oauth={})=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no+"/supersets?";
         if(color_id){
             uri += "color_id="+color_id;
         }
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -74,6 +77,7 @@ const Item ={
      * @param {boolean} [instruction] -
      * @param {boolean} [break_minifigs] -
      * @param {boolean} [break_subsets] -
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of items that are included in the SET #7644-1
      * getSubsets("set","7644-1");
@@ -83,7 +87,7 @@ const Item ={
      * @returns {Promise<subset_resource>} If successful, this method returns a nested list of subset entries as "data" in the response body. Note that the result is grouped by matching. An inner list indicates one matching group of items.
      *
      */
-    getSubsets:(item_type,item_no,{color_id=undefined,box=undefined,instruction=undefined,break_minifigs=undefined,break_subsets=undefined}={})=>{
+    getSubsets:(item_type,item_no,{color_id=undefined,box=undefined,instruction=undefined,break_minifigs=undefined,break_subsets=undefined}={},oauth={})=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no+"/subsets?";
         if(color_id){
             uri+="color_id="+color_id+"&";
@@ -100,7 +104,7 @@ const Item ={
         if(break_subsets){
             uri+="break_subsets="+break_subsets+"&";
         }
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -140,6 +144,7 @@ const Item ={
      *     <li>"Y": Include VAT</li>
      *     <li>"O": Include VAT as Norway settings</li>
      * </ul>
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves price statistics(currently for sale) of PART #3001old in new condition
      * getPriceGuide("part","3001old");
@@ -160,7 +165,7 @@ const Item ={
      * getPriceGuide("part","3001old",{currency_code:"USD"});
      * @returns {Promise<price_guide_resource>} If successful, this method returns a price guide resource as "data" in the response body.
      */
-    getPriceGuide:(item_type,item_no,{color_id=undefined,guide_type=undefined,new_or_used=undefined,country_code=undefined,region=undefined,currency_code=undefined,vat=undefined}={})=>{
+    getPriceGuide:(item_type,item_no,{color_id=undefined,guide_type=undefined,new_or_used=undefined,country_code=undefined,region=undefined,currency_code=undefined,vat=undefined}={},oauth={})=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no+"/price?";
         if(color_id){
             uri+="color_id="+color_id+"&";
@@ -183,7 +188,7 @@ const Item ={
         if(vat){
             uri+="vat="+vat+"&";
         }
-        return makeCall(uri, "GET",request_body).catch((err) => {
+        return makeCall(uri,oauth, "GET",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -192,11 +197,12 @@ const Item ={
      * @description This method returns currently known colors of the item
      * @param {string} item_type - The type of the item.
      * @param {string} item_no - Identification number of the item
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @returns {Promise<known_color_resource>} If successful, this method returns a list of known color as "data" in the response body.
      */
-    getKnownColors:(item_type,item_no)=>{
+    getKnownColors:(item_type,item_no,oauth={})=>{
         let uri = base_url+"/items/"+item_type+"/"+item_no+"/colors";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -331,4 +337,12 @@ const Item ={
  * @property {string} language_code - Item language code
  */
 
+ /**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
+ */
 module.exports.Item = Item;

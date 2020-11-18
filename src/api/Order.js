@@ -26,6 +26,7 @@ const Order ={
      *     <li>"true"</li>
      *     <li>"false": (default)</li>
      * </ul>
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of received orders
      * getOrders();
@@ -45,7 +46,7 @@ const Order ={
      * @returns {Promise<order_item_resource>} If successful, this method returns a list of the the summary of an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_item_resource} as "data" in the response body.
 
      */
-    getOrders:({direction= "in",status=undefined,filed=false}={direction:"in",status:undefined,filed:false})=>{
+    getOrders:({direction= "in",status=undefined,filed=false}={direction:"in",status:undefined,filed:false},oauth={})=>{
         let uri = base_url+"/orders?";
         if(direction){
             uri+="direction="+direction+"&";
@@ -57,7 +58,7 @@ const Order ={
             uri+="filed="+filed+"&";
         }
         console.log(uri);
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
                console.trace("Promise call rejected: ", err);
            });
     },
@@ -66,14 +67,15 @@ const Order ={
      * @method getOrder
      * @description This method retrieves the details of a specific order.
      * @param {number} order_id - The ID of the order to get
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * // Retrieves order # 1234
      * getOrder(1234);
      * @returns {Promise<order_item_resource>} If successful, this method returns an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_item_resource} as "data" in the response body.
      */
-    getOrder:(order_id)=>{
+    getOrder:(order_id,oauth={})=>{
         let uri = base_url+"/orders/"+order_id;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -82,14 +84,15 @@ const Order ={
      * @method getOrderItems
      * @description This method retrieves a list of items for the specified order.
      * @param {number} order_id - The ID of the order to get
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of items for order #1234
      * getOrderItems(1234);
      * @returns {Promise<item_resource>} If successful, this method returns a list of [items]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~item} batch list as "data" in the response body. An inner list indicates that items included in one batch of the order (order item batch).
      */
-    getOrderItems:(order_id)=>{
+    getOrderItems:(order_id,oauth={})=>{
         let uri = base_url+"/orders/"+order_id+"/items";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -98,14 +101,15 @@ const Order ={
      * @method getOrderMessages
      * @description This method retrieves a list of messages for the specified order that the user receives as a seller.
      * @param {number} order_id - The ID of the order to get
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of messages for order #1234
      * getOrderMessages(1234);
      * @returns {Promise<order_message_resource>} If successful, this method returns a list of [order message]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~Message} resource as "data" in the response body.
      */
-    getOrderMessages:(order_id)=>{
+    getOrderMessages:(order_id,oauth={})=>{
         let uri = base_url+"/orders/"+order_id+"/messages";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -114,14 +118,15 @@ const Order ={
      * @method getOrderFeedback
      * @description This method retrieves a list of feedback for the specified order.
      * @param {number} order_id - The ID of the order to get
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of feedback for order #1234
      * getOrderFeedback(1234);
      * @returns {Promise<feedback_resource>} If successful, this method returns a list of feedback resource as "data" in the response body.
      */
-    getOrderFeedback:(order_id)=>{
+    getOrderFeedback:(order_id,oauth={})=>{
         let uri = base_url+"/orders/"+order_id+"/feedback";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -146,6 +151,7 @@ const Order ={
      * @param {number} [request_body.shipping.method_id] - Shipping method ID
      * @param {boolean} [request_body.is_filed] - Indicates whether the order is filed
      * @param {string} [request_body.remarks] - User remarks of the order item
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Updates order #1234
      * updateOrder(1234,{
@@ -157,13 +163,12 @@ const Order ={
      * });
      * @returns {Promise<order_resource>} If successful, this method returns an [order resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_order.html#~order_resource} as "data" in the response body.
      */
-    updateOrder:(order_id,request_body={})=>{
+    updateOrder:(order_id,request_body={},oauth={})=>{
         let uri = base_url+"/orders/"+order_id;
         if(request_body.shipping && request_body.shipping.date_shipping){
             request_body.shipping.date_shipping = (new Date(request_body.shipping.date_shipping)).toJSON();
         }
-        console.log(uri);
-        return makeCall(uri, "PUT",request_body).catch((err) => {
+        return makeCall(uri,oauth, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -172,18 +177,19 @@ const Order ={
      * @description This method updates properties of a specific order.
      * @param {number} order_id - The ID of the order to get
      * @param {string} value -The new status value
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Updates status of order #1234 to COMPLETE
      * updateOrderStatus(1234,'complete");
      * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
-    updateOrderStatus:(order_id,value)=>{
+    updateOrderStatus:(order_id,value,oauth={})=>{
         let uri = base_url+"/orders/"+order_id+"/status";
         let request_body = {
             "field":"status",
             "value":value
         };
-        return makeCall(uri, "PUT",request_body).catch((err) => {
+        return makeCall(uri,oauth, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -192,18 +198,19 @@ const Order ={
      * @description This method updates the payment status of a specific order.
      * @param {number} order_id - The ID of the order to get
      * @param {string} value -The new status value
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Updates payment status of order #1234 to received
      * updatePaymentStatus(1234,"received");
      * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
-    updatePaymentStatus:(order_id,value)=>{
+    updatePaymentStatus:(order_id,value,oauth={})=>{
         let uri = base_url+"/orders/"+order_id+"/payment_status";
         let request_body = {
             "field":"status",
             "value":value
         };
-        return makeCall(uri, "PUT",request_body).catch((err) => {
+        return makeCall(uri,oauth, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -212,14 +219,15 @@ const Order ={
      * @description Send "Thank You, Drive Thru!" e-mail to a buyer
      * @param {number} order_id - The ID of the order to update payment status
      * @param {string} [mail_me=false] - Indicates that whether you want to cc yourself or not
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Send "Thank You, Drive Thru!" e-mail for order 1234 to a buyer and yourself
      * sendDriveThru(1234,true);
      * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
-    sendDriveThru:(order_id,mail_me= false)=>{
+    sendDriveThru:(order_id,mail_me= false,oauth={})=>{
         let uri = base_url+"/orders/"+order_id+"/drive_thru";
-        return makeCall(uri, "POST",request_body).catch((err) => {
+        return makeCall(uri,oauth, "POST",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -394,5 +402,13 @@ const Order ={
  * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
  * @property {number} code - status code of the request.
  **/
+/**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
+ */
 
 module.exports.Order = Order;

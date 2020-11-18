@@ -8,14 +8,15 @@ const Color ={
     /**
      * @method getColorList
      * @description This method retrieves a list of the colors defined within BrickLink catalog.
+     * @param {oauth} [oauth] Authentication for this specific call
      * @example
      * //Retrieves a list of colors defined within BrickLink catalog
      * getColorList();
      * @returns {Promise<color_resource>} If successful, this method returns a list of color resource as "data" in the response body.
      */
-    getColorList:()=>{
+    getColorList:(oauth={})=>{
         let uri = base_url+"/colors";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -24,14 +25,15 @@ const Color ={
      * @method getColor
      * @description This method retrieves information about a specific color.
      * @param {number} color_id - The ID of the color to get
+     * @param {oauth} [oauth] Authentication for this specific call
      * @example
      * //Retrieves color #123
      * getColor(123);
      * @returns {Promise<single_color_resource>} If successful, this method returns color resource as "data" in the response body.
      */
-    getColor:(color_id)=>{
+    getColor:(color_id,oauth={})=>{
         let uri = base_url+"/colors/"+color_id;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -65,6 +67,15 @@ const Color ={
  * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
  * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
  * @property {number} code - status code of the request.
+ */
+
+/**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
  */
 
 module.exports.Color = Color;

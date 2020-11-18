@@ -28,6 +28,7 @@ const Coupon={
      *    <li>You can pass a comma-separated string to specify multiple status to include/exclude</li>
      *    <li>You can add a minus( - ) sign to specify a status to exclude</li>
      * </ul>
+     * @param {oauth} [oauth] Authentication for this specific call;
      * @example
      * //Retrieves a list of created coupons
      * getCoupons();
@@ -43,7 +44,7 @@ const Coupon={
      * getCoupons({status:"O"});
      * @returns {Promise<coupon_list_resource>} If successful, this method returns a list of the the coupon resource as "data" in the response body.
      */
-    getCoupons:({direction="out",status=undefined})=>{
+    getCoupons:({direction="out",status=undefined,oauth={}})=>{
         let uri = base_url+"/coupons?";
         if(direction){
             uri += "direction="+direction+"&";
@@ -51,7 +52,7 @@ const Coupon={
         if(status){
             uri += "status="+status+"&";
         }
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -60,14 +61,15 @@ const Coupon={
      * @method getCoupon
      * @description This method retrieves a specific coupon.
      * @param {number} coupon_id - The ID of the coupon to get
+     * @param {oauth} [oauth] Authentication for this specific call;
      * @example
      * // If successful, this method returns a coupon resource as "data" in the response body.
      * getCoupon(1234);
      * @returns {Promise<coupon_resource>} If successful, this method returns a coupon resource as "data" in the response body.
      */
-    getCoupon:(coupon_id)=>{
+    getCoupon:(coupon_id,oauth)=>{
         let uri = base_url+"/coupons/"+coupon_id;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -119,6 +121,7 @@ const Coupon={
      * @param {number} request_body.tier_price3 -
      * @param {number} request_body.disp_tier_price3 -
      * @param {number} request_body.tier_discount_rate3 -
+     * @param {oauth} [oauth] Authentication for this specific call;
      * @example
      * //Creates a new coupon
      * createCoupon({
@@ -127,9 +130,9 @@ const Coupon={
      * });
      * @returns {Promise<coupon_resource>} If successful, this method returns a coupon resource as "data" in the response body.
      */
-    createCoupon:(request_body={})=>{
+    createCoupon:(request_body={},oauth)=>{
         let uri = base_url+"/coupons";
-        return makeCall(uri, "POST",request_body).catch((err) => {
+        return makeCall(uri,oauth, "POST",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },

@@ -21,6 +21,7 @@ const Item_mapping={
      * @param {string} type - The type of an item to get. Acceptable values are: PART
      * @param {string} item_no - Identification number of an item to get
      * @param {number} [color_id] - Color ID of an item. If not specified, API retrieves element IDs of an item in any colors.
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of element IDs of PART #1234 in any colors
      * getElementID("part","1234");
@@ -29,7 +30,7 @@ const Item_mapping={
      * getElementID("part","1234",1);
      * @returns {Promise<item_mapping_resource>} f successful, this method returns a item mapping resource as "data" in the response body.
      */
-    getElementID:(type,item_no,color_id=undefined)=>{
+    getElementID:(type,item_no,color_id=undefined,oauth={})=>{
         let uri = base_url+"/item_mapping/"+type+"/"+item_no+"?";
         if(color_id){
             uri+="color_id="+color_id
@@ -42,14 +43,15 @@ const Item_mapping={
      * @method getItemNumber
      * @description This method returns BL Catalog Item Number by Part-Color-Code(A.K.A ElementID)
      * @param {string} element_id - Element ID of the item in specific color
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a list of item number, color id mapping of elementID #1234
      * getItemNumber(1234);
      * @returns {Promise<item_mapping_resource>} If successful, this method returns a item mapping resource as "data" in the response body.
      */
-    getItemNumber:(element_id)=>{
+    getItemNumber:(element_id,oauth={})=>{
         let uri = base_url+"/item_mapping/"+element_id;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -73,5 +75,13 @@ const Item_mapping={
  * @property {string} element_id - Element ID of the item in specific color
  */
 
+ /**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
+ */
 
 module.exports.Item_mapping = Item_mapping;

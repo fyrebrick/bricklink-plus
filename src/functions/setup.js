@@ -25,6 +25,7 @@ const auth={
             null,
             "HMAC-SHA1"
         );
+        return oauth;
     },
     /**
      * @method getOAuth

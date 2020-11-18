@@ -31,6 +31,7 @@ const Inventory= {
      *     <li>You can pass a comma-separated string to specify multiple status to include/exclude.</li>
      *     <li>You can add a minus( - ) sign to specify a status to exclude.</li>
      * </ul>
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @param {number} [category_id] - The ID of the category to include or exclude
      * <ul>
      *     <li>If you don't specify this value, this method retrieves inventories with any category of item.</li>
@@ -65,7 +66,7 @@ const Inventory= {
      * getInventories({color_id:123,item_type:"part"});
      * @returns {Promise<inventory_resource>} If successful, this method returns a list of the the summary of an [inventory resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_inventory.html#~inventory_resource} as "data" in the response body.
      */
-    getInventories:({item_type= undefined,status=undefined,category_id=undefined,color_id=undefined})=>{
+    getInventories:({item_type= undefined,status=undefined,category_id=undefined,color_id=undefined},oauth={})=>{
         let uri = base_url+"/inventories?";
         if(item_type){
             uri+="item_type="+item_type+"&";
@@ -79,7 +80,7 @@ const Inventory= {
         if(color_id){
             uri+="color_id="+color_id+"&";
         }
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -88,14 +89,15 @@ const Inventory= {
      * @method getInventory
      * @description This method retrieves information about a specific inventory.
      * @param {number} inventory_id - The ID of the inventory to get
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Retrieves a specific inventories with inventory ID #1234
      * getInventory(1234);
      * @returns {Promise<inventory_resource>} If successful, this method returns a list of the the summary of an [inventory resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_inventory.html#~inventory_resource} as "data" in the response body.
      */
-    getInventory:(inventory_id)=>{
+    getInventory:(inventory_id,oauth={})=>{
         let uri = base_url+"/inventories/"+inventory_id;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -133,6 +135,7 @@ const Inventory= {
      * @param {number} [request_body.tier_price2] - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price1)
      * @param {number} [request_body.tier_price3] - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price2)
      * @param {number} [request_body.my_weight] - Custom weight of the item
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Creates new inventories
      * createInventory({
@@ -146,9 +149,9 @@ const Inventory= {
      * });
      * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
-    createInventory:(request_body)=>{
+    createInventory:(request_body,oauth={})=>{
         let uri = base_url+"/inventories/";
-        return makeCall(uri, "POST",request_body).catch((err) => {
+        return makeCall(uri,oauth, "POST",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -186,6 +189,7 @@ const Inventory= {
      * @param {number} [request_body.tier_price2] - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price1)
      * @param {number} [request_body.tier_price3] - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price2)
      * @param {number} [request_body.my_weight] - Custom weight of the item
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Creates new inventories
      * createInventory([{
@@ -207,9 +211,9 @@ const Inventory= {
      * }]);
      * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
-    createInventories:([request_body])=>{
+    createInventories:([request_body],oauth={})=>{
         let uri = base_url+"/inventories/";
-        return makeCall(uri, "POST",[request_body]).catch((err) => {
+        return makeCall(uri,oauth, "POST",[request_body]).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -247,6 +251,7 @@ const Inventory= {
      * @param {number} [request_body.tier_price2] - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price1)
      * @param {number} [request_body.tier_price3] - A parameter for Tiered pricing (0 for no tier sale option. Must be less than unit_price2)
      * @param {number} [request_body.my_weight] - Custom weight of the item
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Updates inventory #1234
      * createInventory(1234,{
@@ -255,7 +260,7 @@ const Inventory= {
      * @returns {Promise<inventory_resource>} If successful, this method returns a list of the the summary of an [inventory resource]{@link https://snakehead007.github.io/bricklink-plus/module-api_inventory.html#~inventory_resource} as "data" in the response body.
      */
 
-    updateInventory:async(inventory_id,request_body={})=>{
+    updateInventory:async(inventory_id,request_body={},oauth={})=>{
         let uri = base_url+"/inventories/"+inventory_id;
         if(request_body.quantity && !(String(request_body.quantity).includes('+')||String(request_body.quantity).includes('-'))) {
             //override calculations
@@ -264,7 +269,7 @@ const Inventory= {
                 request_body.quantity = newQ;
             })
         }
-        return makeCall(uri, "PUT",request_body).catch((err) => {
+        return makeCall(uri,oauth, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -272,11 +277,12 @@ const Inventory= {
      * @method deleteInventory
      * @description This method deletes the specified inventory.
      * @param {number} inventory_id - The ID of the inventory to delete
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @returns {Promise<empty_resource>} f successful, this method returns an empty "data".
      */
-    deleteInventory:(inventory_id)=>{
+    deleteInventory:(inventory_id,oauth={})=>{
         let uri = base_url+"/inventories/"+inventory_id;
-        return makeCall(uri, "DELETE").catch((err) => {
+        return makeCall(uri, oauth,"DELETE").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -336,6 +342,16 @@ const Inventory= {
  * @property {string} description - description of how to request went, if the request gave an error it will describe were or wat the error was.
  * @property {string} message - message of the request  e.g.: "PARAMETER_MISSING_OR_INVALID", "OK".
  * @property {number} code - status code of the request.
+ */
+
+
+ /**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
  */
 
 module.exports.Inventory = Inventory;

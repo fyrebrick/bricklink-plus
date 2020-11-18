@@ -9,14 +9,18 @@ const Category ={
     /**
      * @method getCategoryList
      * @description This method retrieves a list of the categories defined within BrickLink catalog.
+     * @param {oauth} [oauth] Authentication for this specific call;
      * @example
      * //Retrieves a list of categories defined within BrickLink catalog
      * getCategoryList();
+     * @example
+     * //same as above but with a specified oauth object
+     * getCategoryList(oauth={})
      * @returns {Promise<category_list_resource>} If successful, this method returns a list of category resource as "data" in the response body.
      */
-    getCategoryList:()=>{
+    getCategoryList:(oauth={})=>{
         let uri = base_url+"/categories";
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -28,11 +32,13 @@ const Category ={
      * @example
      * //Retrieves category #123
      * getCategory(123);
+     * @example
+     * getCategory(123,oauth={});
      * @returns {Promise<category_resource>} If successful, this method returns category resource as "data" in the response body.
      */
-    getCategory:(category_id)=>{
+    getCategory:(category_id,oauth={})=>{
         let uri = base_url+"/categories/"+category_id;
-        return makeCall(uri, "GET").catch((err) => {
+        return makeCall(uri,oauth, "GET").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -67,5 +73,13 @@ const Category ={
  * @property {number} code - status code of the request.
  **/
 
+/**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
+ */
 
 module.exports.Category = Category;

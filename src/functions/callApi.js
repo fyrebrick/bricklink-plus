@@ -1,8 +1,8 @@
-const {auth} = require("./setup");
+const {use} = require('./use');
 
-let makeCall = async (uri, method, body = {}, content_type = "application/json") => {
+let makeCall = async (uri, oauth, method, body = {}, content_type = "application/json") => {
     return new Promise((resolve, reject) => {
-        let oauth = auth.getOAuth();
+        oauth = use(oauth);
         if (!oauth) {
             reject("Setup is unsuccessful, please check the .setup() method");
         }
