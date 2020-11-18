@@ -12,6 +12,7 @@ const {Item_mapping} = require("./src/api/Item_mapping");
 const {auth} =  require("./src/functions/setup");
 const {Stores} = require("./src/plus/Stores");
 const {Search} = require("./src/plus/Search");
+const {MaintanceCheck} = require("./src/plus/MaintanceCheck");
 let api;
 try{
     api={
@@ -30,10 +31,11 @@ try{
 }catch(err){
     console.trace("Promise call rejected: ", err);
 }
-let plus ={
+const plus ={
     stores:Stores,
     search:Search,
-    color: require("./src/plus/Color").Color
+    color: require("./src/plus/Color").Color,
+    maintanceCheck: MaintanceCheck
 }
 module.exports.plus = plus;
 module.exports.api = api;
