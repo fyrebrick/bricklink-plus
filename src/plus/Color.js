@@ -6,7 +6,14 @@ const Color = {
     /**
      * @method getInfoFromColorId
      * @param {Number} color_id - The ID of the color
-     * @returns {}
+     * @description Depending in the color_id it will return the bricklink equivalent data of name, rgb en colortype (No promise)
+     * @returns {ColorInfo} On object is given which contains the 3 data properties
+     * @example
+     * color.getInfoFromColorId(4);
+     * // returns {"Orange","#FF7E14",1}
+     * @example
+     * color.getInfoFromColorId(53);
+     * // returns {name:"undefined",rgb:"undefined",colortype:-1}
      */
     getInfoFromColorId:(color_id)=> {
         switch (color_id) {
