@@ -3,7 +3,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}"
   },
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "extended api build on the bricklink api",
   "main": "app.js",
   "scripts": {
