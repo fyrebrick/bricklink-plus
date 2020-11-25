@@ -121,7 +121,7 @@ const Coupon={
      * @param {number} request_body.tier_price3 -
      * @param {number} request_body.disp_tier_price3 -
      * @param {number} request_body.tier_discount_rate3 -
-     * @param {oauth} [oauth] Authentication for this specific call;
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Creates a new coupon
      * createCoupon({
@@ -184,6 +184,7 @@ const Coupon={
      * @param {number} request_body.tier_price3 -
      * @param {number} request_body.disp_tier_price3 -
      * @param {number} request_body.tier_discount_rate3 -
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Updates coupon #1234's status to expired
      * updateCoupon(1234,{
@@ -191,9 +192,9 @@ const Coupon={
      * })
      * @returns {Promise<coupon_resource>} If successful, this method returns a coupon resource as "data" in the response body.
      */
-    updateCoupon:(coupon_id,request_body={})=>{
+    updateCoupon:(coupon_id,request_body={},oauth={})=>{
         let uri = base_url+"/coupons/"+coupon_id;
-        return makeCall(uri, "PUT",request_body).catch((err) => {
+        return makeCall(uri,oauth, "PUT",request_body).catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     },
@@ -202,14 +203,15 @@ const Coupon={
      * @method deleteCoupon
      * @description This method deletes the specified coupon.
      * @param {number} coupon_id - The ID of the coupon to delete
+     * @param {oauth} [oauth] - Authentication for this specific call;
      * @example
      * //Deletes coupon #1234
      * deleteCoupon(1234);
      * @returns {Promise<empty_resource>} If successful, this method returns an empty "data".
      */
-    deleteCoupon:(coupon_id)=>{
+    deleteCoupon:(coupon_id,oauth={})=>{
         let uri = base_url+"/coupons/"+coupon_id;
-        return makeCall(uri, "DELETE").catch((err) => {
+        return makeCall(uri,oauth, "DELETE").catch((err) => {
             console.trace("Promise call rejected: ", err);
         });
     }
@@ -228,7 +230,14 @@ const Coupon={
  * @property {meta} meta - metadata of the request
  * @property {coupon} data - data of the request
  */
-
+/**
+ * @typedef oauth
+ * @type {Object} 
+ * @property {string} TOKEN_VALUE
+ * @property {string} TOKEN_SECRET
+ * @property {string} CONSUMER_KEY
+ * @property {string} CONSUMER_SECRET
+ */
 /**
  * @typedef empty_resource
  * @type {Object}

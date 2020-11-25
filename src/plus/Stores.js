@@ -5,6 +5,56 @@ const cheerio = require("cheerio");
  * @module plus/store
  */
 const Stores = {
+
+    /**
+     * @method getStoreStats
+     * @description Get bricklink store stats
+     * @param {String} store - This is the username of the store (e.g.: store.bricklink.com/desmetm => username is 'desmetm' storename is 'mdsbrick')
+     * @example
+     * await stores.getStoreStats("desmetm");
+     * @return {Promise<Store>} returns store info
+     */
+    getStoreStats: ((store)=>{
+        return new Promise ((resolve, reject) => {
+            https.get('https://store.bricklink.com/' + store + '?p=' + store, async(resp) => {
+                let storeData = '';
+                resp.on('data', async(chunk) => {
+                    storeData += chunk;
+                });
+                resp.on('end', async() => {
+                    if (storeData) {
+                        try{
+                            let html = storeData;
+                            let names = html.match(/name:[\t]*'(.+)',/g); //[0].split("'")[1];
+                            let name = names[0].split("'")[1];
+                            let username = names[1].split("'")[1];
+                            let _n4totalLots = html.match(/\tn4totalLots:((.)*),/g)[0].split(/(\d+)/g);
+                            let n4totalLots = Number(_n4totalLots.slice(_n4totalLots.length - 2, _n4totalLots.length - 1));
+                            let _n4totalItems = html.match(/\tn4totalItems:((.)*),/g)[0].split(/(\d+)/g);
+                            let n4totalItems = Number(_n4totalItems.slice(_n4totalItems.length - 2, _n4totalItems.length - 1));
+                            let _n4totalViews = html.match(/\tn4totalViews:((.)*),/g)[0].split(/(\d+)/g);
+                            let n4totalViews = Number(_n4totalViews.slice(_n4totalViews.length - 2, _n4totalViews.length - 1));
+                            let obj = {
+                                name: name,
+                                username: username,
+                                n4totalLots: n4totalLots,
+                                n4totalItems: n4totalItems,
+                                n4totalViews: n4totalViews
+                            };
+                            resolve(obj);
+                        }catch(err){
+                            console.trace(err);
+                        }
+                    }
+    
+                });
+    
+            }).on("error", (err) => {
+                resolve(getStoreInfo(store).then((data)=>{return data}));
+            });
+        })
+    
+    }),
     /**
      * @method getStores
      * @description Get all bricklink stores, use the wordLetter parameter or countryID. not both.
@@ -62,4 +112,14 @@ const Stores = {
         });
     }
 }
+
+/**
+ * @typedef Store
+ * @type Object
+ * @property {String} name - the store name
+ * @property {String} username - The store's username
+ * @property {Number} n4totalLots - Total lots of the store
+ * @property {Number} n4totalItems - Total items of the store
+ * @property {Number} n4totalViews - Total views of the store
+ */
 module.exports.Stores = Stores;

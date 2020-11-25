@@ -3,12 +3,13 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}"
   },
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "extended api build on the bricklink api",
   "main": "app.js",
   "scripts": {
     "test": "mocha",
-    "docs": "jsdoc ./src -r -t node_modules/docdash -d ./docs"
+    "docs": "jsdoc ./src -r -t node_modules/docdash -d ./docs",
+    "pub" : "npm publish --access=public --scope=@snakehead007"
   },
   "repository": {
     "type": "git",
