@@ -264,7 +264,7 @@ const Inventory= {
         let uri = base_url+"/inventories/"+inventory_id;
         if(request_body.quantity && !(String(request_body.quantity).includes('+')||String(request_body.quantity).includes('-'))) {
             //override calculations
-            await Inventory.getInventory(inventory_id).then((data) => {
+            await Inventory.getInventory(inventory_id,oauth).then((data) => {
                 let newQ = request_body.quantity - data.data.quantity;
                 request_body.quantity = newQ;
             })
